@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine.UI;
 using Modules.Graphics;
+using MoonSharp.Interpreter;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -18,6 +20,12 @@ namespace Modules
         {
             instance = this;
             _elements = new Dictionary<string, MonoBehaviour>();
+            Task.Run(() =>
+            {
+                var script = new Script();
+                script.Options.DebugPrint = Debug.Log;
+                script.DoString("print(\"fuck\")");
+            });
         }
 
         public void SpawnButton(string name, Vector2 position, float width, float height, Action onclick)
@@ -43,6 +51,23 @@ namespace Modules
                     rectTransform.anchoredPosition = newPosition;
                 }
             }
+        }
+
+        public List<string> GetAllKeys()
+        {
+            List<string> keys = new List<string>();
+            foreach (var keyValuePair in _elements)
+            {
+                keys.Add(keyValuePair.Key);
+            }
+            return keys;
+        }
+
+
+
+        public void DebugLog()
+        {   
+            Debug.Log("Test");
         }
     }
 }

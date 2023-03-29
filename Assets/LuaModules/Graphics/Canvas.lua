@@ -2,58 +2,58 @@
 
 local GraphicElement = require 'GraphicElement'
 
-Canvas = {width = 1080, height = 1920,  objectsOnCanvas = {}}
+local Canvas = {width = 1080, height = 1920,  objectsOnCanvas = {}}
 
 function Canvas.new(width, height)
     print("new canvas")
     Canvas.height = height
     Canvas.width = width
+    Canvas.objectsOnCanvas = {}
     return Canvas
 end
 
-function Canvas:SpawnElement(self, name)
-    print("Spawn element")
+function Canvas:SpawnElement(name)
     local element = GraphicElement:new(name,positionX, positionY, width, height)
-    self:addObjectToCanvas(self, element)
+    Canvas:addObjectToCanvas(element)
     element = nil
 end
 
-function Canvas:SpawnButton(self, name, positionx, positiony, width, height, onclick)
-    print("Spawn a button")
+function Canvas:SpawnButton(name, positionx, positiony, width, height, onclick)
     local button = GraphicElement:CreateButton(name, positionx, positiony, width, height, onclick)
-    print("button created in canvas")
-    print(button.onclick)
-    self:addObjectToCanvas(self, button)
+    Canvas:addObjectToCanvas(button)
 end
 
-function Canvas:SpawnTextlabel(self, name, textlabel)
-    print("Spawn a textlabel")
+function Canvas:SpawnTextlabel(name, textlabel)
     local textlabel = GraphicElement:CreateTextLabel(name, textlabel)
-    print("textlabel created in canvas")
     print(textlabel.Text)
-    self:addObjectToCanvas(self, textlabel)
+    Canvas:addObjectToCanvas(textlabel)
 end
 
-function Canvas:addObjectToCanvas(self, object)
-print(object.name, " is added to canvas")
-self.objectsOnCanvas[object.uuid] = object
+function Canvas:addObjectToCanvas(object)
+Canvas.objectsOnCanvas[object.name] = object
+print("Added", Canvas.objectsOnCanvas[object.name].name)
 end
 
-function Canvas:GetElementByName(self, nametosearch)
+function Canvas:Update()
+    GraphicElement:Update()
+end
+
+function Canvas:GetElementByName(nametosearch)
     -- find a value in a list
-    print('kak')
-    local found = nil
-    for key, value in pairs(self.objectsOnCanvas) do
-        if self.objectsOnCanvas[key].name == nametosearch then
-            found = self.objectsOnCanvas[key]
-        end
+    for key, value in pairs(Canvas.objectsOnCanvas) do
+        print(value)
     end
-    print(found.uuid)
-    return found
+
+    local found = nil
+    if Canvas.objectsOnCanvas[nametosearch] then
+        found = Canvas.objectsOnCanvas[nametosearch]
+        print("this is the founded object",found.name)
+    end
+return found
 end
 
-function Canvas:MoveElement(self, object, newpositionX, newpositionY)
-    objectToMove = self.objectsOnCanvas[object.uuid]
+function Canvas:MoveElement(object, newpositionX, newpositionY)
+    objectToMove = Canvas.objectsOnCanvas[object.name]
     objectToMove:SetNewPosition(newpositionX, newpositionY)
 end
 

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Lunacy.Modules.Audio;
 using Lunacy.Proxies.Audio;
 using Lunacy.Proxies.EventBus;
+using Modules;
 using Modules.Graphics;
 using MoonSharp.Interpreter;
 using MoonSharp.Interpreter.Loaders;
@@ -20,25 +22,29 @@ namespace Luncay.Core
         private FileSystemScriptLoader _systemScriptLoader = null;
         private Script _someLuaScript;
         private DynValue _spawnButtonLuaFunction;
-        private Table functionTable;
+        private Table _functionTable;
         private DynValue _movementfunction;
-
-        public DynValue GetLuaMoveButtonFunction()
-        {
-            return functionTable?.Get("SetButtonToRandomLocation");
-
-        }
-
+        private DynValue _updateFunction;
+        bool initialized = false;
+        private static List<string> keyLists = new List<string>();
+        
         private void Update()
         {
             if (enableMovement)
             {
-                _someLuaScript.Call(_movementfunction);
+                foreach (var key in keyLists)
+                {
+                    _someLuaScript.Call(_movementfunction, _functionTable, key);
+                }
             }
+
+            if (initialized)
+                _someLuaScript.Call(_updateFunction);
         }
 
         private void Start()
         {
+            Debug.unityLogger.logEnabled = false;
             fakeCoreModule = this;
             _server = new MoonSharpVsCodeDebugServer();
             _server.Start();
@@ -58,7 +64,8 @@ namespace Luncay.Core
 
         public void invokelua()
         {
-            _someLuaScript.Call(_spawnButtonLuaFunction, int(10));
+            _someLuaScript.Call(_spawnButtonLuaFunction, new object[]{5});
+            // _spawnButtonLuaFunction.Function.Call(DynValue.NewNumber(10));
         }
 
         public void ReloadScript()
@@ -77,13 +84,29 @@ namespace Luncay.Core
             _someLuaScript.Globals["EventBusProxy"] = new EventBus.EventBus();
             _someLuaScript.Globals["AudioModuleProxy"] = new AudioModule();
             _someLuaScript.Globals["GraphicsModuleProxy"] = new GraphicsModule();
-            functionTable = _someLuaScript.Globals["Player"] as Table;
+            _functionTable = _someLuaScript.Globals["Player"] as Table;
 
-            _movementfunction = functionTable?.Get("SetButtonToRandomLocation");
+            _movementfunction = _functionTable?.Get("SetButtonToRandomLocation");
+            _updateFunction = _functionTable?.Get("Update");
             
-            _spawnButtonLuaFunction = functionTable?.Get("SpawnMultipleButtons");
-            DynValue initializeScript = functionTable?.Get("Initialize");
-            _someLuaScript.Call(initializeScript);
+            _spawnButtonLuaFunction = _functionTable?.Get("SpawnMultipleButtons");
+            
+            DynValue initializeScript = _functionTable?.Get("Initialize");
+
+            var f = _functionTable?.Get("SpawnMultipleButtons");
+            
+            var _initialized = _someLuaScript.Call(initializeScript);
+
+            _someLuaScript.Globals["AllButtonsSpawned"] = (Func<int>)Mul;
+            
+            _someLuaScript.Call(_spawnButtonLuaFunction, new object[]{_functionTable,200});
+            initialized = _initialized.Boolean;
+        }
+
+        private int Mul()
+        {
+            keyLists = CanvasManager.instance.GetAllKeys();
+            return keyLists.Count;
         }
 
         private FileSystemScriptLoader CreateFileSystemScriptLoader()

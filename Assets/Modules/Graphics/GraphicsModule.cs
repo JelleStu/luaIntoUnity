@@ -24,5 +24,10 @@ namespace Modules.Graphics
         {
             FakeCoreModule.fakeCoreModule.StartTheMovement();
         }
+
+        public void Update()
+        {
+            CanvasManager.instance.DebugLog();
+        }
     }
 }

@@ -27,9 +27,9 @@ namespace Proxies.GraphicsModule
             _graphicsModuleTarget.MoveElement(name, new Vector2(positionx, positiony));
         }
 
-        public void StartCoroutine()
+        public void Update()
         {
-            _graphicsModuleTarget.StartCoroutine();
+            _graphicsModuleTarget.Update();
         }
     }
 }

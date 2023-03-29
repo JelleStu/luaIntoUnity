@@ -9,10 +9,11 @@ Player = {}
 
 local eventBus = require 'EventBus'
 local audioModule = require 'AudioModule'
-local graphicsModule = require 'GraphicsModule'
-
+local Graphics = require 'GraphicsModule'
+local graphicsModule = nil
 function Player:Initialize()
-    graphicsModule = graphicsModule:new()
+    graphicsModule = Graphics.new()
+    return true
 end
 
 function Player:SendEvent(message)
@@ -24,21 +25,29 @@ function Player:GameStart()
     audioModule:PlayAudio(function (s) Player:SendEvent(s)  end)
 end
 
-function Player:SpawnButton()
---    graphicsModule:canvas:SpawnButton(x,y, function()print 'clicked' end, {radius = 10})
-    print("spawn button function")
-    graphicsModule:SpawnButton("buttonFromLua", 100,100, 250,250, function (s) Player:SetButtonToRandomLocation()  end)
+function Player:Update()
+    graphicsModule:Update()
 end
-function Player:SetButtonToRandomLocation(name)
-        button = graphicsModule:GetElementByName(name)
+-- function Player:SpawnButton()
+--     print("spawn button function")
+--     graphicsModule:SpawnButton("buttonFromLua", 100,100, 250,250, function (s) Player:SetButtonToRandomLocation()  end)
+-- end
+function Player:SetButtonToRandomLocation(buttonName)
+        print(buttonName)
+        local button = graphicsModule:GetElementByName(buttonName)
+        if button == nil then
+            print("BUTTON IS NOT FOUND", buttonName)
+            return
+        end
         graphicsModule:MoveElement(button, math.random(100, 800), math.random(200, 900))
 end
 
-function Player:SpawnMultipleButtons(amountOfButtons)
-    for i = tonumber(amountOfButtons), 1, -1 do
-        buttonName = "buttonFromLua" .. tostring(i)
-        graphicsModule:SpawnButton("buttonFromLua" .. tostring(i),  math.random(100, 1080), math.random(200, 1920), 100, 100,  function (s) Player:SetButtonToRandomLocation(buttonName) end)
+function Player:SpawnMultipleButtons(amountOfButtons, fn)
+    local amount = tonumber(amountOfButtons)
+     for i = amountOfButtons, 1, -1 do
+        local name = "buttonFromLua" .. tostring(i)
+        graphicsModule:SpawnButton(name,  math.random(100, 1080), math.random(200, 1000), 100, 100,  function (s) Player:SetButtonToRandomLocation(name) end)
     end
-
+    return AllButtonsSpawned();
 end
 return Player
