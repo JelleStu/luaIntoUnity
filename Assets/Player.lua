@@ -28,12 +28,8 @@ end
 function Player:Update()
     graphicsModule:Update()
 end
--- function Player:SpawnButton()
---     print("spawn button function")
---     graphicsModule:SpawnButton("buttonFromLua", 100,100, 250,250, function (s) Player:SetButtonToRandomLocation()  end)
--- end
+
 function Player:SetButtonToRandomLocation(buttonName)
-        print(buttonName)
         local button = graphicsModule:GetElementByName(buttonName)
         if button == nil then
             print("BUTTON IS NOT FOUND", buttonName)
@@ -43,10 +39,9 @@ function Player:SetButtonToRandomLocation(buttonName)
 end
 
 function Player:SpawnMultipleButtons(amountOfButtons, fn)
-    local amount = tonumber(amountOfButtons)
      for i = amountOfButtons, 1, -1 do
         local name = "buttonFromLua" .. tostring(i)
-        graphicsModule:SpawnButton(name,  math.random(100, 1080), math.random(200, 1000), 100, 100,  function (s) Player:SetButtonToRandomLocation(name) end)
+        graphicsModule:SpawnButton(name,  math.random(100, 1520), math.random(100, 750), 100, 100,  function (s) Player:SetButtonToRandomLocation(name) end)
     end
     return AllButtonsSpawned();
 end

@@ -44,7 +44,6 @@ namespace Luncay.Core
 
         private void Start()
         {
-            Debug.unityLogger.logEnabled = false;
             fakeCoreModule = this;
             _server = new MoonSharpVsCodeDebugServer();
             _server.Start();
@@ -65,7 +64,6 @@ namespace Luncay.Core
         public void invokelua()
         {
             _someLuaScript.Call(_spawnButtonLuaFunction, new object[]{5});
-            // _spawnButtonLuaFunction.Function.Call(DynValue.NewNumber(10));
         }
 
         public void ReloadScript()
@@ -79,31 +77,41 @@ namespace Luncay.Core
             _server.AttachToScript(_someLuaScript, "test123");
             _someLuaScript.Options.DebugPrint = Debug.Log;
             _someLuaScript.Options.ScriptLoader = CreateFileSystemScriptLoader();
+            
             RegisterProxies();
+            SetProxiesInGlobal();
             _someLuaScript.DoFile("Assets/Player.lua");
+            GetFunctions();
+            
+            DynValue initializeScript = _functionTable?.Get("Initialize");
+
+            
+            var _initializedFunction = _someLuaScript.Call(initializeScript);
+
+            _someLuaScript.Globals["AllButtonsSpawned"] = (Func<int>)GetAllUIelementsKeys;
+            
+            _someLuaScript.Call(_spawnButtonLuaFunction, new object[]{_functionTable,300});
+            initialized = _initializedFunction.Boolean;
+        }
+
+        private void SetProxiesInGlobal()
+        {
             _someLuaScript.Globals["EventBusProxy"] = new EventBus.EventBus();
             _someLuaScript.Globals["AudioModuleProxy"] = new AudioModule();
             _someLuaScript.Globals["GraphicsModuleProxy"] = new GraphicsModule();
+
+        }
+
+        private void GetFunctions()
+        {
             _functionTable = _someLuaScript.Globals["Player"] as Table;
 
             _movementfunction = _functionTable?.Get("SetButtonToRandomLocation");
             _updateFunction = _functionTable?.Get("Update");
-            
             _spawnButtonLuaFunction = _functionTable?.Get("SpawnMultipleButtons");
-            
-            DynValue initializeScript = _functionTable?.Get("Initialize");
-
-            var f = _functionTable?.Get("SpawnMultipleButtons");
-            
-            var _initialized = _someLuaScript.Call(initializeScript);
-
-            _someLuaScript.Globals["AllButtonsSpawned"] = (Func<int>)Mul;
-            
-            _someLuaScript.Call(_spawnButtonLuaFunction, new object[]{_functionTable,200});
-            initialized = _initialized.Boolean;
         }
 
-        private int Mul()
+        private int GetAllUIelementsKeys()
         {
             keyLists = CanvasManager.instance.GetAllKeys();
             return keyLists.Count;

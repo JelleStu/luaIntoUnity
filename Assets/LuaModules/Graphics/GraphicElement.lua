@@ -47,7 +47,6 @@ end
 function GraphicElement:CreateButton(name, positionx, positiony, width, height, onclick)
     local Button = GraphicElement.new(name, positionx, positiony, width, height)
     Button.onclick=onclick
-    print(Button.uuid, name)
     return Button;
 end
 

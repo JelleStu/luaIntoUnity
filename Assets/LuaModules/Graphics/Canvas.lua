@@ -5,7 +5,6 @@ local GraphicElement = require 'GraphicElement'
 local Canvas = {width = 1080, height = 1920,  objectsOnCanvas = {}}
 
 function Canvas.new(width, height)
-    print("new canvas")
     Canvas.height = height
     Canvas.width = width
     Canvas.objectsOnCanvas = {}
@@ -31,7 +30,6 @@ end
 
 function Canvas:addObjectToCanvas(object)
 Canvas.objectsOnCanvas[object.name] = object
-print("Added", Canvas.objectsOnCanvas[object.name].name)
 end
 
 function Canvas:Update()
@@ -40,20 +38,15 @@ end
 
 function Canvas:GetElementByName(nametosearch)
     -- find a value in a list
-    for key, value in pairs(Canvas.objectsOnCanvas) do
-        print(value)
-    end
-
     local found = nil
     if Canvas.objectsOnCanvas[nametosearch] then
         found = Canvas.objectsOnCanvas[nametosearch]
-        print("this is the founded object",found.name)
     end
 return found
 end
 
 function Canvas:MoveElement(object, newpositionX, newpositionY)
-    objectToMove = Canvas.objectsOnCanvas[object.name]
+    local objectToMove = Canvas.objectsOnCanvas[object.name]
     objectToMove:SetNewPosition(newpositionX, newpositionY)
 end
 
