@@ -41,8 +41,22 @@ end
 function Player:SpawnMultipleButtons(amountOfButtons, fn)
      for i = amountOfButtons, 1, -1 do
         local name = "buttonFromLua" .. tostring(i)
-        graphicsModule:SpawnButton(name,  math.random(100, 1520), math.random(100, 750), 100, 100,  function (s) Player:SetButtonToRandomLocation(name) end)
+        graphicsModule:SpawnButton(name,  math.random(100, 1720), math.random(100, 980), 100, 100,  function (s) Player:SetButtonToRandomLocation(name) end)
     end
-    return AllButtonsSpawned();
+    return fn();
 end
+
+function Player:AddSomeToUpdate(theAmountOfButtons)
+    for i = 2, 1, -1 do
+        local name = "buttonFromLua" .. tostring(i)
+        local button = graphicsModule:GetElementByName(name)
+        button:AddOnUpdate(function() Player:SetButtonToRandomLocation(name) end)
+    end
+end
+
+function Player:MoveButtonToEndOfCanvas()
+graphicsModule:MoveElement(button, button.Position.x, button.Position.y)
+end
+
+
 return Player

@@ -25,20 +25,20 @@ namespace Luncay.Core
         private Table _functionTable;
         private DynValue _movementfunction;
         private DynValue _updateFunction;
-        bool initialized = false;
-        private static List<string> keyLists = new List<string>();
+        bool _initialized = false;
+        private static List<string> _keyLists = new List<string>();
         
         private void Update()
         {
             if (enableMovement)
             {
-                foreach (var key in keyLists)
+                foreach (var key in _keyLists)
                 {
                     _someLuaScript.Call(_movementfunction, _functionTable, key);
                 }
             }
 
-            if (initialized)
+            if (_initialized)
                 _someLuaScript.Call(_updateFunction);
         }
 
@@ -88,10 +88,10 @@ namespace Luncay.Core
             
             var _initializedFunction = _someLuaScript.Call(initializeScript);
 
-            _someLuaScript.Globals["AllButtonsSpawned"] = (Func<int>)GetAllUIelementsKeys;
+           // _someLuaScript.Globals["AllButtonsSpawned"] = (Func<int>)GetAllUIelementsKeys;
             
-            _someLuaScript.Call(_spawnButtonLuaFunction, new object[]{_functionTable,300});
-            initialized = _initializedFunction.Boolean;
+            _someLuaScript.Call(_spawnButtonLuaFunction, new object[]{_functionTable,500,(Action)GetAllUIelementsKeys });
+            _initialized = _initializedFunction.Boolean;
         }
 
         private void SetProxiesInGlobal()
@@ -111,10 +111,10 @@ namespace Luncay.Core
             _spawnButtonLuaFunction = _functionTable?.Get("SpawnMultipleButtons");
         }
 
-        private int GetAllUIelementsKeys()
+        private void GetAllUIelementsKeys()
         {
-            keyLists = CanvasManager.instance.GetAllKeys();
-            return keyLists.Count;
+            Debug.Log("plop");
+            _keyLists = CanvasManager.instance.GetAllKeys();
         }
 
         private FileSystemScriptLoader CreateFileSystemScriptLoader()

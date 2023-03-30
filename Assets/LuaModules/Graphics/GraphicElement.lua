@@ -3,7 +3,7 @@
 Position = {x, y}
 GraphicElement =  {uuid, name, Position, width, height, onUpdate}
 
-local Updatables = {}
+Updatables = {}
 
 Position.__index = Position
 GraphicElement.__index = GraphicElement
@@ -27,15 +27,21 @@ end
 function GraphicElement:RemoveOnUpdate()
     self.onUpdate = nil
     Updatables[self.name] = nil
+
+end
+
+function GraphicElement:onUpdate()
+    self.onUpdate()
 end
 
 function GraphicElement:Update()
-    if not Updatables.maxn == 0 then
+    if GraphicElement:tablelength() > 0 then
         for key, value in pairs(Updatables) do
-            value.onUpdate() 
-         end
+            value.onUpdate()
+        end
     end
-end
+    end
+
 
 function Position.new(positionx, positiony)
     local instance = setmetatable({}, Position)
@@ -70,5 +76,10 @@ function GraphicElement:createUuid(name)
     end)
 end
 
+function GraphicElement:tablelength()
+    local count = 0
+    for _ in pairs(Updatables) do count = count + 1 end
+    return count
+ end
 
 return GraphicElement
