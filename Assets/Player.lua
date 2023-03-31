@@ -38,25 +38,58 @@ function Player:SetButtonToRandomLocation(buttonName)
         graphicsModule:MoveElement(button, math.random(100, 800), math.random(200, 900))
 end
 
+function Player:MoveButtonToLocation(button, positionX, positionY)
+    graphicsModule:MoveElement(button,positionX,positionY)
+
+end
+
+
 function Player:SpawnMultipleButtons(amountOfButtons, fn)
      for i = amountOfButtons, 1, -1 do
         local name = "buttonFromLua" .. tostring(i)
-        graphicsModule:SpawnButton(name,  math.random(100, 1720), math.random(100, 980), 100, 100,  function (s) Player:SetButtonToRandomLocation(name) end)
+        graphicsModule:SpawnButton(name,  math.random(100, 1720), math.random(100, 980), 100, 100,  function (s) Player:MoveButtonToMaxXOfCanvas(name) end)
+        Player:MoveButtonToMaxXOfCanvas(name)
     end
     return fn();
 end
 
-function Player:AddSomeToUpdate(theAmountOfButtons)
-    for i = 2, 1, -1 do
-        local name = "buttonFromLua" .. tostring(i)
-        local button = graphicsModule:GetElementByName(name)
-        button:AddOnUpdate(function() Player:SetButtonToRandomLocation(name) end)
-    end
+function Player:MoveButtonToMaxXOfCanvas(name)
+local button = graphicsModule:GetElementByName(name)
+local buttonY = button.pos.y
+local distance = graphicsModule:CalculateDistance(button.pos.x, buttonY, graphicsModule:GetCanvasWidth() - 100, buttonY)
+local time = 5
+local speed = distance / time
+
+    button:AddOnUpdate(function (s)
+        local currentPositon = button:GetCurrentPosition()
+        if currentPositon.x < (graphicsModule:GetCanvasWidth() - button.width ) then
+            Player:MoveButtonToLocation(button, (currentPositon.x + 1), (currentPositon.y))
+        else
+            button:RemoveOnUpdate()
+            Player:MoveButtonToMinXOfCanvas(button.name)
+        end
+    end)
 end
 
-function Player:MoveButtonToEndOfCanvas()
-graphicsModule:MoveElement(button, button.Position.x, button.Position.y)
-end
+function Player:MoveButtonToMinXOfCanvas(name)
+    local button = graphicsModule:GetElementByName(name)
+    local buttonY = button.pos.y
+    local distance = graphicsModule:CalculateDistance(button.pos.x, buttonY, button.width, buttonY)
+    local time = 5
+    local speed = distance / time
+    local flup = 2
+    
+        button:AddOnUpdate(function (s)
+            local currentPositon = button:GetCurrentPosition()
+            if currentPositon.x > button.width then
+                Player:MoveButtonToLocation(button, (currentPositon.x - 1), (currentPositon.y))
+            else
+                button:RemoveOnUpdate()
+                Player:MoveButtonToMaxXOfCanvas(button.name)
+            end
+        end)
+    end
+
 
 
 return Player

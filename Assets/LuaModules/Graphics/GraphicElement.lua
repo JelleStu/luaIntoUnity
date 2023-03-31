@@ -12,10 +12,17 @@ function GraphicElement.new(name, positionx, positiony, width, height)
     local instance = setmetatable({}, GraphicElement)
     instance.uuid = GraphicElement:createUuid(name)
     instance.name = name
-    instance.Position = Position.new(positionx, positiony)
+    instance.pos = Position.new(positionx, positiony)
     instance.width = width
     instance.height = height
     instance.onUpdate = nil
+    return instance
+end
+
+function Position.new(positionx, positiony)
+    local instance = setmetatable({}, Position)
+    instance.x = positionx
+    instance.y = positiony
     return instance
 end
 
@@ -27,7 +34,6 @@ end
 function GraphicElement:RemoveOnUpdate()
     self.onUpdate = nil
     Updatables[self.name] = nil
-
 end
 
 function GraphicElement:onUpdate()
@@ -40,15 +46,8 @@ function GraphicElement:Update()
             value.onUpdate()
         end
     end
-    end
-
-
-function Position.new(positionx, positiony)
-    local instance = setmetatable({}, Position)
-    instance.x = positionx
-    instance.y = positiony
-    return instance
 end
+
 
 function GraphicElement:CreateButton(name, positionx, positiony, width, height, onclick)
     local Button = GraphicElement.new(name, positionx, positiony, width, height)
@@ -63,9 +62,13 @@ function GraphicElement:CreateTextLabel(name, positionx, positiony, width, heigh
 end
 
 function GraphicElement:SetNewPosition(newpositionX, newpositionY)
-    GraphicElement.Position = Position.new(newpositionX, newpositionY)
+    self.pos.x = newpositionX
+    self.pos.y = newpositionY
 end
 
+function GraphicElement:GetCurrentPosition()
+return self.pos
+end
 
 local random = math.random
 function GraphicElement:createUuid(name)

@@ -29,5 +29,6 @@ namespace Modules.Graphics
         {
             CanvasManager.instance.DebugLog();
         }
+        
     }
 }

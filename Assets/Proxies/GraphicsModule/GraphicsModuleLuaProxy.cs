@@ -12,13 +12,5 @@ namespace Proxies.GraphicsModule
         {
             _scriptTarget = target;
         }
-
-        public void Update()
-        {
-            _scriptTarget.Globals.Get("Update");
-            
-        }
-        
-        
     }
 }

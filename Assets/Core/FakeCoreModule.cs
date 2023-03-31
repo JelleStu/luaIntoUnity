@@ -87,10 +87,8 @@ namespace Luncay.Core
 
             
             var _initializedFunction = _someLuaScript.Call(initializeScript);
-
-           // _someLuaScript.Globals["AllButtonsSpawned"] = (Func<int>)GetAllUIelementsKeys;
             
-            _someLuaScript.Call(_spawnButtonLuaFunction, new object[]{_functionTable,500,(Action)GetAllUIelementsKeys });
+            _someLuaScript.Call(_spawnButtonLuaFunction, new object[]{_functionTable,200,(Action)GetAllUIelementsKeys });
             _initialized = _initializedFunction.Boolean;
         }
 
@@ -131,11 +129,24 @@ namespace Luncay.Core
 
         private void RegisterProxies()
         {
-            UserData.RegisterProxyType<EventBusProxy, EventBus.EventBus>(eventBus => new EventBusProxy(eventBus));
+            UserData.RegisterProxyType<IEventBusProxy, EventBus.EventBus>(eventBus => new EventBusProxy(eventBus));
             UserData.RegisterProxyType<AudioModuleProxy, AudioModule>(audioModule => new AudioModuleProxy(audioModule));
             UserData.RegisterProxyType<GraphicsModuleProxy, GraphicsModule>(graphicsModule => new GraphicsModuleProxy(graphicsModule));
 
         }
+
+        /*public interface IProxy
+        {
+            
+        }
+        
+        private class api
+        {
+            public api(IEventBusProxy p)
+            {
+                UserData.RegisterProxyType<IEventBusProxy, EventBus.EventBus>(eventBus => new EventBusProxy(eventBus));
+            }
+        }*/
 
         public void StartTheMovement()
         {

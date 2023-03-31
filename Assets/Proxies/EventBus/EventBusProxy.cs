@@ -3,7 +3,12 @@ using UnityEngine.Scripting;
 
 namespace Lunacy.Proxies.EventBus
 {
-    public class EventBusProxy
+    public interface IEventBusProxy
+    {
+        void Publish(string message);
+    }
+
+    public class EventBusProxy : IEventBusProxy
     {
         private Luncay.Core.EventBus.EventBus target;
 

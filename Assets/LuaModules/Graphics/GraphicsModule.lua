@@ -2,8 +2,9 @@
 GraphicsModule = {}
 local canvasModule = require 'Canvas'
 local canvas = nil
+
 function GraphicsModule.new()
-    canvas = canvasModule.new(9999, 5)
+    canvas = canvasModule.new(1920, 1080)
     return GraphicsModule
 end
 
@@ -25,6 +26,17 @@ function GraphicsModule:MoveElement(object, newpositionX, newpositionY)
     GraphicsModuleProxy.MoveElement(object.name, newpositionX, newpositionY)
 end
 
+function GraphicsModule:GetCanvasWidth()
+    return canvas:GetCanvasWidth()
+end
+
+function GraphicsModule:GetCanvasHeight()
+    return canvas:GetCanvasHeight()
+end
+
+function GraphicsModule:CalculateDistance(PositionAX, PositionAY, PositionBX, PositionBY)
+    return canvas:CalculateDistance(PositionAX, PositionAY, PositionBX, PositionBY)
+end
 function GraphicsModule:Update()
     canvas:Update()
 end

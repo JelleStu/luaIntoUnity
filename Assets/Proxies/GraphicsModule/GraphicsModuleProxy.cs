@@ -18,9 +18,9 @@ namespace Proxies.GraphicsModule
         [Preserve]
         public void SpawnButton(string name, float positionx, float positiony, float width, float height, Action onclick)
         {
-            _graphicsModuleTarget.Spawnbutton( name, new Vector2(positionx, positiony),  width,  height,  onclick);
+            _graphicsModuleTarget.Spawnbutton(name, new Vector2(positionx, positiony), width, height, onclick);
         }
-        
+
         [Preserve]
         public void MoveElement(string name, float positionx, float positiony)
         {

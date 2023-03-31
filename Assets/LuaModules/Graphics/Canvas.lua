@@ -2,11 +2,11 @@
 
 local GraphicElement = require 'GraphicElement'
 
-local Canvas = {width = 1080, height = 1920,  objectsOnCanvas = {}}
+local Canvas = {width = 1920, height = 1080,  objectsOnCanvas = {}}
 
 function Canvas.new(width, height)
-    Canvas.height = height
     Canvas.width = width
+    Canvas.height = height
     Canvas.objectsOnCanvas = {}
     return Canvas
 end
@@ -43,6 +43,21 @@ function Canvas:GetElementByName(nametosearch)
         found = Canvas.objectsOnCanvas[nametosearch]
     end
 return found
+end
+
+function Canvas:GetCanvasHeight()
+    return Canvas.height
+end
+
+function Canvas:GetCanvasWidth()
+    return Canvas.width
+end
+
+function Canvas:CalculateDistance(PositionAX,PositionAY, PositionBX, PositionBY)
+    local num1 = PositionAX - PositionBX
+    local num2 = PositionAY - PositionBY
+
+    return math.sqrt(num1 * num1 + num2 * num2)
 end
 
 function Canvas:MoveElement(object, newpositionX, newpositionY)
