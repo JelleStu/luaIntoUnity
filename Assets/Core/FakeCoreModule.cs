@@ -88,7 +88,7 @@ namespace Luncay.Core
             
             var _initializedFunction = _someLuaScript.Call(initializeScript);
             
-            _someLuaScript.Call(_spawnButtonLuaFunction, new object[]{_functionTable,200,(Action)GetAllUIelementsKeys });
+            _someLuaScript.Call(_spawnButtonLuaFunction, new object[]{_functionTable,250,(Action)GetAllUIelementsKeys });
             _initialized = _initializedFunction.Boolean;
         }
 
@@ -103,7 +103,6 @@ namespace Luncay.Core
         private void GetFunctions()
         {
             _functionTable = _someLuaScript.Globals["Player"] as Table;
-
             _movementfunction = _functionTable?.Get("SetButtonToRandomLocation");
             _updateFunction = _functionTable?.Get("Update");
             _spawnButtonLuaFunction = _functionTable?.Get("SpawnMultipleButtons");
@@ -150,6 +149,11 @@ namespace Luncay.Core
 
         public void StartTheMovement()
         {
+        }
+
+        public void CallFunction(DynValue function)
+        {
+            _someLuaScript.Call(function, new object[]{_functionTable});
         }
     }
 }

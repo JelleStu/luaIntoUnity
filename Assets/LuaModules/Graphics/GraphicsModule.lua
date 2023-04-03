@@ -37,9 +37,14 @@ end
 function GraphicsModule:CalculateDistance(PositionAX, PositionAY, PositionBX, PositionBY)
     return canvas:CalculateDistance(PositionAX, PositionAY, PositionBX, PositionBY)
 end
+
 function GraphicsModule:Update()
     canvas:Update()
 end
 
+function GraphicsModule:MoveButtonToLocationWithDoTween(name, endPositionX, endPositionY, time, func)
+    GraphicsModuleProxy.MoveButtonToLocationWithDoTween(name, endPositionX, endPositionY, time, func)
+
+end
 
 return GraphicsModule

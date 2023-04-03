@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using DG.Tweening;
+using Luncay.Core;
 using UnityEngine.UI;
 using Modules.Graphics;
 using MoonSharp.Interpreter;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Modules
@@ -44,13 +45,11 @@ namespace Modules
 
         public void MoveElement(string key, Vector2 newPosition)
         {
-            if (_elements.TryGetValue(key, out var element))
-            {
-                if (element.transform is RectTransform rectTransform)
-                {
-                    rectTransform.anchoredPosition = newPosition;
-                }
-            }
+            RectTransform element = GetElementByName(key);
+            if (element != null)
+                element.anchoredPosition = newPosition;
+            else
+                Debug.LogError("Element is not registered.");
         }
 
         public List<string> GetAllKeys()
@@ -63,11 +62,31 @@ namespace Modules
             return keys;
         }
 
-
-
         public void DebugLog()
         {   
             Debug.Log("Test");
+        }
+
+        public void MoveWithDotween(string name, float endPositionX, float endPositionY, float time, DynValue callback)
+        {
+            GetElementByName(name).DOAnchorPos(new Vector3(endPositionX, endPositionY),5).OnComplete(() =>
+            {
+                // Call function
+                if (callback != null)
+                    FakeCoreModule.fakeCoreModule.CallFunction(callback);
+            });
+        }
+
+        private RectTransform GetElementByName(string name)
+        {
+            if (_elements.TryGetValue(name, out var element))
+            {
+                if (element.transform is RectTransform rectTransform)
+                {
+                    return rectTransform;
+                }
+            }
+            return null;
         }
     }
 }

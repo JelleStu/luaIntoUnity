@@ -27,6 +27,11 @@ namespace Proxies.GraphicsModule
             _graphicsModuleTarget.MoveElement(name, new Vector2(positionx, positiony));
         }
 
+        public void MoveButtonToLocationWithDoTween(string name, float endPositionX, float endPositionY, float time, DynValue callback)
+        {
+            _graphicsModuleTarget.MoveButtonWithDoTween(name, endPositionX, endPositionY, time, callback);
+        }
+
         public void Update()
         {
             _graphicsModuleTarget.Update();

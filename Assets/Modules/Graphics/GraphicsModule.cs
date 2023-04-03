@@ -1,5 +1,6 @@
 ﻿using System;
 using Luncay.Core;
+using MoonSharp.Interpreter;
 using UnityEngine;
 
 namespace Modules.Graphics
@@ -29,6 +30,10 @@ namespace Modules.Graphics
         {
             CanvasManager.instance.DebugLog();
         }
-        
+
+        public void MoveButtonWithDoTween(string name, float endPositionX, float endPositionY, float time, DynValue callback)
+        {
+            CanvasManager.instance.MoveWithDotween(name, endPositionX, endPositionY, time, callback);
+        }
     }
 }
