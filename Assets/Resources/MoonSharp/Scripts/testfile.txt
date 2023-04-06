@@ -1,6 +1,0 @@
-﻿Test = {}
-function Test:printHello()
-    print("hello world")
-end 
-return Test
-

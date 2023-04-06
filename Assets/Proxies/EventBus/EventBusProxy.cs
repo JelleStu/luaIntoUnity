@@ -1,7 +1,7 @@
 ﻿using MoonSharp.Interpreter;
 using UnityEngine.Scripting;
 
-namespace Lunacy.Proxies.EventBus
+namespace LuaBridge.Proxies.EventBus
 {
     public interface IEventBusProxy
     {

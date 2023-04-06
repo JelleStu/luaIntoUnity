@@ -1,7 +1,7 @@
 ﻿using System;
 using MoonSharp.Interpreter;
 
-namespace Dephion.Jlui
+namespace LuaBridge.Jlui
 {
     public static class ScriptHelper
     {

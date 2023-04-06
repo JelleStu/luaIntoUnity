@@ -21,12 +21,12 @@ namespace Modules
         {
             instance = this;
             _elements = new Dictionary<string, MonoBehaviour>();
-            Task.Run(() =>
+            /*Task.Run(() =>
             {
                 var script = new Script();
                 script.Options.DebugPrint = Debug.Log;
                 script.DoString("print(\"fuck\")");
-            });
+            });*/
         }
 
         public void SpawnButton(string name, Vector2 position, float width, float height, Action onclick)

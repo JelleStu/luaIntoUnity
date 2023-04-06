@@ -1,7 +1,6 @@
 {
   "dependencies": {
-    "com.dephion.engine.core": "git+ssh://git@ssh.dev.azure.com/v3/hwbg/Dephion%20Shared/DephionEngineCore",
-    "com.dephion.lunacy": "git+ssh://git@ssh.dev.azure.com/v3/hwbg/Dephion%20Shared/Lunacy",
+    "com.hamersoft.howl": "git+ssh://git@gitlab.com/ruben.hamers/howl.git",
     "com.unity.collab-proxy": "1.17.6",
     "com.unity.feature.development": "1.0.1",
     "com.unity.ide.rider": "3.0.18",

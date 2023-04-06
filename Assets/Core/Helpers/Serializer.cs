@@ -1,10 +1,9 @@
 ﻿using System;
-using Dephion.Core.Abstract;
 using Newtonsoft.Json;
 
 namespace DefaultNamespace
 {
-    public class Serializer : IJsonSerializer
+    public class Serializer
     {
         public string ToJson(object obj)
         {

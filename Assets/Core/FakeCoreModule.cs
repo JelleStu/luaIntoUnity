@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Lunacy.Modules.Audio;
-using Lunacy.Proxies.Audio;
-using Lunacy.Proxies.EventBus;
+using LuaBridge.Modules.Audio;
+using LuaBridge.Proxies.Audio;
+using LuaBridge.Proxies.EventBus;
 using Modules;
 using Modules.Graphics;
 using MoonSharp.Interpreter;
@@ -45,8 +45,6 @@ namespace Luncay.Core
         private void Start()
         {
             fakeCoreModule = this;
-            _server = new MoonSharpVsCodeDebugServer();
-            _server.Start();
             Script.GlobalOptions.CustomConverters.SetScriptToClrCustomConversion(DataType.Function, typeof(Action),
                 v =>
                 {
@@ -55,9 +53,8 @@ namespace Luncay.Core
                     return (Action)(() => function.Call());
                 }
             );
-            Dephion.Core.Events.EventBus.Factory.Create();
             _systemScriptLoader = CreateFileSystemScriptLoader();
-            LoadScript();
+            // /LoadScript();
         }
 
 
@@ -74,13 +71,13 @@ namespace Luncay.Core
         private void LoadScript()
         {
             _someLuaScript = new Script();
-            _server.AttachToScript(_someLuaScript, "test123");
+       //     _server.AttachToScript(_someLuaScript, "test123");
             _someLuaScript.Options.DebugPrint = Debug.Log;
             _someLuaScript.Options.ScriptLoader = CreateFileSystemScriptLoader();
-            
+
             RegisterProxies();
             SetProxiesInGlobal();
-            _someLuaScript.DoFile("Assets/Player.lua");
+            _someLuaScript.DoFile($"{Application.streamingAssetsPath}/Player.lua");
             GetFunctions();
             
             DynValue initializeScript = _functionTable?.Get("Initialize");
@@ -88,7 +85,7 @@ namespace Luncay.Core
             
             var _initializedFunction = _someLuaScript.Call(initializeScript);
             
-            _someLuaScript.Call(_spawnButtonLuaFunction, new object[]{_functionTable,250,(Action)GetAllUIelementsKeys });
+            _someLuaScript.Call(_spawnButtonLuaFunction, new object[]{_functionTable,5,(Action)GetAllUIelementsKeys });
             _initialized = _initializedFunction.Boolean;
         }
 
@@ -118,10 +115,10 @@ namespace Luncay.Core
         {
             return new FileSystemScriptLoader()
             {
-                ModulePaths = new string[] {Path.Combine($"{Application.dataPath}/LuaModules", "?.lua"),
-                    Path.Combine($"{Application.dataPath}/LuaModules/Graphics", "?.lua"), 
-                    Path.Combine($"{Application.dataPath}/LuaModules/Audio", "?.lua"),
-                    Path.Combine($"{Application.dataPath}/LuaModules/EventBus", "?.lua")
+                ModulePaths = new string[] {Path.Combine($"{Application.streamingAssetsPath}/LuaModules/", "?.lua"),
+                    Path.Combine($"{Application.streamingAssetsPath}/LuaModules/Graphics/", "?.lua"), 
+                    Path.Combine($"{Application.streamingAssetsPath}/LuaModules/Audio/", "?.lua"),
+                    Path.Combine($"{Application.streamingAssetsPath}/LuaModules/EventBus/", "?.lua")
                 }
             };
         }

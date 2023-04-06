@@ -1,18 +1,11 @@
 {
   "dependencies": {
-    "com.dephion.engine.core": {
-      "version": "git+ssh://git@ssh.dev.azure.com/v3/hwbg/Dephion%20Shared/DephionEngineCore",
+    "com.hamersoft.howl": {
+      "version": "git+ssh://git@gitlab.com/ruben.hamers/howl.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "95fa037de14ab67ca38be2d64f13b09c0c040259"
-    },
-    "com.dephion.lunacy": {
-      "version": "git+ssh://git@ssh.dev.azure.com/v3/hwbg/Dephion%20Shared/Lunacy",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "9963e4a26d527dd4da373e7df50ae1ee61b5b436"
+      "hash": "069925a4c49de7573477c69a520d2e96b31636de"
     },
     "com.unity.collab-proxy": {
       "version": "1.17.6",

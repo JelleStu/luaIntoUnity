@@ -1,9 +1,9 @@
 ﻿using System;
-using Lunacy.Modules.Audio;
+using LuaBridge.Modules.Audio;
 using MoonSharp.Interpreter;
 using UnityEngine.Scripting;
 
-namespace Lunacy.Proxies.Audio
+namespace LuaBridge.Proxies.Audio
 {
     public class AudioModuleProxy
     { 

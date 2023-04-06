@@ -1,28 +1,25 @@
 ﻿using System;
-using System.Threading;
-using DefaultNamespace;
-using Services;
 using UnityEngine;
 
-namespace Lunacy.Modules.Audio
+namespace LuaBridge.Modules.Audio
 {
     public class AudioModule
     {
         private AudioSource _audioSource;
-        private FileService _fileService;
+      //  private FileService _fileService;
 
 
         public AudioModule()
         {
             _audioSource = new GameObject().AddComponent<AudioSource>();
-            _fileService = new FileService(new Serializer());
+           // _fileService = new FileService(new Serializer());
             LoadFile();
         }
 
         private async void LoadFile()
         {
-            var audioclip = await _fileService.LoadAudioClip($"{Application.dataPath}/Resources/Audio/viezegothic.ogg");
-            _audioSource.clip = audioclip;
+          //  var audioclip = await _fileService.LoadAudioClip($"{Application.dataPath}/Resources/Audio/viezegothic.ogg");
+          //  _audioSource.clip = audioclip;
         }
         
         public void Play(Action<string> callback)
