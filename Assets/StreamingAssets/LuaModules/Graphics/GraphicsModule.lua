@@ -1,6 +1,6 @@
 ﻿--require LuaCanvas
 GraphicsModule = {}
-local canvasModule = require 'Canvas'
+local canvasModule = require 'Graphics.Canvas'
 local canvas = nil
 
 function GraphicsModule.new()
@@ -13,7 +13,9 @@ function GraphicsModule:SpawnElement(name)
 end
 
 function GraphicsModule:SpawnButton(name, positionx, positiony, width, height, onclick)
+    print("b")
     canvas:SpawnButton(name, positionx, positiony, width, height, onclick)
+    print(GraphicsModuleProxy)
     GraphicsModuleProxy.SpawnButton(name, positionx, positiony, width, height, onclick)
 end
 

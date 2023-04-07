@@ -1,16 +1,17 @@
 ﻿using System;
+using HamerSoft.Howl.Sharp.Proxies;
 using MoonSharp.Interpreter;
 using UnityEngine;
 using UnityEngine.Scripting;
 
 namespace Proxies.GraphicsModule
 {
-    public class GraphicsModuleProxy
+    public class GraphicsModuleProxy : SingletonProxy
     {
         private Modules.Graphics.GraphicsModule _graphicsModuleTarget;
 
         [MoonSharpHidden]
-        public GraphicsModuleProxy(Modules.Graphics.GraphicsModule graphicsModuleTarget)
+        public GraphicsModuleProxy(Modules.Graphics.GraphicsModule graphicsModuleTarget) : base(graphicsModuleTarget)
         {
             _graphicsModuleTarget = graphicsModuleTarget;
         }
@@ -36,5 +37,7 @@ namespace Proxies.GraphicsModule
         {
             _graphicsModuleTarget.Update();
         }
+
+        protected override string LuaName => "GraphicsModuleProxy";
     }
 }

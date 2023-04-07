@@ -3,11 +3,7 @@ using MoonSharp.Interpreter;
 
 namespace LuaBridge.Unity.Scripts.LuaBridgesProxies.GraphicsModule
 {
-    public class GraphicsServiceProxy : AbstractProxy
+    public class GraphicsServiceProxy
     {
-        public override void Register(Script script)
-        {
-            
-        }
     }
 }

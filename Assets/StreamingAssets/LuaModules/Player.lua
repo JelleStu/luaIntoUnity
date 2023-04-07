@@ -1,11 +1,10 @@
 require("math")
-require("os")
 
 Player = {}
 
-local eventBus = require 'EventBus'
-local audioModule = require 'AudioModule'
-local Graphics = require 'GraphicsModule'
+local eventBus = require 'EventBus.EventBus'
+local audioModule = require 'Audio.AudioModule'
+local Graphics = require 'Graphics.GraphicsModule'
 local graphicsModule = nil
 function Player:Initialize()
     graphicsModule = Graphics.new()
@@ -42,9 +41,11 @@ end
 
 function Player:SpawnMultipleButtons(amountOfButtons, fn)
      for i = amountOfButtons, 1, -1 do
+        print("a")
         local name = "buttonFromLua" .. tostring(i)
-        graphicsModule:SpawnButton(name,  math.random(100, 1720), math.random(100, 980), 100, 100,  function (s) Player:MoveButtonToMaxOfCanvasWithDotween(name) end)
-        Player:MoveButtonToMaxOfCanvasWithDotween(name)
+        print(graphicsModule)
+        graphicsModule:SpawnButton(name,  math.random(100, 900), math.random(100, 900), 100, 100, function (s)Player:MoveButtonToMaxOfCanvasWithDotween(name) end)
+      --  Player:MoveButtonToMaxOfCanvasWithDotween(name)
     end
     return fn();
 end

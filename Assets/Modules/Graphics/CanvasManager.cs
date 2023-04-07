@@ -1,26 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using DG.Tweening;
+using LuaBridge.Core.Services.Abstract;
 using Luncay.Core;
 using UnityEngine.UI;
-using Modules.Graphics;
 using MoonSharp.Interpreter;
+using Services.Prefab;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Modules
 {
-    public class CanvasManager : MonoBehaviour
+    public class CanvasManager : IBootService
     {
         public static CanvasManager instance { get; private set; }
-        [SerializeField] private SuperAwesomeJelleCanvasThingy _canvas;
-        [SerializeField] private Button ButtonPrefab;
+        private Button ButtonPrefab;
         private Dictionary<string, MonoBehaviour> _elements;
+        private readonly IPrefabService _prefabService;
+        private readonly Canvas _canvas;
+        private readonly RootView _root;
 
-        private void Awake()
+        public CanvasManager(IPrefabService prefabService, Canvas canvas)
         {
+            _prefabService = prefabService;
+            _canvas = canvas;
+            _root = _canvas.GetComponentInChildren<RootView>();
             instance = this;
             _elements = new Dictionary<string, MonoBehaviour>();
+            Debug.Log("awake");
+            
             /*Task.Run(() =>
             {
                 var script = new Script();
@@ -28,11 +36,18 @@ namespace Modules
                 script.DoString("print(\"fuck\")");
             });*/
         }
-
-        public void SpawnButton(string name, Vector2 position, float width, float height, Action onclick)
+        
+        public void Boot()
         {
-            var button = Instantiate(ButtonPrefab, _canvas.Canvas.transform);
-            button.name = name;
+            ButtonPrefab = _prefabService.GetPrefab<Button>();
+        }
+        
+        
+
+        public void SpawnButton(string _buttonName, Vector2 position, float width, float height, Action onclick)
+        {
+            var button = Object.Instantiate(ButtonPrefab, _canvas.transform);
+            button.name = _buttonName;
             if (button.transform is RectTransform rt)
             {
                 rt.pivot = new Vector2(.5f, .5f);
@@ -40,7 +55,7 @@ namespace Modules
                 rt.anchoredPosition = position;
             }
             button.onClick.AddListener(() => onclick.Invoke());
-            _elements.Add(name, button);
+            _elements.Add(_buttonName, button);
         }
 
         public void MoveElement(string key, Vector2 newPosition)
@@ -88,5 +103,6 @@ namespace Modules
             }
             return null;
         }
+
     }
 }

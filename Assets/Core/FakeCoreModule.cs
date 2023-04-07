@@ -93,7 +93,7 @@ namespace Luncay.Core
         {
             _someLuaScript.Globals["EventBusProxy"] = new EventBus.EventBus();
             _someLuaScript.Globals["AudioModuleProxy"] = new AudioModule();
-            _someLuaScript.Globals["GraphicsModuleProxy"] = new GraphicsModule();
+            //  _someLuaScript.Globals["GraphicsModuleProxy"] = new GraphicsModule();
 
         }
 

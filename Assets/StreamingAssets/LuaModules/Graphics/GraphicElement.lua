@@ -1,7 +1,6 @@
-﻿require("math")
-
+﻿
 Position = {x, y}
-GraphicElement =  {uuid, name, Position, width, height, onUpdate}
+GraphicElement =  {name, Position, width, height, onUpdate}
 
 Updatables = {}
 
@@ -10,7 +9,6 @@ GraphicElement.__index = GraphicElement
 
 function GraphicElement.new(name, positionx, positiony, width, height)
     local instance = setmetatable({}, GraphicElement)
-    instance.uuid = GraphicElement:createUuid(name)
     instance.name = name
     instance.pos = Position.new(positionx, positiony)
     instance.width = width
