@@ -1,34 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using HamerSoft.Howl.Core;
 using LuaBridge.Core.Services.Abstract;
-using Luncay.Core;
-using UnityEngine.UI;
+using LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Interface;
+using LuaBridge.Unity.Scripts.LuaBridgesGames.Managers;
 using MoonSharp.Interpreter;
 using Services.Prefab;
 using UnityEngine;
+using UnityEngine.UI;
 using Object = UnityEngine.Object;
+using Random = System.Random;
 
-namespace Modules
+namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
 {
-    public class CanvasManager : IBootService
+    public class UGuiCanvasService : IUIService
     {
-        public static CanvasManager instance { get; private set; }
-        private Button ButtonPrefab;
-        private Dictionary<string, MonoBehaviour> _elements;
         private readonly IPrefabService _prefabService;
         private readonly Canvas _canvas;
-        private readonly RootView _root;
+        private Button ButtonPrefab;
+        private Dictionary<string, MonoBehaviour> _elements;
+        private Random rand;
 
-        public CanvasManager(IPrefabService prefabService, Canvas canvas)
+        public UGuiCanvasService(IPrefabService prefabService, Canvas canvas)
         {
             _prefabService = prefabService;
             _canvas = canvas;
-            _root = _canvas.GetComponentInChildren<RootView>();
-            instance = this;
             _elements = new Dictionary<string, MonoBehaviour>();
-            Debug.Log("awake");
-            
             /*Task.Run(() =>
             {
                 var script = new Script();
@@ -39,28 +37,27 @@ namespace Modules
         
         public void Boot()
         {
+            rand = new Random();
             ButtonPrefab = _prefabService.GetPrefab<Button>();
         }
         
-        
-
-        public void SpawnButton(string _buttonName, Vector2 position, float width, float height, Action onclick)
+        public void SpawnButton(string key, Vector2 position, float width, float height, Action onclick)
         {
             var button = Object.Instantiate(ButtonPrefab, _canvas.transform);
-            button.name = _buttonName;
+            button.name = key;
             if (button.transform is RectTransform rt)
             {
                 rt.pivot = new Vector2(.5f, .5f);
                 rt.sizeDelta = new Vector2(width, height);
                 rt.anchoredPosition = position;
             }
-            button.onClick.AddListener(() => onclick.Invoke());
-            _elements.Add(_buttonName, button);
+            button.onClick.AddListener(() => onclick?.Invoke());
+            _elements.Add(key, button);
         }
 
         public void MoveElement(string key, Vector2 newPosition)
         {
-            RectTransform element = GetElementByName(key);
+            RectTransform element = GetElementByKey(key);
             if (element != null)
                 element.anchoredPosition = newPosition;
             else
@@ -82,27 +79,44 @@ namespace Modules
             Debug.Log("Test");
         }
 
-        public void MoveWithDotween(string name, float endPositionX, float endPositionY, float time, DynValue callback)
+        public void MoveWithDotween(string key, float endPositionX, float endPositionY, float time, Action callback)
         {
-            GetElementByName(name).DOAnchorPos(new Vector3(endPositionX, endPositionY),5).OnComplete(() =>
-            {
-                // Call function
-                if (callback != null)
-                    FakeCoreModule.fakeCoreModule.CallFunction(callback);
-            });
+
+        }
+        
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
 
-        private RectTransform GetElementByName(string name)
+        public List<T> GetAllElementsFromType<T>(T type)
         {
-            if (_elements.TryGetValue(name, out var element))
+            throw new NotImplementedException();
+        }
+
+        public RectTransform GetElementByKey(string key)
+        {
+            if (_elements.TryGetValue(key, out var element))
             {
                 if (element.transform is RectTransform rectTransform)
                 {
                     return rectTransform;
                 }
             }
-            return null;
+            return null;        
         }
 
+        public void MoveElementWithDoTween(string key, Vector2 endposition, float time)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MoveElementWithDoTweenCallback(string key, Vector2 endposition, float time, Action callback)
+        {
+            GetElementByKey(key).DOAnchorPos(new Vector3(endposition.x, endposition.y),time).OnComplete(() =>
+            {
+                callback?.Invoke();
+            }).SetEase(Ease.InOutCubic);
+        }
     }
 }

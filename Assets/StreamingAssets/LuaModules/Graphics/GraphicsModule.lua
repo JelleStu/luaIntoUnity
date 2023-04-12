@@ -13,9 +13,7 @@ function GraphicsModule:SpawnElement(name)
 end
 
 function GraphicsModule:SpawnButton(name, positionx, positiony, width, height, onclick)
-    print("b")
     canvas:SpawnButton(name, positionx, positiony, width, height, onclick)
-    print(GraphicsModuleProxy)
     GraphicsModuleProxy.SpawnButton(name, positionx, positiony, width, height, onclick)
 end
 

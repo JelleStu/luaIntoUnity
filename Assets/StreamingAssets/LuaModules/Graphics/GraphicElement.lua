@@ -1,5 +1,4 @@
-﻿
-Position = {x, y}
+﻿Position = {x, y}
 GraphicElement =  {name, Position, width, height, onUpdate}
 
 Updatables = {}
@@ -66,15 +65,6 @@ end
 
 function GraphicElement:GetCurrentPosition()
 return self.pos
-end
-
-local random = math.random
-function GraphicElement:createUuid(name)
-    local template ='xxxxxxxx-xxxx-xxxx-yxxx-xxxxxxxxxxxx'
-    return string.gsub(template, '[xy]', function (c)
-        local v = (c == 'x') and random(0, 0xf) or random(8, 0xb)
-        return string.format('%x', v)
-    end)
 end
 
 function GraphicElement:tablelength()

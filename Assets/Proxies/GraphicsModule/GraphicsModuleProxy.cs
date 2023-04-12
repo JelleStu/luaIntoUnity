@@ -8,10 +8,10 @@ namespace Proxies.GraphicsModule
 {
     public class GraphicsModuleProxy : SingletonProxy
     {
-        private Modules.Graphics.GraphicsModule _graphicsModuleTarget;
+        private LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule.GraphicsModule _graphicsModuleTarget;
 
         [MoonSharpHidden]
-        public GraphicsModuleProxy(Modules.Graphics.GraphicsModule graphicsModuleTarget) : base(graphicsModuleTarget)
+        public GraphicsModuleProxy(LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule.GraphicsModule graphicsModuleTarget) : base(graphicsModuleTarget)
         {
             _graphicsModuleTarget = graphicsModuleTarget;
         }
@@ -28,7 +28,7 @@ namespace Proxies.GraphicsModule
             _graphicsModuleTarget.MoveElement(name, new Vector2(positionx, positiony));
         }
 
-        public void MoveButtonToLocationWithDoTween(string name, float endPositionX, float endPositionY, float time, DynValue callback)
+        public void MoveButtonToLocationWithDoTween(string name, float endPositionX, float endPositionY, float time, Action callback)
         {
             _graphicsModuleTarget.MoveButtonWithDoTween(name, endPositionX, endPositionY, time, callback);
         }

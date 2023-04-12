@@ -10,17 +10,17 @@ namespace LuaBridge.Proxies.EventBus
 
     public class EventBusProxy : IEventBusProxy
     {
-        private Luncay.Core.EventBus.EventBus target;
+        private Core.Events.EventBus target;
 
         [MoonSharpHidden]
-        public EventBusProxy(Luncay.Core.EventBus.EventBus proxyEventBus)
+        public EventBusProxy(Core.Events.EventBus proxyEventBus)
         {
             this.target = proxyEventBus;
         }
         [Preserve]
         public void Publish(string message)
         {
-            target.Publish(message);
+            Core.Events.EventBus.Publish(message);
         }
     }
 }

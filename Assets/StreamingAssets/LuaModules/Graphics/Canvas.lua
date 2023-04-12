@@ -62,6 +62,12 @@ end
 
 function Canvas:MoveElement(object, newpositionX, newpositionY)
     local objectToMove = Canvas.objectsOnCanvas[object.name]
+    if newpositionY == nil then
+        newpositionY = objectToMove.y
+    end
+    if newpositionX == nil then
+        newpositionX = objectToMove.x
+    end
     objectToMove:SetNewPosition(newpositionX, newpositionY)
 end
 

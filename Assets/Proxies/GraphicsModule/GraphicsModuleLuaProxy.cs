@@ -1,5 +1,4 @@
-﻿using Luncay.Core;
-using MoonSharp.Interpreter;
+﻿using MoonSharp.Interpreter;
 
 namespace Proxies.GraphicsModule
 {
