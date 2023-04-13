@@ -9,15 +9,19 @@ local Graphics = require 'Graphics.GraphicsModule'
 local graphicsModule = nil
 local player = nil
 
+local playerTurn = 1
+local gameEnd = 0
+
 function Player.new()
     local instance = setmetatable({}, Player)
     graphicsModule = Graphics.new()
     return instance
 end
 
-function Player:Initialize()
-       player = Player.new()
-    return true
+function Player:Initialize(callback)
+    player = Player.new()
+    graphicsModule:CreateGrid(3,3)
+    callback()
 end
 
 function Player:SendEvent(message)
@@ -25,10 +29,19 @@ function Player:SendEvent(message)
 end
 
 function Player:GameStart()
-    eventBus:Publish("Sound! pu")
-    audioModule:PlayAudio(function(s)
-        Player:SendEvent(s)
-    end)
+end
+
+function Player:CreateGrid()
+    graphicsModule:CreateGrid(3,3)
+end
+
+function Player:GameStart()
+    --Show message player 1 can GameStart
+
+end
+
+function Player:ButtonIsClicked(name)
+    --Get Position from button
 end
 
 function Player:Update()
@@ -53,27 +66,10 @@ function Player:SpawnMultipleButtons(amountOfButtons, callback)
     for i = amountOfButtons, 1, -1 do
         local name = "buttonFromLua" .. tostring(i)
         graphicsModule:SpawnButton(name, math.random(100, 900), math.random(100, 900), 100, 100)
-        Player:MoveButtonToMaxXOfCanvas(name)
     end
     callback()
 end
 
-function Player:MoveButtonToMaxOfCanvasWithDotween(name)
-    local button = graphicsModule:GetElementByName(name)
-    local buttonY = button.pos.y
-    graphicsModule:MoveButtonToLocationWithDoTween(button.name, graphicsModule:GetCanvasWidth() - button.width, buttonY, math.random(1, 20), function()
-        Player:MoveButtonToMinOfCanvasWithDotween(button.name)
-    end)
-
-end
-
-function Player:MoveButtonToMinOfCanvasWithDotween(name)
-    local button = graphicsModule:GetElementByName(name)
-    local buttonY = button.pos.y
-    graphicsModule:MoveButtonToLocationWithDoTween(button.name, button.width, buttonY, math.random(1, 20), function()
-        Player:MoveButtonToMaxOfCanvasWithDotween(button.name)
-    end)
-end
 
 function Player:MoveButtonToMaxXOfCanvas(name)
     local button = graphicsModule:GetElementByName(name)

@@ -19,6 +19,7 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesGames.Managers
         private readonly IUIService _canvasService;
         private ISandbox _sandbox;
         private UpdateLoop _updateloop;
+        private bool _luaManagerInitialized = false;
 
         public GameManager(IApi api, IUIService canvasService)
         {
@@ -30,7 +31,6 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesGames.Managers
         public void Initialize()
         {
             Application.targetFrameRate = 80;
-            QualitySettings.vSyncCount = 0;
             _sandbox = _api.CreateSandBox(new SandboxConfig("GeneralGameSandbox", $"{Path.Combine(Application.streamingAssetsPath, "LuaModules")}", $"Player"));
             Script.GlobalOptions.CustomConverters.SetScriptToClrCustomConversion(DataType.Function, typeof(Action),
                 v =>
@@ -50,20 +50,21 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesGames.Managers
 
         private void UpdateLoopOnUpdate_Handler()
         {
-            _sandbox.Invoke("Player:Update");
+            if (_luaManagerInitialized)
+                _sandbox.Invoke("Player:Update");
         }
 
         private void EventRaiserOnStarted_Handler()
         {
             _eventRaiser.Started += EventRaiserOnStarted_Handler;
             _sandbox.Start();
-            _sandbox.Invoke("Player:Initialize");
-            _sandbox.Invoke("Player:SpawnMultipleButtons", "player", 25, (Action) test);
+            _sandbox.Invoke("Player:Initialize", null, (Action) InitializeCallback);
+           // _sandbox.Invoke("Player:SpawnMultipleButtons", "player", 250, (Action) test);
         }
 
-        private void test()
+        private void InitializeCallback()
         {
-            return;
+            _luaManagerInitialized = true;
         }
 
 

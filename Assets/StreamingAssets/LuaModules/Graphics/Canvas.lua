@@ -4,6 +4,9 @@ local GraphicElement = require 'Graphics.GraphicElement'
 
 local Canvas = {width = 1920, height = 1080,  objectsOnCanvas = {}}
 
+local Grid = {}
+
+
 function Canvas.new(width, height)
     Canvas.width = width
     Canvas.height = height

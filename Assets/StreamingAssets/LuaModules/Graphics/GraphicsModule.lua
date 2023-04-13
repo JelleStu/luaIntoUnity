@@ -30,6 +30,17 @@ function GraphicsModule:GetCanvasWidth()
     return canvas:GetCanvasWidth()
 end
 
+function GraphicsModule:CreateGrid(width, height)
+    for widthI = 0, (width - 1), 1 do
+        for heightI = 0, (height - 1), 1 do
+            print(heightI)
+            GraphicsModule:SpawnButton("GridButton X = " .. tostring(widthI) .. tostring(heightI),  (canvas:GetCanvasWidth() * 0.5) + (100 * widthI), (canvas:GetCanvasHeight() * 0.5 ) + (100 * heightI), 100, 100, function ()
+                print("clicked" .. "position x = " ..  tostring(widthI) ..  "position y =" .. tostring(heightI))
+            end )
+        end
+    end
+end
+
 function GraphicsModule:GetCanvasHeight()
     return canvas:GetCanvasHeight()
 end
