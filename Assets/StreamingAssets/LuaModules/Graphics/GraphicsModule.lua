@@ -12,9 +12,9 @@ function GraphicsModule:SpawnElement(name)
     canvas:SpawnElement(canvas, name)
 end
 
-function GraphicsModule:CreateButton(name, positionx, positiony, width, height, onclick)
-    canvas:CreateButton(name, positionx, positiony, width, height, onclick)
-    GraphicsModuleProxy.CreateButton(name, positionx, positiony, width, height, onclick)
+function GraphicsModule:CreateButton(name, positionx, positiony, width, height, text, onclick)
+    canvas:CreateButton(name, positionx, positiony, width, height, text, onclick)
+    GraphicsServiceProxy.CreateButton(name, positionx, positiony, width, height, text, onclick)
 end
 
 function GraphicsModule:GetElementByName(name)
@@ -23,17 +23,16 @@ end
 
 function GraphicsModule:MoveElement(object, newpositionX, newpositionY)
     canvas:MoveElement(object, newpositionX, newpositionY)
-    GraphicsModuleProxy.MoveElement(object.name, newpositionX, newpositionY)
+    GraphicsServiceProxy.MoveElement(object.name, newpositionX, newpositionY)
 end
 
 function GraphicsModule:CreateTextLabel(name, positionx, positiony, width, height, text)
     canvas:CreateTextLabel(name, positionx, positiony, width, height, text)
-    GraphicsModuleProxy.CreateTextLabel(name, positionx, positiony, width, height, text)
+    GraphicsServiceProxy.CreateTextLabel(name, positionx, positiony, width, height, text)
 end
 
-
-function GraphicsModule:CreateGrid(width, height)
-    
+function GraphicsModule:SetTextLabelText(name, newtext)
+    GraphicsServiceProxy.SetTextLabelText(name, newtext)
 end
 
 function GraphicsModule:GetCanvasHeight()

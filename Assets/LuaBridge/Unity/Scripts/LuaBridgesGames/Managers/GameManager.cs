@@ -2,9 +2,9 @@
 using System.IO;
 using HamerSoft.Howl.Core;
 using LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule;
+using LuaBridge.Unity.Scripts.LuabridgeProxies.GraphicsService;
 using LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Interface;
 using MoonSharp.Interpreter;
-using Proxies.GraphicsModule;
 using UnityEngine;
 using Utils.Unity;
 using Script = MoonSharp.Interpreter.Script;
@@ -41,11 +41,12 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesGames.Managers
                 }
                 
             );
-            _api.AddProxy(new GraphicsModuleProxy(new GraphicsModule(_canvasService)));
+            _api.AddProxy(new GraphicsServiceProxy(new GraphicsModule(_canvasService)));
             _eventRaiser = new GameObject("UnityEvents").AddComponent<EventRaiser>();
             _updateloop = new GameObject("UpdateLoop").AddComponent<UpdateLoop>();
             _eventRaiser.Started += EventRaiserOnStarted_Handler;
             _updateloop.Updated += UpdateLoopOnUpdate_Handler;
+            
         }
 
         private void UpdateLoopOnUpdate_Handler()
@@ -59,7 +60,6 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesGames.Managers
             _eventRaiser.Started += EventRaiserOnStarted_Handler;
             _sandbox.Start();
             _sandbox.Invoke("Player:Initialize", null, (Action) InitializeCallback);
-           // _sandbox.Invoke("Player:SpawnMultipleButtons", "player", 250, (Action) test);
         }
 
         private void InitializeCallback()

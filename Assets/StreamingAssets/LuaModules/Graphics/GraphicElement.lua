@@ -46,17 +46,16 @@ function GraphicElement:Update()
 end
 
 
-function GraphicElement:CreateButton(name, positionx, positiony, width, height, onclick)
+function GraphicElement:CreateButton(name, positionx, positiony, width, height, text, onclick)
     local Button = GraphicElement.new(name, positionx, positiony, width, height)
+    Button.text = text
     Button.onclick=onclick
     return Button;
 end
 
 function GraphicElement:CreateTextLabel(name, positionx, positiony, width, height, text)
-    print("textlabel graphicelement")
-
     local Textlabel = GraphicElement.new(name, positionx, positiony, width, height)
-    Textlabel.Text = text
+    Textlabel.text = text
     return Textlabel;
 end
 

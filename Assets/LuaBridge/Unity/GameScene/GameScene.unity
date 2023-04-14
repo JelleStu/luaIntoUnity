@@ -638,6 +638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1718190276}
+  startGameButton: {fileID: 1026768302}
 --- !u!4 &805273535
 Transform:
   m_ObjectHideFlags: 0
@@ -750,7 +751,7 @@ GameObject:
   - component: {fileID: 1026768303}
   - component: {fileID: 1026768302}
   m_Layer: 5
-  m_Name: ExecuteScriptbutton
+  m_Name: StartGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -772,9 +773,9 @@ RectTransform:
   m_Father: {fileID: 432263102}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25.4, y: 419}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 349.09998, y: 867.3}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1026768302
@@ -908,7 +909,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 980.9, y: 1016.9}
+  m_AnchoredPosition: {x: 350, y: 929.8}
   m_SizeDelta: {x: 225.48999, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1542109603

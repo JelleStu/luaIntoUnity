@@ -38,7 +38,7 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             textLabelPrefab = _prefabService.GetPrefab<TextMeshProUGUI>();
         }
         
-        public void CreateButton(string key, Vector2 position, float width, float height, Action onclick)
+        public void CreateButton(string key, Vector2 position, float width, float height, string text, Action onclick)
         {
             var button = Object.Instantiate(buttonPrefab, _canvas.transform);
             button.name = key;
@@ -49,6 +49,7 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
                 rt.anchoredPosition = position;
             }
             button.onClick.AddListener(() => onclick?.Invoke());
+            button.GetComponentInChildren<TextMeshProUGUI>().text = text;
             _elements.Add(key, button);
         }
 
@@ -66,9 +67,15 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             textLabel.text = text;
             _elements.Add(key, textLabel);        }
 
+        public void SetTextLabelText(string elementKey, string newText)
+        {
+            var textLabel = (TextMeshProUGUI) GetElementByKey(elementKey);
+            textLabel.text = newText;
+        }
+
         public void MoveElement(string key, Vector2 newPosition)
         {
-            RectTransform element = GetElementByKey(key);
+            RectTransform element = GetRectTransformByKey(key);
             if (element != null)
                 element.anchoredPosition = newPosition;
             else
@@ -91,7 +98,7 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             throw new NotImplementedException();
         }
 
-        public RectTransform GetElementByKey(string key)
+        public RectTransform GetRectTransformByKey(string key)
         {
             if (_elements.TryGetValue(key, out var element))
             {
@@ -102,6 +109,12 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             }
             return null;        
         }
+
+        private MonoBehaviour GetElementByKey(string key)
+        {
+            return _elements.TryGetValue(key, out var element) ? element : null;
+        }
+            
         
         public void Dispose()
         {

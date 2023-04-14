@@ -80,7 +80,7 @@ namespace LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest
         [Test]
         public void TestSpawnButton()
         {
-            graphicsModule.CreateButton("test", new Vector2(1000, 500), 250, 250, () => Debug.Log("clicked") );
+            graphicsModule.CreateButton("test", new Vector2(1000, 500), 250, 250, "test", () => Debug.Log("clicked") );
             Assert.Positive(uiService.GetAllKeys().Count);
         }
 

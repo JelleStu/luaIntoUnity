@@ -20,16 +20,13 @@ function Canvas:CreateElement(name)
     element = nil
 end
 
-function Canvas:CreateButton(name, positionx, positiony, width, height, onclick)
-    local button = GraphicElement:CreateButton(name, positionx, positiony, width, height, onclick)
+function Canvas:CreateButton(name, positionx, positiony, width, height, text, onclick)
+    local button = GraphicElement:CreateButton(name, positionx, positiony, width, height, text, onclick)
     Canvas:addObjectToCanvas(button)
 end
 
 function Canvas:CreateTextLabel(name, positionx, positiony, width, height, text)
-    print("textlabel canvas")
-
     local textlabel = GraphicElement:CreateTextLabel(name, positionx, positiony, width, height, text)
-    print(textlabel.Text)
     Canvas:addObjectToCanvas(textlabel)
 end
 

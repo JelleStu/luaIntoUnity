@@ -15,9 +15,9 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule
 
         #region Spawn elements methods
 
-        public void CreateButton(string name, Vector2 position, float width, float height, Action onclick)
+        public void CreateButton(string name, Vector2 position, float width, float height,string text, Action onclick)
         {
-            UIService.CreateButton(name, position, width, height, onclick);
+            UIService.CreateButton(name, position, width, height, text,onclick);
         }
         
         public void CreateTextLabel(string name, Vector2 position, float width, float height, string text)
@@ -28,6 +28,14 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule
         #endregion
 
 
+        #region Edit elements methods
+
+        public void SetTextLabelText(string elementKey, string newText)
+        {
+            UIService.SetTextLabelText(elementKey, newText);
+        }
+
+        #endregion
         public void MoveElement(string name, Vector2 newPosition)
         {
             UIService.MoveElement(name, newPosition);
