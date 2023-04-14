@@ -20,6 +20,7 @@ local PLAYER_2 = "o"	-- Player 2 is represented by this.
 local EMPTY_SPACE = " "	-- An empty space is displayed like this.
 local playerTurn = 1
 local gameEnd = 0
+local grid = {}
 
 local InstructionLabel = "InstructionLabel"
 
@@ -45,12 +46,15 @@ end
 
 function Player:CreateGrid()
     for widthI = 0, (BOARD_RANK - 1), 1 do
+        grid[widthI] = {}
         for heightI = 0, (BOARD_RANK - 1), 1 do
             local btnName = "BtnX" .. tostring(widthI) .. "Y" .. tostring(heightI)
             graphicsModule:CreateButton(btnName,  (graphicsModule:GetCanvasWidth() * 0.5) + (100 * widthI) + 50, (graphicsModule:GetCanvasHeight() * 0.5 ) + (100 * heightI),
              100, 100, EMPTY_SPACE, function ()
                 print("clicked" .. "position x = " ..  tostring(widthI) ..  "position y =" .. tostring(heightI))
             end )
+            grid[widthI][heightI] = graphicsModule:GetElementByName(name)
+
         end
     end
 end
