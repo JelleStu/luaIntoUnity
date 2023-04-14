@@ -10,31 +10,33 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule
 
         public GraphicsModule(IUIService uiService)
         {
-            this.UIService = uiService;
+            UIService = uiService;
         }
 
-        public void Spawnbutton(string name, Vector2 position, float width, float height, Action onclick)
+        #region Spawn elements methods
+
+        public void CreateButton(string name, Vector2 position, float width, float height, Action onclick)
         {
-            UIService.SpawnButton(name, position, width, height, onclick);
+            UIService.CreateButton(name, position, width, height, onclick);
         }
+        
+        public void CreateTextLabel(string name, Vector2 position, float width, float height, string text)
+        {
+            UIService.CreateTextLabel(name, position, width, height, text);
+        }
+
+        #endregion
+
 
         public void MoveElement(string name, Vector2 newPosition)
         {
             UIService.MoveElement(name, newPosition);
         }
-
-        public void StartCoroutine()
-        {
-        }
-
+        
         public void Update()
         {
             //UIService.Update()
         }
-
-        public void MoveButtonWithDoTween(string name, float endPositionX, float endPositionY, float time, Action callback)
-        {
-            UIService.MoveElementWithDoTweenCallback(name, new Vector2(endPositionX, endPositionY), time, callback);
-        }
+        
     }
 }

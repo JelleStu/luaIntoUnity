@@ -1,9 +1,9 @@
+using System;
 using System.Threading.Tasks;
 using HamerSoft.Howl.Core;
 using HamerSoft.Howl.Sharp;
 using LuaBridge.Core.Abstract;
 using LuaBridge.Core.Configuration;
-using LuaBridge.Core.Utils.Threading;
 using LuaBridge.Modules.Audio;
 using LuaBridge.Unity.Scripts;
 using LuaBridge.Unity.Scripts.LuaBridgeHelpers.JSonSerializer;
@@ -13,6 +13,8 @@ using LuaBridge.Unity.Scripts.LuaBridgesGames.Managers;
 using Services;
 using Services.Prefab;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Object = UnityEngine.Object;
 
 namespace GameModule.Unity.Scripts
 {
@@ -20,12 +22,14 @@ namespace GameModule.Unity.Scripts
     {
         private static bool _initialized;
 
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void SceneStarted()
         {
             if (_initialized)
                 return;
             _initialized = true;
+            if (SceneManager.GetActiveScene().name.Contains("test", StringComparison.InvariantCultureIgnoreCase))
+                return;
             InitAppContainer();
         }
 
@@ -47,7 +51,7 @@ namespace GameModule.Unity.Scripts
                 container.GetService<IPrefabService>().Boot(),
                 container.GetService<AudioModule>().Boot()
                 );
-
+            
             container.GetService<IUIService>().Boot();
             var gameManager = container.GetService<GameManager>(); 
             gameManager.Initialize();

@@ -52,9 +52,11 @@ function GraphicElement:CreateButton(name, positionx, positiony, width, height, 
     return Button;
 end
 
-function GraphicElement:CreateTextLabel(name, positionx, positiony, width, height, labeltext)
+function GraphicElement:CreateTextLabel(name, positionx, positiony, width, height, text)
+    print("textlabel graphicelement")
+
     local Textlabel = GraphicElement.new(name, positionx, positiony, width, height)
-    Textlabel.Text = labeltext
+    Textlabel.Text = text
     return Textlabel;
 end
 

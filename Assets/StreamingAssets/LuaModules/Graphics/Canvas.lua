@@ -14,19 +14,21 @@ function Canvas.new(width, height)
     return Canvas
 end
 
-function Canvas:SpawnElement(name)
+function Canvas:CreateElement(name)
     local element = GraphicElement:new(name,positionX, positionY, width, height)
     Canvas:addObjectToCanvas(element)
     element = nil
 end
 
-function Canvas:SpawnButton(name, positionx, positiony, width, height, onclick)
+function Canvas:CreateButton(name, positionx, positiony, width, height, onclick)
     local button = GraphicElement:CreateButton(name, positionx, positiony, width, height, onclick)
     Canvas:addObjectToCanvas(button)
 end
 
-function Canvas:SpawnTextlabel(name, textlabel)
-    local textlabel = GraphicElement:CreateTextLabel(name, textlabel)
+function Canvas:CreateTextLabel(name, positionx, positiony, width, height, text)
+    print("textlabel canvas")
+
+    local textlabel = GraphicElement:CreateTextLabel(name, positionx, positiony, width, height, text)
     print(textlabel.Text)
     Canvas:addObjectToCanvas(textlabel)
 end

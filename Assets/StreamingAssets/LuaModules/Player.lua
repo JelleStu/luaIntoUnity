@@ -9,6 +9,13 @@ local Graphics = require 'Graphics.GraphicsModule'
 local graphicsModule = nil
 local player = nil
 
+BOARD_RANK = 3	-- The board will be this in both dimensions.
+PLAYER_1 = "x"	-- Player 1 is represented by this. Player 1 goes first.
+PLAYER_2 = "o"	-- Player 2 is represented by this.
+EMPTY_SPACE = " "	-- An empty space is displayed like this.
+
+grid = {}
+
 local playerTurn = 1
 local gameEnd = 0
 
@@ -20,7 +27,8 @@ end
 
 function Player:Initialize(callback)
     player = Player.new()
-    graphicsModule:CreateGrid(3,3)
+    Player:CreateGrid()
+    graphicsModule:CreateTextLabel("InstructionLabel",  graphicsModule:GetCanvasWidth() * 0.5, (graphicsModule:GetCanvasHeight() * 0.5) + 250, 250, 100, "<color=red>Text from LUA</color>")
     callback()
 end
 
@@ -32,7 +40,14 @@ function Player:GameStart()
 end
 
 function Player:CreateGrid()
-    graphicsModule:CreateGrid(3,3)
+    for widthI = 0, (BOARD_RANK - 1), 1 do
+        for heightI = 0, (BOARD_RANK - 1), 1 do
+            local btnName = "BtnX" .. tostring(widthI) .. "Y" .. tostring(heightI)
+            GraphicsModule:CreateButton(btnName,  (GraphicsModule:GetCanvasWidth() * 0.5) + (100 * widthI) + 50, (GraphicsModule:GetCanvasHeight() * 0.5 ) + (100 * heightI), 100, 100, function ()
+                print("clicked" .. "position x = " ..  tostring(widthI) ..  "position y =" .. tostring(heightI))
+            end )
+        end
+    end
 end
 
 function Player:GameStart()

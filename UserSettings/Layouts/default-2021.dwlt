@@ -15,11 +15,11 @@ MonoBehaviour:
   m_PixelRect:
     serializedVersion: 2
     x: 0
-    y: 43
-    width: 2560
-    height: 1349
+    y: 42.666668
+    width: 1706.6667
+    height: 976
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Console
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -39,15 +39,15 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 373
+    x: 782.6667
     y: 0
-    width: 686
-    height: 905
+    width: 313.99994
+    height: 645.3333
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 18}
+  m_ActualView: {fileID: 19}
   m_Panes:
-  - {fileID: 18}
+  - {fileID: 19}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &3
@@ -69,12 +69,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1059
-    height: 905
+    width: 1096.6666
+    height: 645.3333
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 26
+  controlID: 17
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -95,8 +95,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 2560
-    height: 1349
+    width: 1706.6666
+    height: 976
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
@@ -120,7 +120,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 2560
+    width: 1706.6666
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -141,8 +141,8 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 1329
-    width: 2560
+    y: 956
+    width: 1706.6666
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -165,12 +165,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
-    width: 2560
-    height: 1299
+    width: 1706.6666
+    height: 926
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 47
+  controlID: 15
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -190,12 +190,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1501
-    height: 1299
+    width: 610
+    height: 926
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 48
+  controlID: 84
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -213,14 +213,14 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1501
-    height: 894
+    width: 610
+    height: 637.3333
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 19}
+  m_ActualView: {fileID: 20}
   m_Panes:
-  - {fileID: 14}
-  - {fileID: 19}
+  - {fileID: 15}
+  - {fileID: 20}
   m_Selected: 1
   m_LastSelected: 0
 --- !u!114 &10
@@ -239,14 +239,14 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 894
-    width: 1501
-    height: 405
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 15}
+    y: 637.3333
+    width: 610
+    height: 288.6667
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 16}
   m_Panes:
-  - {fileID: 15}
+  - {fileID: 16}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &11
@@ -266,14 +266,14 @@ MonoBehaviour:
   - {fileID: 13}
   m_Position:
     serializedVersion: 2
-    x: 1501
+    x: 610
     y: 0
-    width: 1059
-    height: 1299
+    width: 1096.6666
+    height: 926
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 25
+  controlID: 16
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -284,21 +284,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SceneHierarchyWindow
+  m_Name: TestRunnerWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 373
-    height: 905
-  m_MinSize: {x: 202, y: 221}
+    width: 782.6667
+    height: 645.3333
+  m_MinSize: {x: 102, y: 121}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 16}
+  m_ActualView: {fileID: 14}
   m_Panes:
-  - {fileID: 16}
-  m_Selected: 0
+  - {fileID: 17}
+  - {fileID: 14}
+  m_Selected: 1
   m_LastSelected: 0
 --- !u!114 &13
 MonoBehaviour:
@@ -316,17 +317,2295 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 905
-    width: 1059
-    height: 394
+    y: 645.3333
+    width: 1096.6666
+    height: 280.6667
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 17}
+  m_ActualView: {fileID: 18}
   m_Panes:
-  - {fileID: 17}
+  - {fileID: 18}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &14
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13401, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Test Runner
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 610
+    y: 72.66667
+    width: 780.6667
+    height: 624.3333
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_Spl:
+    ID: 151
+    splitterInitialOffset: 0
+    currentActiveSplitter: -1
+    realSizes:
+    - 415.3333
+    - 138.66667
+    relativeSizes:
+    - 0.75
+    - 0.25
+    minSizes:
+    - 32
+    - 32
+    maxSizes:
+    - 0
+    - 0
+    lastTotalSize: 554
+    splitSize: 6
+    xOffset: 0
+    m_Version: 1
+    oldRealSizes: 
+    oldMinSizes: 
+    oldMaxSizes: 
+    oldSplitSize: 0
+  m_TestTypeToolbarIndex: 0
+  m_PlayModeTestListGUI:
+    m_Window: {fileID: 14}
+    m_NewResultList:
+    - id: 1118
+      uniqueId: '[moonsharp][suite]'
+      name: moonsharp
+      fullName: moonsharp
+      resultStatus: 2
+      duration: 0.3667384
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 
+      parentUniqueId: 
+    - id: 1003
+      uniqueId: '[Tests.dll][suite]'
+      name: Tests.dll
+      fullName: C:/Users/Jelle Stukstette/Desktop/luaIntoUnity/Library/ScriptAssemblies/Tests.dll
+      resultStatus: 2
+      duration: 0.1623776
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[moonsharp][suite]'
+    - id: 1004
+      uniqueId: Tests.dll/[LuaBridge][suite]
+      name: LuaBridge
+      fullName: LuaBridge
+      resultStatus: 2
+      duration: 0.1571291
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1003
+      parentUniqueId: '[Tests.dll][suite]'
+    - id: 1005
+      uniqueId: Tests.dll/LuaBridge/[Unity][suite]
+      name: Unity
+      fullName: LuaBridge.Unity
+      resultStatus: 2
+      duration: 0.1340043
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1004
+      parentUniqueId: Tests.dll/[LuaBridge][suite]
+    - id: 1006
+      uniqueId: Tests.dll/LuaBridge/Unity/[Scripts][suite]
+      name: Scripts
+      fullName: LuaBridge.Unity.Scripts
+      resultStatus: 2
+      duration: 0.132383
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1005
+      parentUniqueId: Tests.dll/LuaBridge/[Unity][suite]
+    - id: 1007
+      uniqueId: Tests.dll/LuaBridge/Unity/Scripts/[Tests][suite]
+      name: Tests
+      fullName: LuaBridge.Unity.Scripts.Tests
+      resultStatus: 2
+      duration: 0.11997
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1006
+      parentUniqueId: Tests.dll/LuaBridge/Unity/[Scripts][suite]
+    - id: 1009
+      uniqueId: Tests.dll/LuaBridge/Unity/Scripts/Tests/[Tests][suite]
+      name: Tests
+      fullName: LuaBridge.Unity.Scripts.Tests.Tests
+      resultStatus: 2
+      duration: 0.1010297
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1008
+      parentUniqueId: Tests.dll/LuaBridge/Unity/Scripts/[Tests][suite]
+    - id: 1010
+      uniqueId: Tests.dll/LuaBridge/Unity/Scripts/Tests/Tests/[Tests][LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest][suite]
+      name: UIServiceTest
+      fullName: LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest
+      resultStatus: 2
+      duration: 0.0919937
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1009
+      parentUniqueId: Tests.dll/LuaBridge/Unity/Scripts/Tests/[Tests][suite]
+    - id: 1001
+      uniqueId: Tests.dll/LuaBridge/Unity/Scripts/Tests/Tests/UIServiceTest/[Tests][LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest][suite]
+      name: CreateButtonTest
+      fullName: LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest
+      resultStatus: 2
+      duration: 0.0836736
+      messages: 'One or more child tests had errors
+
+        TearDown : System.NotImplementedException
+        : The method or operation is not implemented.'
+      output: 
+      stacktrace: "--TearDown\r\n  at LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services.UGuiCanvasService.Dispose
+        () [0x00001] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Scripts\\LuaBridgeServices\\UIService\\Services\\UGuiCanvasService.cs:112
+        \r\n  at LuaBridge.Core.Configuration.AppContainer.Dispose () [0x0002d] in
+        C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Scripts\\Runtime\\Configuration\\AppContainer.cs:40
+        \r\n  at LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.LuaBridgeTest.OneTimeTearDown
+        () [0x00001] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Tests\\Tests\\UIServiceTest\\CreateButtonTest.cs:36
+        \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
+        at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x0006a] in <c9d3ffd4b98649ee9989e1908eaca019>:0 "
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1010
+      parentUniqueId: Tests.dll/LuaBridge/Unity/Scripts/Tests/Tests/[Tests][LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest][suite]
+    - id: 1003
+      uniqueId: Tests.dll/LuaBridge/Unity/Scripts/Tests/Tests/UIServiceTest/CreateButtonTest/[Tests][LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest.TestFoo]
+      name: TestFoo
+      fullName: LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest.TestFoo
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/LuaBridge/Unity/Scripts/Tests/Tests/UIServiceTest/[Tests][LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest][suite]
+    - id: 1002
+      uniqueId: Tests.dll/LuaBridge/Unity/Scripts/Tests/Tests/UIServiceTest/CreateButtonTest/[Tests][LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest.TestSpawnButton]
+      name: TestSpawnButton
+      fullName: LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest.TestSpawnButton
+      resultStatus: 2
+      duration: 0.0548676
+      messages: 'UnityEngine.MissingReferenceException : The object of type ''Canvas''
+        has been destroyed but you are still trying to access it.
+
+        Your script
+        should either check if it is null or you should not destroy the object.'
+      output: 
+      stacktrace: "  at (wrapper managed-to-native) UnityEngine.Component.get_transform(UnityEngine.Component)\r\n 
+        at LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services.UGuiCanvasService.CreateButton
+        (System.String key, UnityEngine.Vector2 position, System.Single width, System.Single
+        height, System.Action onclick) [0x0000f] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Scripts\\LuaBridgeServices\\UIService\\Services\\UGuiCanvasService.cs:43
+        \r\n  at LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule.GraphicsModule.CreateButton
+        (System.String name, UnityEngine.Vector2 position, System.Single width, System.Single
+        height, System.Action onclick) [0x00001] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Scripts\\LuaBridgeModules\\GraphicsModule\\GraphicsModule.cs:20
+        \r\n  at LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest.TestSpawnButton
+        () [0x00001] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Tests\\Tests\\UIServiceTest\\CreateButtonTest.cs:83
+        \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
+        at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x0006a] in <c9d3ffd4b98649ee9989e1908eaca019>:0 "
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/LuaBridge/Unity/Scripts/Tests/Tests/UIServiceTest/[Tests][LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest][suite]
+    m_ResultText: "TestSpawnButton (0.055s)\n---\nUnityEngine.MissingReferenceException
+      : The object of type 'Canvas' has been destroyed but you are still trying to
+      access it.\nYour script should either check if it is null or you should not
+      destroy the object.\n---\nat (wrapper managed-to-native) UnityEngine.Component.get_transform(UnityEngine.Component)\r\n 
+      at LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services.UGuiCanvasService.CreateButton
+      (System.String key, UnityEngine.Vector2 position, System.Single width, System.Single
+      height, System.Action onclick) [0x0000f] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Scripts\\LuaBridgeServices\\UIService\\Services\\UGuiCanvasService.cs:43
+      \r\n  at LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule.GraphicsModule.CreateButton
+      (System.String name, UnityEngine.Vector2 position, System.Single width, System.Single
+      height, System.Action onclick) [0x00001] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Scripts\\LuaBridgeModules\\GraphicsModule\\GraphicsModule.cs:20
+      \r\n  at LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest.TestSpawnButton
+      () [0x00001] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Tests\\Tests\\UIServiceTest\\CreateButtonTest.cs:83
+      \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
+      at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
+      invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
+      culture) [0x0006a] in <c9d3ffd4b98649ee9989e1908eaca019>:0"
+    m_ResultStacktrace: "  at (wrapper managed-to-native) UnityEngine.Component.get_transform(UnityEngine.Component)\r\n 
+      at LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services.UGuiCanvasService.CreateButton
+      (System.String key, UnityEngine.Vector2 position, System.Single width, System.Single
+      height, System.Action onclick) [0x0000f] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Scripts\\LuaBridgeServices\\UIService\\Services\\UGuiCanvasService.cs:43
+      \r\n  at LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule.GraphicsModule.CreateButton
+      (System.String name, UnityEngine.Vector2 position, System.Single width, System.Single
+      height, System.Action onclick) [0x00001] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Scripts\\LuaBridgeModules\\GraphicsModule\\GraphicsModule.cs:20
+      \r\n  at LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest.TestSpawnButton
+      () [0x00001] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Tests\\Tests\\UIServiceTest\\CreateButtonTest.cs:83
+      \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
+      at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
+      invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
+      culture) [0x0006a] in <c9d3ffd4b98649ee9989e1908eaca019>:0 "
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 135c116e
+      m_LastClickedID: 1846631443
+      m_ExpandedIDs: 60099ac191f6b5d7e557abf7da2e84fc19309b1900c84f2f77974b46456de24f9dc44c58ffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized
+    m_SelectedOption: 0
+  m_EditModeTestListGUI:
+    m_Window: {fileID: 14}
+    m_NewResultList:
+    - id: 1000
+      uniqueId: '[moonsharp][suite]'
+      name: moonsharp
+      fullName: moonsharp
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 
+      parentUniqueId: 
+    - id: 1109
+      uniqueId: '[HamerSoft.Howl.Tests.dll][suite]'
+      name: HamerSoft.Howl.Tests.dll
+      fullName: C:/Users/Jelle Stukstette/Desktop/luaIntoUnity/Library/ScriptAssemblies/HamerSoft.Howl.Tests.dll
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[moonsharp][suite]'
+    - id: 1110
+      uniqueId: HamerSoft.Howl.Tests.dll/[HamerSoft][suite]
+      name: HamerSoft
+      fullName: HamerSoft
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1109
+      parentUniqueId: '[HamerSoft.Howl.Tests.dll][suite]'
+    - id: 1111
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/[Howl][suite]
+      name: Howl
+      fullName: HamerSoft.Howl
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1110
+      parentUniqueId: HamerSoft.Howl.Tests.dll/[HamerSoft][suite]
+    - id: 1112
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/[Tests][suite]
+      name: Tests
+      fullName: HamerSoft.Howl.Tests
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1111
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/[Howl][suite]
+    - id: 1113
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API][suite]
+      name: API
+      fullName: HamerSoft.Howl.Tests.API
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1112
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/[Tests][suite]
+    - id: 1029
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ProxyTests][suite]
+      name: ProxyTests
+      fullName: HamerSoft.Howl.Tests.API.ProxyTests
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1113
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API][suite]
+    - id: 1033
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ProxyTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ProxyTests.Upon_Registering_Proxy_AnException_Is_Thrown_When_Instance_Is_Null]
+      name: Upon_Registering_Proxy_AnException_Is_Thrown_When_Instance_Is_Null
+      fullName: HamerSoft.Howl.Tests.API.ProxyTests.Upon_Registering_Proxy_AnException_Is_Thrown_When_Instance_Is_Null
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1029
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ProxyTests][suite]
+    - id: 1032
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ProxyTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ProxyTests.Upon_Registering_Proxy_AnException_Is_Thrown_When_LuaName_Is_Undefined]
+      name: Upon_Registering_Proxy_AnException_Is_Thrown_When_LuaName_Is_Undefined
+      fullName: HamerSoft.Howl.Tests.API.ProxyTests.Upon_Registering_Proxy_AnException_Is_Thrown_When_LuaName_Is_Undefined
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1029
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ProxyTests][suite]
+    - id: 1035
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ProxyTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ProxyTests.When_Adding_Singleton_Proxy_It_Does_Shares_Instances_Per_Sandbox]
+      name: When_Adding_Singleton_Proxy_It_Does_Shares_Instances_Per_Sandbox
+      fullName: HamerSoft.Howl.Tests.API.ProxyTests.When_Adding_Singleton_Proxy_It_Does_Shares_Instances_Per_Sandbox
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1029
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ProxyTests][suite]
+    - id: 1034
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ProxyTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ProxyTests.When_Adding_Singleton_Proxy_It_Is_Accessible_From_Lua]
+      name: When_Adding_Singleton_Proxy_It_Is_Accessible_From_Lua
+      fullName: HamerSoft.Howl.Tests.API.ProxyTests.When_Adding_Singleton_Proxy_It_Is_Accessible_From_Lua
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1029
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ProxyTests][suite]
+    - id: 1036
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ProxyTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ProxyTests.When_Adding_Static_Proxy_It_Is_Accessible_From_Lua]
+      name: When_Adding_Static_Proxy_It_Is_Accessible_From_Lua
+      fullName: HamerSoft.Howl.Tests.API.ProxyTests.When_Adding_Static_Proxy_It_Is_Accessible_From_Lua
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1029
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ProxyTests][suite]
+    - id: 1031
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ProxyTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ProxyTests.When_Adding_Transient_Proxy_It_Does_Creat_A_New_Instance_Per_Sandbox]
+      name: When_Adding_Transient_Proxy_It_Does_Creat_A_New_Instance_Per_Sandbox
+      fullName: HamerSoft.Howl.Tests.API.ProxyTests.When_Adding_Transient_Proxy_It_Does_Creat_A_New_Instance_Per_Sandbox
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1029
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ProxyTests][suite]
+    - id: 1030
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ProxyTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ProxyTests.When_Adding_Transient_Proxy_It_Is_Accessible_From_Lua]
+      name: When_Adding_Transient_Proxy_It_Is_Accessible_From_Lua
+      fullName: HamerSoft.Howl.Tests.API.ProxyTests.When_Adding_Transient_Proxy_It_Is_Accessible_From_Lua
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1029
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ProxyTests][suite]
+    - id: 1037
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ReadMeTests][suite]
+      name: ReadMeTests
+      fullName: HamerSoft.Howl.Tests.API.ReadMeTests
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: Tests that cover the examples in the README file
+      isSuite: 1
+      categories: []
+      parentId: 1113
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API][suite]
+    - id: 1039
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ReadMeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ReadMeTests.README_GetValueExamples_Work_As_Expected]
+      name: README_GetValueExamples_Work_As_Expected
+      fullName: HamerSoft.Howl.Tests.API.ReadMeTests.README_GetValueExamples_Work_As_Expected
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1037
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ReadMeTests][suite]
+    - id: 1038
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ReadMeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ReadMeTests.README_InvokeExamples_Work_As_Expected]
+      name: README_InvokeExamples_Work_As_Expected
+      fullName: HamerSoft.Howl.Tests.API.ReadMeTests.README_InvokeExamples_Work_As_Expected
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1037
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ReadMeTests][suite]
+    - id: 1040
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ReadMeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ReadMeTests.README_SetValueExamples_Work_As_Expected]
+      name: README_SetValueExamples_Work_As_Expected
+      fullName: HamerSoft.Howl.Tests.API.ReadMeTests.README_SetValueExamples_Work_As_Expected
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1037
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ReadMeTests][suite]
+    - id: 1041
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests][suite]
+      name: SandBoxInvokeTests
+      fullName: HamerSoft.Howl.Tests.API.SandBoxInvokeTests
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1113
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API][suite]
+    - id: 1043
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxInvokeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_Invoke_Actions_In_Lua]
+      name: SandBox_Can_Invoke_Actions_In_Lua
+      fullName: HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_Invoke_Actions_In_Lua
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1041
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests][suite]
+    - id: 1048
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxInvokeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_Invoke_Actions_In_Lua_With_Args]
+      name: SandBox_Can_Invoke_Actions_In_Lua_With_Args
+      fullName: HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_Invoke_Actions_In_Lua_With_Args
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1041
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests][suite]
+    - id: 1046
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxInvokeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_Invoke_Func_In_Lua]
+      name: SandBox_Can_Invoke_Func_In_Lua
+      fullName: HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_Invoke_Func_In_Lua
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1041
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests][suite]
+    - id: 1054
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxInvokeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_Invoke_Func_In_Lua_When_ReturnValue_Has_Converter]
+      name: SandBox_Can_Invoke_Func_In_Lua_When_ReturnValue_Has_Converter
+      fullName: HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_Invoke_Func_In_Lua_When_ReturnValue_Has_Converter
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1041
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests][suite]
+    - id: 1050
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxInvokeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_Invoke_Func_In_Lua_With_Args]
+      name: SandBox_Can_Invoke_Func_In_Lua_With_Args
+      fullName: HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_Invoke_Func_In_Lua_With_Args
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1041
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests][suite]
+    - id: 1056
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxInvokeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_Invoke_ObjectBased_Actions_In_Lua]
+      name: SandBox_Can_Invoke_ObjectBased_Actions_In_Lua
+      fullName: HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_Invoke_ObjectBased_Actions_In_Lua
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1041
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests][suite]
+    - id: 1059
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxInvokeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_Invoke_ObjectBased_Functions_In_Lua_With_Self_Reference]
+      name: SandBox_Can_Invoke_ObjectBased_Functions_In_Lua_With_Self_Reference
+      fullName: HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_Invoke_ObjectBased_Functions_In_Lua_With_Self_Reference
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1041
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests][suite]
+    - id: 1058
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxInvokeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_Invoke_ObjectBased_Functions_In_Lua_Without_Self_Reference]
+      name: SandBox_Can_Invoke_ObjectBased_Functions_In_Lua_Without_Self_Reference
+      fullName: HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_Invoke_ObjectBased_Functions_In_Lua_Without_Self_Reference
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1041
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests][suite]
+    - id: 1049
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxInvokeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_TryInvoke_Actions_In_Lua_With_Args]
+      name: SandBox_Can_TryInvoke_Actions_In_Lua_With_Args
+      fullName: HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_TryInvoke_Actions_In_Lua_With_Args
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1041
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests][suite]
+    - id: 1051
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxInvokeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_TryInvoke_Func_In_Lua_With_Args]
+      name: SandBox_Can_TryInvoke_Func_In_Lua_With_Args
+      fullName: HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_TryInvoke_Func_In_Lua_With_Args
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1041
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests][suite]
+    - id: 1057
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxInvokeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_TryInvoke_ObjectBased_Actions_In_Lua]
+      name: SandBox_Can_TryInvoke_ObjectBased_Actions_In_Lua
+      fullName: HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_TryInvoke_ObjectBased_Actions_In_Lua
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1041
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests][suite]
+    - id: 1060
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxInvokeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_TryInvoke_ObjectBased_Functions_In_Lua_With_Self_Reference]
+      name: SandBox_Can_TryInvoke_ObjectBased_Functions_In_Lua_With_Self_Reference
+      fullName: HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Can_TryInvoke_ObjectBased_Functions_In_Lua_With_Self_Reference
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1041
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests][suite]
+    - id: 1044
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxInvokeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_CanNot_Invoke_Actions_In_Lua_That_Dont_Exist]
+      name: SandBox_CanNot_Invoke_Actions_In_Lua_That_Dont_Exist
+      fullName: HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_CanNot_Invoke_Actions_In_Lua_That_Dont_Exist
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1041
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests][suite]
+    - id: 1042
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxInvokeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Cannot_Invoke_Actions_In_Lua_When_Sandbox_HasNotStarted]
+      name: SandBox_Cannot_Invoke_Actions_In_Lua_When_Sandbox_HasNotStarted
+      fullName: HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Cannot_Invoke_Actions_In_Lua_When_Sandbox_HasNotStarted
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1041
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests][suite]
+    - id: 1052
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxInvokeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Cannot_Invoke_Func_In_Lua_When_ReturnValue_Has_No_Converter]
+      name: SandBox_Cannot_Invoke_Func_In_Lua_When_ReturnValue_Has_No_Converter
+      fullName: HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_Cannot_Invoke_Func_In_Lua_When_ReturnValue_Has_No_Converter
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1041
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests][suite]
+    - id: 1045
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxInvokeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_TryInvoke_Actions_Returns_False_When_Dont_Exist]
+      name: SandBox_TryInvoke_Actions_Returns_False_When_Dont_Exist
+      fullName: HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_TryInvoke_Actions_Returns_False_When_Dont_Exist
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1041
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests][suite]
+    - id: 1047
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxInvokeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_TryInvoke_Func_In_Lua_Returns_True_When_Successful]
+      name: SandBox_TryInvoke_Func_In_Lua_Returns_True_When_Successful
+      fullName: HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_TryInvoke_Func_In_Lua_Returns_True_When_Successful
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1041
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests][suite]
+    - id: 1055
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxInvokeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_TryInvoke_Returns_True_When_Func_In_Lua_ReturnValue_Has_Converter]
+      name: SandBox_TryInvoke_Returns_True_When_Func_In_Lua_ReturnValue_Has_Converter
+      fullName: HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_TryInvoke_Returns_True_When_Func_In_Lua_ReturnValue_Has_Converter
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1041
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests][suite]
+    - id: 1053
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxInvokeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_TryInvoke_ReturnsFalse_When_Func_In_Lua_ReturnValue_Has_No_Converter]
+      name: SandBox_TryInvoke_ReturnsFalse_When_Func_In_Lua_ReturnValue_Has_No_Converter
+      fullName: HamerSoft.Howl.Tests.API.SandBoxInvokeTests.SandBox_TryInvoke_ReturnsFalse_When_Func_In_Lua_ReturnValue_Has_No_Converter
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1041
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxInvokeTests][suite]
+    - id: 1061
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests][suite]
+      name: SandBoxTests
+      fullName: HamerSoft.Howl.Tests.API.SandBoxTests
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1113
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API][suite]
+    - id: 1070
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests.SandBox_Can_Be_Started_Without_MainScript]
+      name: SandBox_Can_Be_Started_Without_MainScript
+      fullName: HamerSoft.Howl.Tests.API.SandBoxTests.SandBox_Can_Be_Started_Without_MainScript
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1061
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests][suite]
+    - id: 1072
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests.SandBox_Can_Be_Started_Without_RootDirectory_Only_Depending_On_CoreLocator]
+      name: SandBox_Can_Be_Started_Without_RootDirectory_Only_Depending_On_CoreLocator
+      fullName: HamerSoft.Howl.Tests.API.SandBoxTests.SandBox_Can_Be_Started_Without_RootDirectory_Only_Depending_On_CoreLocator
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1061
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests][suite]
+    - id: 1073
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests.SandBox_Without_Root_Can_Require_Core_Libraries]
+      name: SandBox_Without_Root_Can_Require_Core_Libraries
+      fullName: HamerSoft.Howl.Tests.API.SandBoxTests.SandBox_Without_Root_Can_Require_Core_Libraries
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1061
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests][suite]
+    - id: 1065
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests.Starting_A_SandBox_Twice_Without_Stopping_Results_InAnError]
+      name: Starting_A_SandBox_Twice_Without_Stopping_Results_InAnError
+      fullName: HamerSoft.Howl.Tests.API.SandBoxTests.Starting_A_SandBox_Twice_Without_Stopping_Results_InAnError
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1061
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests][suite]
+    - id: 1067
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests.When_SandBox_Is_Not_Started_MainScript_Cannot_Be_Extended_By_Appending_Another_Script]
+      name: When_SandBox_Is_Not_Started_MainScript_Cannot_Be_Extended_By_Appending_Another_Script
+      fullName: HamerSoft.Howl.Tests.API.SandBoxTests.When_SandBox_Is_Not_Started_MainScript_Cannot_Be_Extended_By_Appending_Another_Script
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1061
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests][suite]
+    - id: 1064
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests.When_SandBox_Is_NotStarted_MainScript_Cannot_Be_Extended_By_Appending_LuaCode]
+      name: When_SandBox_Is_NotStarted_MainScript_Cannot_Be_Extended_By_Appending_LuaCode
+      fullName: HamerSoft.Howl.Tests.API.SandBoxTests.When_SandBox_Is_NotStarted_MainScript_Cannot_Be_Extended_By_Appending_LuaCode
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1061
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests][suite]
+    - id: 1066
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests.When_SandBox_Is_Started_MainScript_Can_Be_Extended_By_Appending_Another_Script]
+      name: When_SandBox_Is_Started_MainScript_Can_Be_Extended_By_Appending_Another_Script
+      fullName: HamerSoft.Howl.Tests.API.SandBoxTests.When_SandBox_Is_Started_MainScript_Can_Be_Extended_By_Appending_Another_Script
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1061
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests][suite]
+    - id: 1063
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests.When_SandBox_Is_Started_MainScript_Can_Be_Extended_By_Appending_LuaCode]
+      name: When_SandBox_Is_Started_MainScript_Can_Be_Extended_By_Appending_LuaCode
+      fullName: HamerSoft.Howl.Tests.API.SandBoxTests.When_SandBox_Is_Started_MainScript_Can_Be_Extended_By_Appending_LuaCode
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1061
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests][suite]
+    - id: 1062
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests.When_SandBox_Is_Started_MainScript_Is_Executed]
+      name: When_SandBox_Is_Started_MainScript_Is_Executed
+      fullName: HamerSoft.Howl.Tests.API.SandBoxTests.When_SandBox_Is_Started_MainScript_Is_Executed
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1061
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests][suite]
+    - id: 1071
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests.When_SandBox_Is_Stopped_It_Can_Be_Restarted_Without_MainScript]
+      name: When_SandBox_Is_Stopped_It_Can_Be_Restarted_Without_MainScript
+      fullName: HamerSoft.Howl.Tests.API.SandBoxTests.When_SandBox_Is_Stopped_It_Can_Be_Restarted_Without_MainScript
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1061
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests][suite]
+    - id: 1069
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests.When_SandBox_Is_Stopped_It_Can_Be_Restarted_Without_Maintaining_State]
+      name: When_SandBox_Is_Stopped_It_Can_Be_Restarted_Without_Maintaining_State
+      fullName: HamerSoft.Howl.Tests.API.SandBoxTests.When_SandBox_Is_Stopped_It_Can_Be_Restarted_Without_Maintaining_State
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1061
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests][suite]
+    - id: 1068
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests.When_SandBox_Is_Stopped_It_Is_Disposed_And_No_Longer_Active]
+      name: When_SandBox_Is_Stopped_It_Is_Disposed_And_No_Longer_Active
+      fullName: HamerSoft.Howl.Tests.API.SandBoxTests.When_SandBox_Is_Stopped_It_Is_Disposed_And_No_Longer_Active
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1061
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxTests][suite]
+    - id: 1074
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests][suite]
+      name: SandBoxValueTests
+      fullName: HamerSoft.Howl.Tests.API.SandBoxValueTests
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1113
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API][suite]
+    - id: 1084
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxValueTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Can_Get_Nested_Value]
+      name: SandBox_Can_Get_Nested_Value
+      fullName: HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Can_Get_Nested_Value
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1074
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests][suite]
+    - id: 1081
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxValueTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Can_GetValue_When_Converter_Is_Registered]
+      name: SandBox_Can_GetValue_When_Converter_Is_Registered
+      fullName: HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Can_GetValue_When_Converter_Is_Registered
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1074
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests][suite]
+    - id: 1083
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxValueTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Can_GetValue_When_Type_Is_Correct]
+      name: SandBox_Can_GetValue_When_Type_Is_Correct
+      fullName: HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Can_GetValue_When_Type_Is_Correct
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1074
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests][suite]
+    - id: 1093
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxValueTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Can_Set_Nested_Value_When_Even_When_Variable_Is_Not_Declared]
+      name: SandBox_Can_Set_Nested_Value_When_Even_When_Variable_Is_Not_Declared
+      fullName: HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Can_Set_Nested_Value_When_Even_When_Variable_Is_Not_Declared
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1074
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests][suite]
+    - id: 1088
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxValueTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Can_Set_Nested_Value_When_Name_Is_Correct]
+      name: SandBox_Can_Set_Nested_Value_When_Name_Is_Correct
+      fullName: HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Can_Set_Nested_Value_When_Name_Is_Correct
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1074
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests][suite]
+    - id: 1090
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxValueTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Can_SetValue_When_Even_Variable_Is_Not_Declared]
+      name: SandBox_Can_SetValue_When_Even_Variable_Is_Not_Declared
+      fullName: HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Can_SetValue_When_Even_Variable_Is_Not_Declared
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1074
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests][suite]
+    - id: 1086
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxValueTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Can_SetValue_When_Name_Is_Correct]
+      name: SandBox_Can_SetValue_When_Name_Is_Correct
+      fullName: HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Can_SetValue_When_Name_Is_Correct
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1074
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests][suite]
+    - id: 1079
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxValueTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Cannot_GetValue_When_Converter_Is_Not_Registered]
+      name: SandBox_Cannot_GetValue_When_Converter_Is_Not_Registered
+      fullName: HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Cannot_GetValue_When_Converter_Is_Not_Registered
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1074
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests][suite]
+    - id: 1077
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxValueTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Cannot_GetValue_When_It_Is_Not_Found]
+      name: SandBox_Cannot_GetValue_When_It_Is_Not_Found
+      fullName: HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Cannot_GetValue_When_It_Is_Not_Found
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1074
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests][suite]
+    - id: 1075
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxValueTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Cannot_GetValue_When_It_Is_Not_Started]
+      name: SandBox_Cannot_GetValue_When_It_Is_Not_Started
+      fullName: HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Cannot_GetValue_When_It_Is_Not_Started
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1074
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests][suite]
+    - id: 1085
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxValueTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Cannot_SetValue_When_It_Is_Not_Started]
+      name: SandBox_Cannot_SetValue_When_It_Is_Not_Started
+      fullName: HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_Cannot_SetValue_When_It_Is_Not_Started
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1074
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests][suite]
+    - id: 1076
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxValueTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_LogsError_When_GetValue_Is_Invoked_With_Wrong_Type]
+      name: SandBox_LogsError_When_GetValue_Is_Invoked_With_Wrong_Type
+      fullName: HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_LogsError_When_GetValue_Is_Invoked_With_Wrong_Type
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1074
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests][suite]
+    - id: 1080
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxValueTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_TryGetValue_Returns_False_When_Converter_Is_Not_Registered]
+      name: SandBox_TryGetValue_Returns_False_When_Converter_Is_Not_Registered
+      fullName: HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_TryGetValue_Returns_False_When_Converter_Is_Not_Registered
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1074
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests][suite]
+    - id: 1078
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxValueTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_TryGetValue_Returns_False_When_It_Is_Not_Found]
+      name: SandBox_TryGetValue_Returns_False_When_It_Is_Not_Found
+      fullName: HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_TryGetValue_Returns_False_When_It_Is_Not_Found
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1074
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests][suite]
+    - id: 1082
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxValueTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_TryGetValue_Returns_True_When_Converter_Is_Registered]
+      name: SandBox_TryGetValue_Returns_True_When_Converter_Is_Registered
+      fullName: HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_TryGetValue_Returns_True_When_Converter_Is_Registered
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1074
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests][suite]
+    - id: 1092
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxValueTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_TrySet_Nested_Value_Succeeds_When_Even_Variable_Is_Not_Declared]
+      name: SandBox_TrySet_Nested_Value_Succeeds_When_Even_Variable_Is_Not_Declared
+      fullName: HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_TrySet_Nested_Value_Succeeds_When_Even_Variable_Is_Not_Declared
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1074
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests][suite]
+    - id: 1089
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxValueTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_TrySetSet_Nested_Value_Returns_True_When_Name_Is_Correct]
+      name: SandBox_TrySetSet_Nested_Value_Returns_True_When_Name_Is_Correct
+      fullName: HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_TrySetSet_Nested_Value_Returns_True_When_Name_Is_Correct
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1074
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests][suite]
+    - id: 1087
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxValueTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_TrySetValue_Returns_True_When_Name_Is_Correct]
+      name: SandBox_TrySetValue_Returns_True_When_Name_Is_Correct
+      fullName: HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_TrySetValue_Returns_True_When_Name_Is_Correct
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1074
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests][suite]
+    - id: 1091
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/SandBoxValueTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_TrySetValue_Succeeds_When_EvenVariable_Is_Not_Declared]
+      name: SandBox_TrySetValue_Succeeds_When_EvenVariable_Is_Not_Declared
+      fullName: HamerSoft.Howl.Tests.API.SandBoxValueTests.SandBox_TrySetValue_Succeeds_When_EvenVariable_Is_Not_Declared
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1074
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.SandBoxValueTests][suite]
+    - id: 1094
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScopingTests][suite]
+      name: ScopingTests
+      fullName: HamerSoft.Howl.Tests.API.ScopingTests
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: We're just testing conversion here, we won't test if MoonSharp
+        has implemented their scoping correctly as it is outside of our domain.
+      isSuite: 1
+      categories: []
+      parentId: 1113
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API][suite]
+    - id: 1098
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ScopingTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScopingTests.When_Scope_Is_Complete_MoonSharp_CoreModules_Complete_To_Default]
+      name: When_Scope_Is_Complete_MoonSharp_CoreModules_Complete_To_Default
+      fullName: HamerSoft.Howl.Tests.API.ScopingTests.When_Scope_Is_Complete_MoonSharp_CoreModules_Complete_To_Default
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1094
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScopingTests][suite]
+    - id: 1095
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ScopingTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScopingTests.When_Scope_Is_Default_MoonSharp_CoreModules_Preset_To_Default]
+      name: When_Scope_Is_Default_MoonSharp_CoreModules_Preset_To_Default
+      fullName: HamerSoft.Howl.Tests.API.ScopingTests.When_Scope_Is_Default_MoonSharp_CoreModules_Preset_To_Default
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1094
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScopingTests][suite]
+    - id: 1097
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ScopingTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScopingTests.When_Scope_Is_Hard_MoonSharp_CoreModules_Preset_To_Hard]
+      name: When_Scope_Is_Hard_MoonSharp_CoreModules_Preset_To_Hard
+      fullName: HamerSoft.Howl.Tests.API.ScopingTests.When_Scope_Is_Hard_MoonSharp_CoreModules_Preset_To_Hard
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1094
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScopingTests][suite]
+    - id: 1096
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ScopingTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScopingTests.When_Scope_Is_Soft_MoonSharp_CoreModules_Soft_To_Soft]
+      name: When_Scope_Is_Soft_MoonSharp_CoreModules_Soft_To_Soft
+      fullName: HamerSoft.Howl.Tests.API.ScopingTests.When_Scope_Is_Soft_MoonSharp_CoreModules_Soft_To_Soft
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1094
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScopingTests][suite]
+    - id: 1099
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptHandlerTests][suite]
+      name: ScriptHandlerTests
+      fullName: HamerSoft.Howl.Tests.API.ScriptHandlerTests
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1113
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API][suite]
+    - id: 1101
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ScriptHandlerTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptHandlerTests.Registered_ScriptHandler_Action_Is_Invoked_Through_Lua]
+      name: Registered_ScriptHandler_Action_Is_Invoked_Through_Lua
+      fullName: HamerSoft.Howl.Tests.API.ScriptHandlerTests.Registered_ScriptHandler_Action_Is_Invoked_Through_Lua
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1099
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptHandlerTests][suite]
+    - id: 1100
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ScriptHandlerTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptHandlerTests.Registered_ScriptHandler_Func_Is_Invoked_Through_Lua]
+      name: Registered_ScriptHandler_Func_Is_Invoked_Through_Lua
+      fullName: HamerSoft.Howl.Tests.API.ScriptHandlerTests.Registered_ScriptHandler_Func_Is_Invoked_Through_Lua
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1099
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptHandlerTests][suite]
+    - id: 1102
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptTests][suite]
+      name: ScriptTests
+      fullName: HamerSoft.Howl.Tests.API.ScriptTests
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1113
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API][suite]
+    - id: 1104
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ScriptTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptTests.A_Script_Cannot_Be_Started_Twice]
+      name: A_Script_Cannot_Be_Started_Twice
+      fullName: HamerSoft.Howl.Tests.API.ScriptTests.A_Script_Cannot_Be_Started_Twice
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1102
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptTests][suite]
+    - id: 1107
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ScriptTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptTests.A_Started_Script_Can_Be_Extended_With_Another_Script]
+      name: A_Started_Script_Can_Be_Extended_With_Another_Script
+      fullName: HamerSoft.Howl.Tests.API.ScriptTests.A_Started_Script_Can_Be_Extended_With_Another_Script
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1102
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptTests][suite]
+    - id: 1105
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ScriptTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptTests.A_Started_Script_Can_Be_Extended_With_Raw_Lua_Code]
+      name: A_Started_Script_Can_Be_Extended_With_Raw_Lua_Code
+      fullName: HamerSoft.Howl.Tests.API.ScriptTests.A_Started_Script_Can_Be_Extended_With_Raw_Lua_Code
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1102
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptTests][suite]
+    - id: 1108
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ScriptTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptTests.An_UnStarted_Script_Cannot_Be_Extended_With_Another_Script]
+      name: An_UnStarted_Script_Cannot_Be_Extended_With_Another_Script
+      fullName: HamerSoft.Howl.Tests.API.ScriptTests.An_UnStarted_Script_Cannot_Be_Extended_With_Another_Script
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1102
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptTests][suite]
+    - id: 1106
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ScriptTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptTests.An_UnStarted_Script_Cannot_Be_Extended_With_Raw_Lua_Code]
+      name: An_UnStarted_Script_Cannot_Be_Extended_With_Raw_Lua_Code
+      fullName: HamerSoft.Howl.Tests.API.ScriptTests.An_UnStarted_Script_Cannot_Be_Extended_With_Raw_Lua_Code
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1102
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptTests][suite]
+    - id: 1103
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ScriptTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptTests.When_Script_Is_Started_It_Executes_Main_Lua_Code]
+      name: When_Script_Is_Started_It_Executes_Main_Lua_Code
+      fullName: HamerSoft.Howl.Tests.API.ScriptTests.When_Script_Is_Started_It_Executes_Main_Lua_Code
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1102
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptTests][suite]
+    - id: 1001
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.CoreLocatorTests][suite]
+      name: CoreLocatorTests
+      fullName: HamerSoft.Howl.Tests.CoreLocatorTests
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1112
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/[Tests][suite]
+    - id: 1003
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/CoreLocatorTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.CoreLocatorTests.CoreLocator_Access_IsLimited_To_UnityResources]
+      name: CoreLocator_Access_IsLimited_To_UnityResources
+      fullName: HamerSoft.Howl.Tests.CoreLocatorTests.CoreLocator_Access_IsLimited_To_UnityResources
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.CoreLocatorTests][suite]
+    - id: 1006
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/CoreLocatorTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.CoreLocatorTests.CoreLocator_DoesNotThrow_When_Require_Fails]
+      name: CoreLocator_DoesNotThrow_When_Require_Fails
+      fullName: HamerSoft.Howl.Tests.CoreLocatorTests.CoreLocator_DoesNotThrow_When_Require_Fails
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.CoreLocatorTests][suite]
+    - id: 1004
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/CoreLocatorTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.CoreLocatorTests.CoreLocator_Finds_File_With_Require]
+      name: CoreLocator_Finds_File_With_Require
+      fullName: HamerSoft.Howl.Tests.CoreLocatorTests.CoreLocator_Finds_File_With_Require
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.CoreLocatorTests][suite]
+    - id: 1005
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/CoreLocatorTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.CoreLocatorTests.CoreLocator_Locates_Modules_By_Traversing_Dot_Separator_As_Directories]
+      name: CoreLocator_Locates_Modules_By_Traversing_Dot_Separator_As_Directories
+      fullName: HamerSoft.Howl.Tests.CoreLocatorTests.CoreLocator_Locates_Modules_By_Traversing_Dot_Separator_As_Directories
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.CoreLocatorTests][suite]
+    - id: 1007
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/CoreLocatorTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.CoreLocatorTests.CoreLocator_LogsError_When_Require_Fails]
+      name: CoreLocator_LogsError_When_Require_Fails
+      fullName: HamerSoft.Howl.Tests.CoreLocatorTests.CoreLocator_LogsError_When_Require_Fails
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.CoreLocatorTests][suite]
+    - id: 1002
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/CoreLocatorTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.CoreLocatorTests.CoreLocator_Removes_Lua_FileExtension_Upon_Loading]
+      name: CoreLocator_Removes_Lua_FileExtension_Upon_Loading
+      fullName: HamerSoft.Howl.Tests.CoreLocatorTests.CoreLocator_Removes_Lua_FileExtension_Upon_Loading
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.CoreLocatorTests][suite]
+    - id: 1008
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_FileSystemTests][suite]
+      name: UserDependencyLocator_FileSystemTests
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_FileSystemTests
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1112
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/[Tests][suite]
+    - id: 1012
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/UserDependencyLocator_FileSystemTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_FileSystemTests.UserDependencyLoader_Can_Require_CoreScripts]
+      name: UserDependencyLoader_Can_Require_CoreScripts
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_FileSystemTests.UserDependencyLoader_Can_Require_CoreScripts
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1008
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_FileSystemTests][suite]
+    - id: 1013
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/UserDependencyLocator_FileSystemTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_FileSystemTests.UserDependencyLoader_FileLocator_DoesNotThrow_When_Require_Fails]
+      name: UserDependencyLoader_FileLocator_DoesNotThrow_When_Require_Fails
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_FileSystemTests.UserDependencyLoader_FileLocator_DoesNotThrow_When_Require_Fails
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1008
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_FileSystemTests][suite]
+    - id: 1014
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/UserDependencyLocator_FileSystemTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_FileSystemTests.UserDependencyLoader_FileLocator_LogsError_When_Require_Fails]
+      name: UserDependencyLoader_FileLocator_LogsError_When_Require_Fails
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_FileSystemTests.UserDependencyLoader_FileLocator_LogsError_When_Require_Fails
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1008
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_FileSystemTests][suite]
+    - id: 1011
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/UserDependencyLocator_FileSystemTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_FileSystemTests.UserDependencyLoader_Locates_With_Require_Through_FileSystem]
+      name: UserDependencyLoader_Locates_With_Require_Through_FileSystem
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_FileSystemTests.UserDependencyLoader_Locates_With_Require_Through_FileSystem
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1008
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_FileSystemTests][suite]
+    - id: 1009
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/UserDependencyLocator_FileSystemTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_FileSystemTests.UserDependencyLocator_Locates_FileSystem_When_PathIsRootedAndFileSystem]
+      name: UserDependencyLocator_Locates_FileSystem_When_PathIsRootedAndFileSystem
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_FileSystemTests.UserDependencyLocator_Locates_FileSystem_When_PathIsRootedAndFileSystem
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1008
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_FileSystemTests][suite]
+    - id: 1010
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/UserDependencyLocator_FileSystemTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_FileSystemTests.UserDependencyLocator_Locates_Nested_FileSystem_When_PathIsRootedAndFileSystem]
+      name: UserDependencyLocator_Locates_Nested_FileSystem_When_PathIsRootedAndFileSystem
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_FileSystemTests.UserDependencyLocator_Locates_Nested_FileSystem_When_PathIsRootedAndFileSystem
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1008
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_FileSystemTests][suite]
+    - id: 1015
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_Resources][suite]
+      name: UserDependencyLocator_Resources
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_Resources
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1112
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/[Tests][suite]
+    - id: 1019
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/UserDependencyLocator_Resources/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_Resources.UserDependencyLoader_Locates_Required_Core_Modules]
+      name: UserDependencyLoader_Locates_Required_Core_Modules
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_Resources.UserDependencyLoader_Locates_Required_Core_Modules
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1015
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_Resources][suite]
+    - id: 1018
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/UserDependencyLocator_Resources/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_Resources.UserDependencyLoader_Locates_With_Require_Through_Resources]
+      name: UserDependencyLoader_Locates_With_Require_Through_Resources
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_Resources.UserDependencyLoader_Locates_With_Require_Through_Resources
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1015
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_Resources][suite]
+    - id: 1020
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/UserDependencyLocator_Resources/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_Resources.UserDependencyLoader_Resources_DoesNotThrow_When_Require_Fails]
+      name: UserDependencyLoader_Resources_DoesNotThrow_When_Require_Fails
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_Resources.UserDependencyLoader_Resources_DoesNotThrow_When_Require_Fails
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1015
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_Resources][suite]
+    - id: 1021
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/UserDependencyLocator_Resources/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_Resources.UserDependencyLoader_Resources_LogsError_When_Require_Fails]
+      name: UserDependencyLoader_Resources_LogsError_When_Require_Fails
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_Resources.UserDependencyLoader_Resources_LogsError_When_Require_Fails
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1015
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_Resources][suite]
+    - id: 1017
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/UserDependencyLocator_Resources/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_Resources.UserDependencyLocator_Locates_Nested_Resources_When_PathIsNotRooted]
+      name: UserDependencyLocator_Locates_Nested_Resources_When_PathIsNotRooted
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_Resources.UserDependencyLocator_Locates_Nested_Resources_When_PathIsNotRooted
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1015
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_Resources][suite]
+    - id: 1016
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/UserDependencyLocator_Resources/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_Resources.UserDependencyLocator_Locates_Resources_When_PathIsNotRooted]
+      name: UserDependencyLocator_Locates_Resources_When_PathIsNotRooted
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_Resources.UserDependencyLocator_Locates_Resources_When_PathIsNotRooted
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1015
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_Resources][suite]
+    - id: 1022
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_StreamingAssetsTests][suite]
+      name: UserDependencyLocator_StreamingAssetsTests
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_StreamingAssetsTests
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1112
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/[Tests][suite]
+    - id: 1026
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/UserDependencyLocator_StreamingAssetsTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_StreamingAssetsTests.UserDependencyLoader_Locates_Required_Core_Modules]
+      name: UserDependencyLoader_Locates_Required_Core_Modules
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_StreamingAssetsTests.UserDependencyLoader_Locates_Required_Core_Modules
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1022
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_StreamingAssetsTests][suite]
+    - id: 1025
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/UserDependencyLocator_StreamingAssetsTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_StreamingAssetsTests.UserDependencyLoader_Locates_With_Require_Through_StreamingAssets]
+      name: UserDependencyLoader_Locates_With_Require_Through_StreamingAssets
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_StreamingAssetsTests.UserDependencyLoader_Locates_With_Require_Through_StreamingAssets
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1022
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_StreamingAssetsTests][suite]
+    - id: 1027
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/UserDependencyLocator_StreamingAssetsTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_StreamingAssetsTests.UserDependencyLoader_StreamingAssets_DoesNotThrow_When_Require_Fails]
+      name: UserDependencyLoader_StreamingAssets_DoesNotThrow_When_Require_Fails
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_StreamingAssetsTests.UserDependencyLoader_StreamingAssets_DoesNotThrow_When_Require_Fails
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1022
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_StreamingAssetsTests][suite]
+    - id: 1028
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/UserDependencyLocator_StreamingAssetsTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_StreamingAssetsTests.UserDependencyLoader_StreamingAssets_LogsError_When_Require_Fails]
+      name: UserDependencyLoader_StreamingAssets_LogsError_When_Require_Fails
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_StreamingAssetsTests.UserDependencyLoader_StreamingAssets_LogsError_When_Require_Fails
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1022
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_StreamingAssetsTests][suite]
+    - id: 1024
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/UserDependencyLocator_StreamingAssetsTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_StreamingAssetsTests.UserDependencyLocator_Locates_Nested_StreamingAssets_When_PathIsRootedAndApplicationStreaming]
+      name: UserDependencyLocator_Locates_Nested_StreamingAssets_When_PathIsRootedAndApplicationStreaming
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_StreamingAssetsTests.UserDependencyLocator_Locates_Nested_StreamingAssets_When_PathIsRootedAndApplicationStreaming
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1022
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_StreamingAssetsTests][suite]
+    - id: 1023
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/UserDependencyLocator_StreamingAssetsTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_StreamingAssetsTests.UserDependencyLocator_Locates_StreamingAssets_When_PathIsRootedAndApplicationStreaming]
+      name: UserDependencyLocator_Locates_StreamingAssets_When_PathIsRootedAndApplicationStreaming
+      fullName: HamerSoft.Howl.Tests.UserDependencyLocator_StreamingAssetsTests.UserDependencyLocator_Locates_StreamingAssets_When_PathIsRootedAndApplicationStreaming
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1022
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.UserDependencyLocator_StreamingAssetsTests][suite]
+    m_ResultText: 
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 4e94a182f3e07189ef7212c5e04177c6669429c897e90aca91f6b5d76a5057d950bf64ebf54ac0064c1ad509144fc9133506fc1f4b72df481552554dc2b9715f83124563e7be4165ffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -342,13 +2621,13 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Scene
-    m_Image: {fileID: 2593428753322112591, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: 8634526014445323508, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 1500
+    width: 1499
     height: 873
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -584,9 +2863,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 909.4205, y: 510.16293, z: -421.28094}
+    m_Target: {x: 917.6919, y: 513.82086, z: -4.723729}
     speed: 2
-    m_Value: {x: 909.4205, y: 510.16293, z: -421.28094}
+    m_Value: {x: 917.6919, y: 513.82086, z: -4.723729}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -637,9 +2916,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 787.9963
+    m_Target: 625.2477
     speed: 2
-    m_Value: 787.9963
+    m_Value: 625.2477
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -664,7 +2943,7 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &15
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -680,19 +2959,19 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Console
-    m_Image: {fileID: -4327648978806127646, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -4950941429401207979, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 967
-    width: 1500
-    height: 384
+    y: 710
+    width: 609
+    height: 267.6667
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
---- !u!114 &16
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -708,13 +2987,13 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Hierarchy
-    m_Image: {fileID: 7966133145522015247, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -3734745235275155857, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1501
+    x: 1316
     y: 73
-    width: 371
+    width: 432
     height: 884
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -725,21 +3004,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 9c9effff30fbffff1e6a0000
+      m_ExpandedIDs: 30fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: GridButton X = 01
-        m_OriginalName: GridButton X = 01
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -33558
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 12}
       m_SearchString: 
@@ -749,7 +3028,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 6d1f16be8172b61479353d2a4fe3a5ce
---- !u!114 &17
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -765,14 +3044,14 @@ MonoBehaviour:
   m_MaxSize: {x: 10000, y: 10000}
   m_TitleContent:
     m_Text: Project
-    m_Image: {fileID: -5467254957812901981, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -5179483145760003458, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1501
-    y: 978
-    width: 1058
-    height: 373
+    x: 610
+    y: 718
+    width: 1095.6666
+    height: 259.6667
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -789,8 +3068,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 0
-    m_Folders:
-    - Assets
+    m_Folders: []
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 0
@@ -804,7 +3082,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 1255}
     m_SelectedIDs: a6b60100
     m_LastClickedID: 112294
-    m_ExpandedIDs: 00000000625e0000645e0000665e0000685e00006a5e00006c5e00006e5e0000705e0000725e0000745e0000765e0000785e00007a5e00007c5e00007e5e0000805e0000825e0000845e0000
+    m_ExpandedIDs: 00000000dc5d0000de5d0000e05d0000e25d0000e45d0000e65d0000e85d0000ea5d0000ec5d0000ee5d0000f05d0000f25d0000f45d0000f65d0000f85d0000fa5d0000fc5d0000fe5d0000005e0000025e0000045e0000065e0000085e00000a5e00000c5e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -829,24 +3107,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 0}
+    scrollPos: {x: 0, y: 73}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000625e0000645e0000665e0000685e00006a5e00006c5e00006e5e0000705e0000725e0000745e0000765e0000785e00007a5e00007c5e00007e5e0000805e0000825e0000845e0000
+    m_ExpandedIDs: ffffffff00000000dc5d0000de5d0000e05d0000e25d0000e45d0000e65d0000e85d0000ea5d0000ec5d0000ee5d0000f05d0000f25d0000f45d0000f65d0000f85d0000fa5d0000fc5d0000fe5d0000005e0000025e0000045e0000065e0000085e00000a5e00000c5e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Button
-      m_OriginalName: Button
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 24238
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 13}
     m_SearchString: 
@@ -888,7 +3166,7 @@ MonoBehaviour:
     m_GridSize: 16
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 115
---- !u!114 &18
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -904,14 +3182,14 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Inspector
-    m_Image: {fileID: -2667387946076563598, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -440750813802333266, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1874
-    y: 73
-    width: 685
-    height: 884
+    x: 1392.6667
+    y: 72.66667
+    width: 312.99994
+    height: 624.3333
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -929,7 +3207,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
---- !u!114 &19
+--- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -945,14 +3223,14 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Game
-    m_Image: {fileID: -6423792434712278376, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: 4621777727084837110, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 73
-    width: 1500
-    height: 873
+    y: 72.66667
+    width: 609
+    height: 616.3333
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -980,10 +3258,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -960
-    m_HBaseRangeMax: 960
-    m_VBaseRangeMin: -540
-    m_VBaseRangeMax: 540
+    m_HBaseRangeMin: -640
+    m_HBaseRangeMax: 640
+    m_VBaseRangeMin: -360
+    m_VBaseRangeMax: 360
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -1001,23 +3279,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 1500
-      height: 852
-    m_Scale: {x: 0.78125, y: 0.78124994}
-    m_Translation: {x: 750, y: 426}
+      width: 609
+      height: 595.3333
+    m_Scale: {x: 0.47578126, y: 0.47578126}
+    m_Translation: {x: 304.5, y: 297.66666}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -960
-      y: -545.28
-      width: 1920
-      height: 1090.56
+      x: -640
+      y: -625.63763
+      width: 1280
+      height: 1251.2753
     m_MinimalGUI: 1
-  m_defaultScale: 0.78125
-  m_LastWindowPixelSize: {x: 1500, y: 873}
+  m_defaultScale: 0.47578126
+  m_LastWindowPixelSize: {x: 913.5, y: 924.5}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000001000000000000

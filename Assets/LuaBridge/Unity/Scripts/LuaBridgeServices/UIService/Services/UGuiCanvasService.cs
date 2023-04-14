@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using DG.Tweening;
-using HamerSoft.Howl.Core;
-using LuaBridge.Core.Services.Abstract;
 using LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Interface;
-using LuaBridge.Unity.Scripts.LuaBridgesGames.Managers;
-using MoonSharp.Interpreter;
 using Services.Prefab;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
@@ -18,9 +14,9 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
     {
         private readonly IPrefabService _prefabService;
         private readonly Canvas _canvas;
-        private Button ButtonPrefab;
+        private Button buttonPrefab;
+        private TextMeshProUGUI textLabelPrefab;
         private Dictionary<string, MonoBehaviour> _elements;
-        private Random rand;
 
         public UGuiCanvasService(IPrefabService prefabService, Canvas canvas)
         {
@@ -35,15 +31,16 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             });*/
         }
         
+
         public void Boot()
         {
-            rand = new Random();
-            ButtonPrefab = _prefabService.GetPrefab<Button>();
+            buttonPrefab = _prefabService.GetPrefab<Button>();
+            textLabelPrefab = _prefabService.GetPrefab<TextMeshProUGUI>();
         }
         
-        public void SpawnButton(string key, Vector2 position, float width, float height, Action onclick)
+        public void CreateButton(string key, Vector2 position, float width, float height, Action onclick)
         {
-            var button = Object.Instantiate(ButtonPrefab, _canvas.transform);
+            var button = Object.Instantiate(buttonPrefab, _canvas.transform);
             button.name = key;
             if (button.transform is RectTransform rt)
             {
@@ -54,6 +51,20 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             button.onClick.AddListener(() => onclick?.Invoke());
             _elements.Add(key, button);
         }
+
+        public void CreateTextLabel(string key, Vector2 position, float width, float height, string text)
+        {
+            var textLabel = Object.Instantiate(textLabelPrefab, _canvas.transform);
+            textLabel.name = key;
+            if (textLabel.transform is RectTransform rt)
+            {
+                rt.pivot = new Vector2(.5f, .5f);
+                rt.sizeDelta = new Vector2(width, height);
+                rt.anchoredPosition = position;
+            }
+
+            textLabel.text = text;
+            _elements.Add(key, textLabel);        }
 
         public void MoveElement(string key, Vector2 newPosition)
         {
@@ -74,20 +85,6 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             return keys;
         }
 
-        public void DebugLog()
-        {   
-            Debug.Log("Test");
-        }
-
-        public void MoveWithDotween(string key, float endPositionX, float endPositionY, float time, Action callback)
-        {
-
-        }
-        
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
 
         public List<T> GetAllElementsFromType<T>(T type)
         {
@@ -105,18 +102,10 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             }
             return null;        
         }
-
-        public void MoveElementWithDoTween(string key, Vector2 endposition, float time)
+        
+        public void Dispose()
         {
             throw new NotImplementedException();
-        }
-
-        public void MoveElementWithDoTweenCallback(string key, Vector2 endposition, float time, Action callback)
-        {
-            GetElementByKey(key).DOAnchorPos(new Vector3(endposition.x, endposition.y),time).OnComplete(() =>
-            {
-                callback?.Invoke();
-            }).SetEase(Ease.InOutCubic);
         }
     }
 }
