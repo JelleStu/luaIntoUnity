@@ -45,6 +45,10 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule
         {
             //UIService.Update()
         }
-        
+
+        public void SetButtonText(string key, string newtext)
+        {
+            UIService.SetButtonText(key, newtext);
+        }
     }
 }

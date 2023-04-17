@@ -47,6 +47,7 @@ namespace GameModule.Unity.Scripts
                 .Build()
                 .Bind<AudioModule>((appContainer, module) => module.SetAudioService(appContainer.GetService<IFileService>()));
 
+            
             await Task.WhenAll(
                 container.GetService<IPrefabService>().Boot(),
                 container.GetService<AudioModule>().Boot()

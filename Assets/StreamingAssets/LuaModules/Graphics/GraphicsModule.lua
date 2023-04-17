@@ -12,9 +12,14 @@ function GraphicsModule:SpawnElement(name)
     canvas:SpawnElement(canvas, name)
 end
 
-function GraphicsModule:CreateButton(name, positionx, positiony, width, height, text, onclick)
-    canvas:CreateButton(name, positionx, positiony, width, height, text, onclick)
-    GraphicsServiceProxy.CreateButton(name, positionx, positiony, width, height, text, onclick)
+function GraphicsModule:CreateButton(name, rect, text, onclick)
+    canvas:CreateButton(name, rect, text, onclick)
+    GraphicsServiceProxy.CreateButton(name, rect, text, onclick)
+end
+
+function GraphicsModule:SetButtonText(name, text)
+    canvas:SetButtonText(name, text)
+    GraphicsServiceProxy.SetButtonText(name, text)
 end
 
 function GraphicsModule:GetElementByName(name)
@@ -26,12 +31,13 @@ function GraphicsModule:MoveElement(object, newpositionX, newpositionY)
     GraphicsServiceProxy.MoveElement(object.name, newpositionX, newpositionY)
 end
 
-function GraphicsModule:CreateTextLabel(name, positionx, positiony, width, height, text)
-    canvas:CreateTextLabel(name, positionx, positiony, width, height, text)
-    GraphicsServiceProxy.CreateTextLabel(name, positionx, positiony, width, height, text)
+function GraphicsModule:CreateTextLabel(name, rect, text)
+    canvas:CreateTextLabel(name, rect, text)
+    GraphicsServiceProxy.CreateTextLabel(name, rect, text)
 end
 
 function GraphicsModule:SetTextLabelText(name, newtext)
+    canvas:SetTextLabelText(name, newtext)
     GraphicsServiceProxy.SetTextLabelText(name, newtext)
 end
 
@@ -49,6 +55,15 @@ end
 
 function GraphicsModule:Update()
     canvas:Update()
+end
+
+function GetRect(x, y, width, height) 
+    rect = {}
+    rect.x = x
+    rect.y = y
+    rect.width = width
+    rect.height = height
+    return rect
 end
 
 return GraphicsModule

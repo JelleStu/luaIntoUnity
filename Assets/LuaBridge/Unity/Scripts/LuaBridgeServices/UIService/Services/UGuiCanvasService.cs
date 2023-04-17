@@ -12,6 +12,8 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
 {
     public class UGuiCanvasService : IUIService
     {
+        
+        public RootView Root { get; private set; }
         private readonly IPrefabService _prefabService;
         private readonly Canvas _canvas;
         private Button buttonPrefab;
@@ -23,6 +25,7 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             _prefabService = prefabService;
             _canvas = canvas;
             _elements = new Dictionary<string, MonoBehaviour>();
+            Root = _canvas.GetComponentInChildren<RootView>();
             /*Task.Run(() =>
             {
                 var script = new Script();
@@ -51,6 +54,17 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             button.onClick.AddListener(() => onclick?.Invoke());
             button.GetComponentInChildren<TextMeshProUGUI>().text = text;
             _elements.Add(key, button);
+        }
+
+        public void SetButtonText(string key, string newtext)
+        {
+            Button button = (Button )GetElementByKey(key);
+            if (button == null)
+                Debug.LogError("Cant find button with key {key}");
+            
+            button.GetComponentInChildren<TextMeshProUGUI>().text = newtext;
+
+            
         }
 
         public void CreateTextLabel(string key, Vector2 position, float width, float height, string text)

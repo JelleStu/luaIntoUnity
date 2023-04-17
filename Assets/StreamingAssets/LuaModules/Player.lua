@@ -14,7 +14,7 @@ local player = nil
 
 --[[game specific vars]]
 local gameStarted = false
-local BOARD_RANK = 3	-- The board will be this in both dimensions.
+local BOARD_DIMENSION = 3	-- The board will be this in both dimensions.
 local PLAYER_1 = "x"	-- Player 1 is represented by this. Player 1 goes first.
 local PLAYER_2 = "o"	-- Player 2 is represented by this.
 local EMPTY_SPACE = " "	-- An empty space is displayed like this.
@@ -33,10 +33,19 @@ end
 function Player:Initialize(callback)
     player = Player.new()
     Player:CreateGrid()
-    graphicsModule:CreateTextLabel(InstructionLabel,  graphicsModule:GetCanvasWidth() * 0.5, (graphicsModule:GetCanvasHeight() * 0.5) + 250, 500, 100, "<color=red>Click button to start the</color>")
-    graphicsModule:CreateButton("GameStartButton", graphicsModule:GetCanvasWidth() * 0.5, graphicsModule:GetCanvasHeight() * 0.5 + 500, 250, 100, "Start Game", function ()
-        Player:GameStart() end)
+    local textLabelRect = GetRect(1010, 950, 500, 100)
+    print(textLabelRect)
+    graphicsModule:CreateTextLabel(InstructionLabel, textLabelRect, "<color=red>Click button to start the game</color>")
     callback()
+end
+
+function GetRect(x, y, width, height) 
+    rect = {}
+    rect.x = x
+    rect.y = y
+    rect.width = width
+    rect.height = height
+    return rect
 end
 
 function Player:GameStart()
@@ -45,23 +54,40 @@ function Player:GameStart()
 end
 
 function Player:CreateGrid()
-    for widthI = 0, (BOARD_RANK - 1), 1 do
+    for widthI = 0, (BOARD_DIMENSION  - 1), 1 do
         grid[widthI] = {}
-        for heightI = 0, (BOARD_RANK - 1), 1 do
+        for heightI = 0, (BOARD_DIMENSION - 1), 1 do
+            grid[widthI][heightI] = nil
             local btnName = "BtnX" .. tostring(widthI) .. "Y" .. tostring(heightI)
-            graphicsModule:CreateButton(btnName,  (graphicsModule:GetCanvasWidth() * 0.5) + (100 * widthI) + 50, (graphicsModule:GetCanvasHeight() * 0.5 ) + (100 * heightI),
-             100, 100, EMPTY_SPACE, function ()
-                print("clicked" .. "position x = " ..  tostring(widthI) ..  "position y =" .. tostring(heightI))
-            end )
-            grid[widthI][heightI] = graphicsModule:GetElementByName(name)
+            local btnRect = GetRect((graphicsModule:GetCanvasWidth() * 0.5) + (100 * (widthI - 1)) + 50, (graphicsModule:GetCanvasHeight() * 0.5 ) + (100 * heightI),  100, 100)
 
+            graphicsModule:CreateButton(btnName, btnRect, EMPTY_SPACE, function ()
+                Player:ButtonIsClicked(widthI, heightI)
+            end )
+            grid[widthI][heightI] = graphicsModule:GetElementByName(btnName)
         end
     end
 end
 
 
-function Player:ButtonIsClicked(name)
-    --Get Position from button
+function Player:ButtonIsClicked(widthIndex, heightIndex)
+    if not gameStarted then
+        print("game has not started yet dumb fuck")
+        return
+    end
+    Player:SelectPlace(widthIndex, heightIndex)
+end
+
+function Player:SelectPlace(widthIndex, heightIndex)
+    local button = grid[widthIndex][heightIndex]
+    if playerTurn == 1 then
+        graphicsModule:SetButtonText(button.name, PLAYER_1)
+        playerTurn = 2
+    else
+        graphicsModule:SetButtonText(button.name, PLAYER_2)
+        playerTurn = 1
+    end
+
 end
 
 function Player:Update()

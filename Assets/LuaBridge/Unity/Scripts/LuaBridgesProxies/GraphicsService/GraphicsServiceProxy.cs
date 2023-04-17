@@ -4,7 +4,7 @@ using MoonSharp.Interpreter;
 using UnityEngine;
 using UnityEngine.Scripting;
 
-namespace LuaBridge.Unity.Scripts.LuabridgeProxies.GraphicsService
+namespace LuaBridge.Unity.Scripts.LuaBridgesProxies.GraphicsService
 {
     public class GraphicsServiceProxy : SingletonProxy
     {
@@ -19,23 +19,29 @@ namespace LuaBridge.Unity.Scripts.LuabridgeProxies.GraphicsService
         }
 
         [Preserve]
-        public void CreateButton(string name, float positionx, float positiony, float width, float height,string text, Action onclick)
+        public void CreateButton(string name, Rect rect,string text, Action onclick)
         {
-            _graphicsModuleTarget.CreateButton(name, new Vector2(positionx, positiony), width, height, text, onclick);
+            _graphicsModuleTarget.CreateButton(name, new Vector2(rect.x, rect.y), rect.width, rect.height, text, onclick);
         }
         
+        [Preserve]
+        public void SetButtonText(string key, string newtext)
+        {
+            _graphicsModuleTarget.SetButtonText(key, newtext);
+        }
+
+        
+        [Preserve]
+        public void CreateTextLabel(string name,  Rect rect, string text)
+        {
+            _graphicsModuleTarget.CreateTextLabel(name, new Vector2(rect.x, rect.y), rect.width, rect.height, text);
+        }
+
         [Preserve]
         public void SetTextLabelText(string key, string newtext)
         {
             _graphicsModuleTarget.SetTextLabelText(key, newtext);
         }
-        
-        [Preserve]
-        public void CreateTextLabel(string name, float positionx, float positiony, float width, float height, string text)
-        {
-            _graphicsModuleTarget.CreateTextLabel(name, new Vector2(positionx, positiony), width, height, text);
-        }
-
 
         [Preserve]
         public void MoveElement(string name, float positionx, float positiony)

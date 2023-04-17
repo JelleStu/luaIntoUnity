@@ -316,7 +316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Load game!
+  m_text: Start the game!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -444,8 +444,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6062b48d9e94c4789bdc6ac33b8af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Reload: {fileID: 1542109603}
-  Execute: {fileID: 1026768302}
+  ReloadBtn: {fileID: 0}
+  StartGameBtn: {fileID: 1026768302}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

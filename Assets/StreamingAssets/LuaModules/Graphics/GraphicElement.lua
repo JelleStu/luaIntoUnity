@@ -6,12 +6,12 @@ Updatables = {}
 Position.__index = Position
 GraphicElement.__index = GraphicElement
 
-function GraphicElement.new(name, positionx, positiony, width, height)
+function GraphicElement.new(name,rect)
     local instance = setmetatable({}, GraphicElement)
     instance.name = name
-    instance.pos = Position.new(positionx, positiony)
-    instance.width = width
-    instance.height = height
+    instance.pos = Position.new(rect.x, rect.y)
+    instance.width = rect.width
+    instance.height = rect.height
     instance.onUpdate = nil
     return instance
 end
@@ -53,10 +53,20 @@ function GraphicElement:CreateButton(name, positionx, positiony, width, height, 
     return Button;
 end
 
+function GraphicElement:SetButtonText(text)
+    self.text = text
+end
+
+
+
 function GraphicElement:CreateTextLabel(name, positionx, positiony, width, height, text)
     local Textlabel = GraphicElement.new(name, positionx, positiony, width, height)
     Textlabel.text = text
     return Textlabel;
+end
+
+function GraphicElement:SetTextLabelText(text)
+    self.text = text
 end
 
 function GraphicElement:SetNewPosition(newpositionX, newpositionY)
@@ -74,4 +84,12 @@ function GraphicElement:tablelength()
     return count
  end
 
+ function GetRect(x, y, width, height) 
+    rect = {}
+    rect.x = x
+    rect.y = y
+    rect.width = width
+    rect.height = height
+    return rect
+end
 return GraphicElement

@@ -15,22 +15,34 @@ function Canvas.new(width, height)
 end
 
 function Canvas:CreateElement(name)
-    local element = GraphicElement:new(name,positionX, positionY, width, height)
+    local element = GraphicElement:new(name,rect)
     Canvas:addObjectToCanvas(element)
     element = nil
 end
 
-function Canvas:CreateButton(name, positionx, positiony, width, height, text, onclick)
-    local button = GraphicElement:CreateButton(name, positionx, positiony, width, height, text, onclick)
+function Canvas:CreateButton(name, rect, text, onclick)
+    local button = GraphicElement:CreateButton(name, rect, text, onclick)
     Canvas:addObjectToCanvas(button)
 end
 
-function Canvas:CreateTextLabel(name, positionx, positiony, width, height, text)
-    local textlabel = GraphicElement:CreateTextLabel(name, positionx, positiony, width, height, text)
+function Canvas:SetButtonText(name, newtext)
+    local button = Canvas:GetElementByName(name)
+    button:SetButtonText(newtext)
+end
+
+
+function Canvas:CreateTextLabel(name, rect, text)
+    local textlabel = GraphicElement:CreateTextLabel(name,rect, text)
     Canvas:addObjectToCanvas(textlabel)
 end
 
+function Canvas:SetTextLabelText(name, newtext)
+    local textlabel = Canvas:GetElementByName(name)
+    textlabel:SetTextLabelText(newtext)
+end
+
 function Canvas:addObjectToCanvas(object)
+    print(object.name)
 Canvas.objectsOnCanvas[object.name] = object
 end
 
@@ -75,6 +87,14 @@ end
 
 
 
+function GetRect(x, y, width, height) 
+    rect = {}
+    rect.x = x
+    rect.y = y
+    rect.width = width
+    rect.height = height
+    return rect
+end
 
 return Canvas
 

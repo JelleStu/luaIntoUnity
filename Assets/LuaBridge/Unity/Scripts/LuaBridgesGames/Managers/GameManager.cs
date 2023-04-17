@@ -2,8 +2,8 @@
 using System.IO;
 using HamerSoft.Howl.Core;
 using LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule;
-using LuaBridge.Unity.Scripts.LuabridgeProxies.GraphicsService;
 using LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Interface;
+using LuaBridge.Unity.Scripts.LuaBridgesProxies.GraphicsService;
 using MoonSharp.Interpreter;
 using UnityEngine;
 using Utils.Unity;
@@ -41,9 +41,19 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesGames.Managers
                 }
                 
             );
+            
+            Script.GlobalOptions.CustomConverters.SetScriptToClrCustomConversion(DataType.Table, typeof(Rect),
+                v =>
+                {
+                    var luaTable = v.Table;
+                    return new Rect(luaTable.Get("x").ToObject<float>(), luaTable.Get("y").ToObject<float>(), luaTable.Get("width").ToObject<float>(), luaTable.Get("height").ToObject<float>());
+                }
+                
+            );
             _api.AddProxy(new GraphicsServiceProxy(new GraphicsModule(_canvasService)));
             _eventRaiser = new GameObject("UnityEvents").AddComponent<EventRaiser>();
             _updateloop = new GameObject("UpdateLoop").AddComponent<UpdateLoop>();
+            _canvasService.Root.StartGameBtn.onClick.AddListener(()=> _sandbox.Invoke("Player:GameStart"));
             _eventRaiser.Started += EventRaiserOnStarted_Handler;
             _updateloop.Updated += UpdateLoopOnUpdate_Handler;
             
