@@ -15,11 +15,11 @@ MonoBehaviour:
   m_PixelRect:
     serializedVersion: 2
     x: 0
-    y: 42.666668
-    width: 1706.6667
-    height: 976
+    y: 43
+    width: 2560
+    height: 1349
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Test Runner
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -39,10 +39,10 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 224.66667
+    x: 337
     y: 0
-    width: 303.33344
-    height: 645.3333
+    width: 455
+    height: 905
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
@@ -69,12 +69,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 528.0001
-    height: 645.3333
+    width: 792
+    height: 905
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 53
+  controlID: 23
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -95,8 +95,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1706.6667
-    height: 976
+    width: 2560
+    height: 1349
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
@@ -120,7 +120,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1706.6667
+    width: 2560
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -141,8 +141,8 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 956
-    width: 1706.6667
+    y: 1329
+    width: 2560
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -165,12 +165,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
-    width: 1706.6667
-    height: 926
+    width: 2560
+    height: 1299
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 51
+  controlID: 21
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -190,12 +190,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1178.6666
-    height: 926
+    width: 1768
+    height: 1299
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 127
+  controlID: 112
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -213,8 +213,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1178.6666
-    height: 636.6667
+    width: 1768
+    height: 894
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
@@ -239,9 +239,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 636.6667
-    width: 1178.6666
-    height: 289.3333
+    y: 894
+    width: 1768
+    height: 405
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
@@ -266,14 +266,14 @@ MonoBehaviour:
   - {fileID: 13}
   m_Position:
     serializedVersion: 2
-    x: 1178.6666
+    x: 1768
     y: 0
-    width: 528.0001
-    height: 926
+    width: 792
+    height: 1299
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 52
+  controlID: 22
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -284,23 +284,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SceneHierarchyWindow
+  m_Name: TestRunnerWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 224.66667
-    height: 645.3333
-  m_MinSize: {x: 200, y: 200}
+    width: 337
+    height: 905
+  m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 17}
+  m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 17}
   - {fileID: 14}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -317,9 +317,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 645.3333
-    width: 528.0001
-    height: 280.6667
+    y: 905
+    width: 792
+    height: 394
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
   m_ActualView: {fileID: 18}
@@ -349,14 +349,14 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1768
     y: 73
-    width: 561
+    width: 335
     height: 884
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_Spl:
-    ID: 155
+    ID: 175
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
@@ -387,9 +387,9 @@ MonoBehaviour:
       uniqueId: '[moonsharp][suite]'
       name: moonsharp
       fullName: moonsharp
-      resultStatus: 2
-      duration: 0.3667384
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 1.7179977
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -403,9 +403,9 @@ MonoBehaviour:
       uniqueId: '[Tests.dll][suite]'
       name: Tests.dll
       fullName: C:/Users/Jelle Stukstette/Desktop/luaIntoUnity/Library/ScriptAssemblies/Tests.dll
-      resultStatus: 2
-      duration: 0.1623776
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 1.4759809
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -419,9 +419,9 @@ MonoBehaviour:
       uniqueId: Tests.dll/[LuaBridge][suite]
       name: LuaBridge
       fullName: LuaBridge
-      resultStatus: 2
-      duration: 0.1571291
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 1.3652344
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -435,9 +435,9 @@ MonoBehaviour:
       uniqueId: Tests.dll/LuaBridge/[Unity][suite]
       name: Unity
       fullName: LuaBridge.Unity
-      resultStatus: 2
-      duration: 0.1340043
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 1.245897
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -451,9 +451,9 @@ MonoBehaviour:
       uniqueId: Tests.dll/LuaBridge/Unity/[Scripts][suite]
       name: Scripts
       fullName: LuaBridge.Unity.Scripts
-      resultStatus: 2
-      duration: 0.132383
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 1.1346228
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -467,9 +467,9 @@ MonoBehaviour:
       uniqueId: Tests.dll/LuaBridge/Unity/Scripts/[Tests][suite]
       name: Tests
       fullName: LuaBridge.Unity.Scripts.Tests
-      resultStatus: 2
-      duration: 0.11997
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 0.9714844
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -483,9 +483,9 @@ MonoBehaviour:
       uniqueId: Tests.dll/LuaBridge/Unity/Scripts/Tests/[Tests][suite]
       name: Tests
       fullName: LuaBridge.Unity.Scripts.Tests.Tests
-      resultStatus: 2
-      duration: 0.1010297
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 0.9065605
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -499,9 +499,9 @@ MonoBehaviour:
       uniqueId: Tests.dll/LuaBridge/Unity/Scripts/Tests/Tests/[Tests][LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest][suite]
       name: UIServiceTest
       fullName: LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest
-      resultStatus: 2
-      duration: 0.0919937
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 0.7982663
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -515,23 +515,11 @@ MonoBehaviour:
       uniqueId: Tests.dll/LuaBridge/Unity/Scripts/Tests/Tests/UIServiceTest/[Tests][LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest][suite]
       name: CreateButtonTest
       fullName: LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest
-      resultStatus: 2
-      duration: 0.0836736
-      messages: 'One or more child tests had errors
-
-        TearDown : System.NotImplementedException
-        : The method or operation is not implemented.'
+      resultStatus: 1
+      duration: 0.6919311
+      messages: 
       output: 
-      stacktrace: "--TearDown\r\n  at LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services.UGuiCanvasService.Dispose
-        () [0x00001] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Scripts\\LuaBridgeServices\\UIService\\Services\\UGuiCanvasService.cs:112
-        \r\n  at LuaBridge.Core.Configuration.AppContainer.Dispose () [0x0002d] in
-        C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Scripts\\Runtime\\Configuration\\AppContainer.cs:40
-        \r\n  at LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.LuaBridgeTest.OneTimeTearDown
-        () [0x00001] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Tests\\Tests\\UIServiceTest\\CreateButtonTest.cs:36
-        \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
-        at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
-        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
-        System.Globalization.CultureInfo culture) [0x0006a] in <c9d3ffd4b98649ee9989e1908eaca019>:0 "
+      stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
       description: 
@@ -539,12 +527,12 @@ MonoBehaviour:
       categories: []
       parentId: 1010
       parentUniqueId: Tests.dll/LuaBridge/Unity/Scripts/Tests/Tests/[Tests][LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest][suite]
-    - id: 1003
-      uniqueId: Tests.dll/LuaBridge/Unity/Scripts/Tests/Tests/UIServiceTest/CreateButtonTest/[Tests][LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest.TestFoo]
-      name: TestFoo
-      fullName: LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest.TestFoo
-      resultStatus: 0
-      duration: 0
+    - id: 1002
+      uniqueId: Tests.dll/LuaBridge/Unity/Scripts/Tests/Tests/UIServiceTest/CreateButtonTest/[Tests][LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest.TestSpawnButton]
+      name: TestSpawnButton
+      fullName: LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest.TestSpawnButton
+      resultStatus: 1
+      duration: 0.5641463
       messages: 
       output: 
       stacktrace: 
@@ -556,68 +544,8 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1001
       parentUniqueId: Tests.dll/LuaBridge/Unity/Scripts/Tests/Tests/UIServiceTest/[Tests][LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest][suite]
-    - id: 1002
-      uniqueId: Tests.dll/LuaBridge/Unity/Scripts/Tests/Tests/UIServiceTest/CreateButtonTest/[Tests][LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest.TestSpawnButton]
-      name: TestSpawnButton
-      fullName: LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest.TestSpawnButton
-      resultStatus: 2
-      duration: 0.0548676
-      messages: 'UnityEngine.MissingReferenceException : The object of type ''Canvas''
-        has been destroyed but you are still trying to access it.
-
-        Your script
-        should either check if it is null or you should not destroy the object.'
-      output: 
-      stacktrace: "  at (wrapper managed-to-native) UnityEngine.Component.get_transform(UnityEngine.Component)\r\n 
-        at LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services.UGuiCanvasService.CreateButton
-        (System.String key, UnityEngine.Vector2 position, System.Single width, System.Single
-        height, System.Action onclick) [0x0000f] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Scripts\\LuaBridgeServices\\UIService\\Services\\UGuiCanvasService.cs:43
-        \r\n  at LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule.GraphicsModule.CreateButton
-        (System.String name, UnityEngine.Vector2 position, System.Single width, System.Single
-        height, System.Action onclick) [0x00001] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Scripts\\LuaBridgeModules\\GraphicsModule\\GraphicsModule.cs:20
-        \r\n  at LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest.TestSpawnButton
-        () [0x00001] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Tests\\Tests\\UIServiceTest\\CreateButtonTest.cs:83
-        \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
-        at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
-        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
-        System.Globalization.CultureInfo culture) [0x0006a] in <c9d3ffd4b98649ee9989e1908eaca019>:0 "
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: Tests.dll/LuaBridge/Unity/Scripts/Tests/Tests/UIServiceTest/[Tests][LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest][suite]
-    m_ResultText: "TestSpawnButton (0.055s)\n---\nUnityEngine.MissingReferenceException
-      : The object of type 'Canvas' has been destroyed but you are still trying to
-      access it.\nYour script should either check if it is null or you should not
-      destroy the object.\n---\nat (wrapper managed-to-native) UnityEngine.Component.get_transform(UnityEngine.Component)\r\n 
-      at LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services.UGuiCanvasService.CreateButton
-      (System.String key, UnityEngine.Vector2 position, System.Single width, System.Single
-      height, System.Action onclick) [0x0000f] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Scripts\\LuaBridgeServices\\UIService\\Services\\UGuiCanvasService.cs:43
-      \r\n  at LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule.GraphicsModule.CreateButton
-      (System.String name, UnityEngine.Vector2 position, System.Single width, System.Single
-      height, System.Action onclick) [0x00001] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Scripts\\LuaBridgeModules\\GraphicsModule\\GraphicsModule.cs:20
-      \r\n  at LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest.TestSpawnButton
-      () [0x00001] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Tests\\Tests\\UIServiceTest\\CreateButtonTest.cs:83
-      \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
-      at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
-      invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
-      culture) [0x0006a] in <c9d3ffd4b98649ee9989e1908eaca019>:0"
-    m_ResultStacktrace: "  at (wrapper managed-to-native) UnityEngine.Component.get_transform(UnityEngine.Component)\r\n 
-      at LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services.UGuiCanvasService.CreateButton
-      (System.String key, UnityEngine.Vector2 position, System.Single width, System.Single
-      height, System.Action onclick) [0x0000f] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Scripts\\LuaBridgeServices\\UIService\\Services\\UGuiCanvasService.cs:43
-      \r\n  at LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule.GraphicsModule.CreateButton
-      (System.String name, UnityEngine.Vector2 position, System.Single width, System.Single
-      height, System.Action onclick) [0x00001] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Scripts\\LuaBridgeModules\\GraphicsModule\\GraphicsModule.cs:20
-      \r\n  at LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest.CreateButtonTest.TestSpawnButton
-      () [0x00001] in C:\\Users\\Jelle Stukstette\\Desktop\\luaIntoUnity\\Assets\\LuaBridge\\Unity\\Tests\\Tests\\UIServiceTest\\CreateButtonTest.cs:83
-      \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
-      at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
-      invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
-      culture) [0x0006a] in <c9d3ffd4b98649ee9989e1908eaca019>:0 "
+    m_ResultText: TestSpawnButton (0.564s)
+    m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 135c116e
@@ -2621,7 +2549,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Scene
-    m_Image: {fileID: 8634526014445323508, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: 2593428753322112591, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
@@ -2959,14 +2887,14 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Console
-    m_Image: {fileID: -4950941429401207979, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -4327648978806127646, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 709.3334
-    width: 1177.6666
-    height: 268.3333
+    y: 967
+    width: 1767
+    height: 384
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -2987,14 +2915,14 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Hierarchy
-    m_Image: {fileID: -3734745235275155857, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: 7966133145522015247, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1178.6667
-    y: 72.66667
-    width: 222.66667
-    height: 624.3333
+    x: 1768
+    y: 73
+    width: 335
+    height: 884
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -3002,9 +2930,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 40b2ffff
-      m_LastClickedID: -19904
-      m_ExpandedIDs: 2efbffffec5d0000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 34eaffff76eaffffaaebffff0ceeffff4eeeffff82efffffdaf0ffff1cf1ffff50f2ffff8ef3ffffd0f3ffff04f5ffff94f6ffffd6f6ffff0af8ffff58f8ffff9af8ffff4cfaffff2efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -3044,14 +2972,14 @@ MonoBehaviour:
   m_MaxSize: {x: 10000, y: 10000}
   m_TitleContent:
     m_Text: Project
-    m_Image: {fileID: -5179483145760003458, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -5467254957812901981, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1178.6667
-    y: 718
-    width: 527.0001
-    height: 259.6667
+    x: 1768
+    y: 978
+    width: 791
+    height: 373
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -3068,8 +2996,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 0
-    m_Folders:
-    - Assets/LuaBridge/Unity/Assets
+    m_Folders: []
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 0
@@ -3183,14 +3110,14 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Inspector
-    m_Image: {fileID: -440750813802333266, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -2667387946076563598, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1403.3334
-    y: 72.66667
-    width: 302.33344
-    height: 624.3333
+    x: 2105
+    y: 73
+    width: 454
+    height: 884
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -3224,14 +3151,14 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Game
-    m_Image: {fileID: 4621777727084837110, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -6423792434712278376, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 72.66667
-    width: 1177.6666
-    height: 615.6667
+    y: 73
+    width: 1767
+    height: 873
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -3259,10 +3186,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -640
-    m_HBaseRangeMax: 640
-    m_VBaseRangeMin: -360
-    m_VBaseRangeMax: 360
+    m_HBaseRangeMin: -960
+    m_HBaseRangeMax: 960
+    m_VBaseRangeMin: -540
+    m_VBaseRangeMax: 540
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -3280,23 +3207,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 1177.6666
-      height: 594.6667
-    m_Scale: {x: 0.82592595, y: 0.82592595}
-    m_Translation: {x: 588.8333, y: 297.33334}
+      width: 1767
+      height: 852
+    m_Scale: {x: 0.7888889, y: 0.7888889}
+    m_Translation: {x: 883.5, y: 426}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -712.9372
-      y: -360
-      width: 1425.8744
-      height: 720
+      x: -1119.9296
+      y: -540
+      width: 2239.8591
+      height: 1080
     m_MinimalGUI: 1
-  m_defaultScale: 0.82592595
-  m_LastWindowPixelSize: {x: 1766.5, y: 923.5}
+  m_defaultScale: 0.7888889
+  m_LastWindowPixelSize: {x: 1767, y: 873}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000001000000000000

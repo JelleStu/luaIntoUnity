@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,26 +18,44 @@ using UnityEngine.UI;
 
 namespace LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest
 {
+    public static class TaskExtensions
+    {
+        public static IEnumerator ToCoroutine(this Task task)
+        {
+            while (!task.IsCompleted || task.Status == TaskStatus.WaitingForActivation)
+                yield return null;
+        }
+
+        public static IEnumerator ToCoroutine<T>(this Task<T> task, Action<T> callback)
+        {
+            while (!task.IsCompleted || task.Status == TaskStatus.WaitingForActivation)
+                yield return null;
+            callback?.Invoke(task.Result);
+        }
+    }
 
     public abstract class LuaBridgeTest
     {
         protected AppContainer AppContainer;
-        [OneTimeSetUp]
-        public virtual void OneTimeSetup()
+
+
+        [UnitySetUp]
+        public virtual IEnumerator SetUp()
         {
-            AppContainer = CreateContainer().Result;
+            yield return CreateContainer().ToCoroutine(container => AppContainer = container);
         }
-        
-        
+
         protected abstract Task<AppContainer> CreateContainer();
 
-        [OneTimeTearDown]
-        public virtual void OneTimeTearDown()
+        [UnityTearDown]
+        public virtual IEnumerator TearDown()
         {
             AppContainer.Dispose();
+            yield return null;
         }
 
     }
+
     public class CreateButtonTest : LuaBridgeTest
     {
         protected Canvas Canvas;
@@ -44,55 +63,35 @@ namespace LuaBridge.Unity.Scripts.Tests.Tests.UIServiceTest
         private IUIService uiService;
 
         [UnitySetUp]
-        public IEnumerator SetUp()
+        public override IEnumerator SetUp()
         {
-            yield return new EnterPlayMode();
-        }
-        [OneTimeSetUp]
-        public override void OneTimeSetup()
-        { 
-            SceneManager.LoadScene(1);
+            yield return SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
             Canvas = new GameObject("Canvas").AddComponent<Canvas>();
-            IEnumerator WaitForOurTask() {
-                Task task = CreateContainer();
-                yield return new WaitUntil(() => task.IsCompleted);
-            }
 
-            var waitForOurTask = WaitForOurTask();
-            
-            base.OneTimeSetup();
+            yield return base.SetUp();
             uiService = AppContainer.GetService<IUIService>();
             graphicsModule = new GraphicsModule(uiService);
-       }
+        }
 
-       protected override Task<AppContainer> CreateContainer()
-       {
-           var container = new AppConfiguration()
-               .AddSingleton<IUIService, UGuiCanvasService>(Canvas)
-               .AddSingleton<IPrefabService, PrefabService>("PrefabRegistry")
-               .Build();
+        protected override async Task<AppContainer> CreateContainer()
+        {
+            var container = new AppConfiguration()
+                .AddSingleton<IUIService, UGuiCanvasService>(Canvas)
+                .AddSingleton<IPrefabService, PrefabService>("PrefabRegistry")
+                .Build();
 
-            Task.WhenAll(
-                    container.GetService<IPrefabService>().Boot());
-            return Task.FromResult(container);
-       }
-       
+            await Task.WhenAll(
+                container.GetService<IPrefabService>().Boot());
+            container.GetService<IUIService>().Boot();
+
+            return container;
+        }
+
         [Test]
         public void TestSpawnButton()
         {
-            graphicsModule.CreateButton("test", new Vector2(1000, 500), 250, 250, "test", () => Debug.Log("clicked") );
-            Assert.Positive(uiService.GetAllKeys().Count);
+            graphicsModule.CreateButton("test", new Vector2(1000, 500), 250, 250, "test", () => Debug.Log("clicked"));
+            Assert.AreEqual(1, uiService.GetAllKeys().Count);
         }
-
-        [UnityTest]
-        public IEnumerator TestFoo()
-        {
-            Button button = null;
-            yield return new WaitUntil(() => button!= null);
-            
-            Assert.NotNull(button);
-            yield return new WaitForEndOfFrame();
-        }
-        
     }
 }

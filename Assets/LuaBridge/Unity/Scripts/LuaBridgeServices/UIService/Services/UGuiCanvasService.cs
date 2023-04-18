@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Interface;
 using Services.Prefab;
 using TMPro;
@@ -98,12 +99,7 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
 
         public List<string> GetAllKeys()
         {
-            List<string> keys = new List<string>();
-            foreach (var keyValuePair in _elements)
-            {
-                keys.Add(keyValuePair.Key);
-            }
-            return keys;
+            return _elements.Keys.ToList();
         }
 
 
@@ -141,7 +137,7 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
         
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _elements.Clear();
         }
     }
 }
