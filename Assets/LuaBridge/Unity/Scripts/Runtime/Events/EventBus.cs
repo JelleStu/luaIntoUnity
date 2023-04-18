@@ -11,7 +11,7 @@ using Debug = UnityEngine.Debug;
 
 namespace LuaBridge.Core.Events
 {
-    public sealed class EventBus
+    public sealed class EventBus : IDisposable
     {
         [DebuggerNonUserCode]
         private readonly struct IObservableAwaiter<T> : INotifyCompletion
@@ -147,7 +147,7 @@ namespace LuaBridge.Core.Events
                 var type = typeof(ISubscription<>).MakeGenericType(@event.GetType());
                 var method = type.GetMethod("Invoke", BindingFlags.Instance | BindingFlags.Public);
                 for (int i = 0; i < _subs.Count; i++)
-                    method.Invoke(_subs[i], new[] { @event });
+                    method.Invoke(_subs[i], new[] {@event});
             }
 
             internal IDisposable Subscribe<T>(Action<T> @event, Predicate<T> filter = null)
@@ -292,6 +292,17 @@ namespace LuaBridge.Core.Events
             return response;
         }
 
+        public void Dispose()
+        {
+            foreach (var subscription in _subscriptions)
+                subscription.Value.PurgeAll();
+
+            _subscriptions = null;
+            _telemetry?.Dispose();
+            _telemetry = null;
+            _isReplaying = false;
+        }
+
         public static class Factory
         {
             private static EventBus _eventBus;
@@ -306,6 +317,12 @@ namespace LuaBridge.Core.Events
             public static void SetTelemetry(ITelemetry telemetry)
             {
                 _eventBus.SetTelemetry(telemetry);
+            }
+
+            public static void Dispose()
+            {
+                _eventBus.Dispose();
+                _eventBus = null;
             }
         }
     }

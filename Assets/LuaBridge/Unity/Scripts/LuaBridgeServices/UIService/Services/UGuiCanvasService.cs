@@ -129,12 +129,11 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             _elements.Remove(key);
         }
 
-        private MonoBehaviour GetElementByKey(string key)
+        public  MonoBehaviour GetElementByKey(string key)
         {
             return _elements.TryGetValue(key, out var element) ? element : null;
         }
-            
-        
+
         public void Dispose()
         {
             _elements.Clear();

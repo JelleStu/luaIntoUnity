@@ -55,5 +55,10 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule
         {
             UIService.SetButtonText(key, newtext);
         }
+
+        public MonoBehaviour GetElementByKey(string key)
+        {
+           return UIService.GetElementByKey(key);
+        }
     }
 }

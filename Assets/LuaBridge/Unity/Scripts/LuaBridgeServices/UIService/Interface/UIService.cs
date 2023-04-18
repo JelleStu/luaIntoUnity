@@ -18,5 +18,6 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Interface
         public List<T> GetAllElementsFromType<T>(T type);
         public RectTransform GetRectTransformByKey(string key);
         void DeleteElement(string key);
+        MonoBehaviour GetElementByKey(string key);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using LuaBridge.Core.Events;
 
 namespace LuaBridge.Core.Configuration
 {
@@ -39,6 +40,7 @@ namespace LuaBridge.Core.Configuration
                 if (service.Value is IDisposable d)
                     d.Dispose();
 
+            EventBus.Factory.Dispose();
             _services = new Dictionary<Type, object>();
         }
     }
