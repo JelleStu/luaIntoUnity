@@ -25,6 +25,11 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule
             UIService.CreateTextLabel(name, position, width, height, text);
         }
 
+        public void DeleteElement(string key)
+        {
+            UIService.DeleteElement(key);
+        }
+
         #endregion
 
 

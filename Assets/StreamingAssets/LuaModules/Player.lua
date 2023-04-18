@@ -33,7 +33,7 @@ end
 function Player:Initialize(callback)
     player = Player.new()
     Player:CreateGrid()
-    local textLabelRect = GetRect(1010, 950, 500, 100)
+    local textLabelRect = GetRect(1010, 950, 450, 100)
     graphicsModule:CreateTextLabel(InstructionLabel, textLabelRect, "<color=red>Click button to start the game</color>")
     callback()
 end
@@ -48,8 +48,21 @@ function GetRect(x, y, width, height)
 end
 
 function Player:GameStart()
-     graphicsModule:SetTextLabelText(InstructionLabel, "<color=black>Game started, player 1 turn</color>")
+    Player:SwitchTurn(1)
      gameStarted = true
+end
+
+function Player:ResetGame()
+    for widthI = 0, (BOARD_DIMENSION  - 1), 1 do
+        for heightI = 0, (BOARD_DIMENSION - 1), 1 do
+            grid[widthI][heightI] = nil
+            local btnName = "BtnX" .. tostring(widthI) .. "Y" .. tostring(heightI)
+            graphicsModule:SetButtonText(btnName, EMPTY_SPACE)
+        end
+    end
+    gameEnd = false;
+    graphicsModule:DeleteElementByName("restartButton")
+    Player:GameStart()
 end
 
 function Player:CreateGrid()
@@ -86,11 +99,11 @@ function Player:SelectPlace(widthIndex, heightIndex, btnName)
     if playerTurn == 1 then
         graphicsModule:SetButtonText(button.name, PLAYER_1)
         grid[widthIndex][heightIndex] = PLAYER_1
-        Player:SwitchTurn()
+        Player:SwitchTurn(2)
     else
         graphicsModule:SetButtonText(button.name, PLAYER_2)
         grid[widthIndex][heightIndex] = PLAYER_2
-        Player:SwitchTurn()
+        Player:SwitchTurn(1)
     end
 
 end
@@ -103,16 +116,21 @@ function Player:IsPlaceEmpty(widthIndex, heightIndex)
     end
 end
 
-function Player:SwitchTurn()
-    if playerTurn == 1 then
-        playerTurn = 2
-        graphicsModule:SetTextLabelText(InstructionLabel, "<color=black>Player 2, your turn</color>")
-    else
+function Player:SwitchTurn(playerNumber)
+    playerTurn = playerNumber
+    if playerNumber == 1 then
         playerTurn = 1
-        graphicsModule:SetTextLabelText(InstructionLabel, "<color=black>Player 1, your turn</color>")
+    else
+        playerTurn = 2
     end 
+    graphicsModule:SetTextLabelText(InstructionLabel, "<color=black> Player " .. playerNumber .. ", your turn</color>")
+
     if Player:IsGameOver() == true then
         gameEnd = true;
+        local btnRect =  GetRect(graphicsModule:GetCanvasWidth() * 0.5, (graphicsModule:GetCanvasHeight() * 0.5 ) + 500 ,  150, 100)
+        graphicsModule:CreateButton("restartButton", btnRect, "Restart game", function ()
+            Player:ResetGame()
+        end )
     end
 end
 

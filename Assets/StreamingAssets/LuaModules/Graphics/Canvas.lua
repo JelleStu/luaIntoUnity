@@ -42,8 +42,11 @@ function Canvas:SetTextLabelText(name, newtext)
 end
 
 function Canvas:addObjectToCanvas(object)
-    print(object.name)
-Canvas.objectsOnCanvas[object.name] = object
+    Canvas.objectsOnCanvas[object.name] = object
+end
+
+function Canvas:DeleteElementByName(name)
+    Canvas.objectsOnCanvas[name] = nil
 end
 
 function Canvas:Update()

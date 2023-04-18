@@ -124,6 +124,15 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             return null;        
         }
 
+        public void DeleteElement(string key)
+        {
+            var element = GetElementByKey(key);
+            if (element == null)
+                Debug.LogError($"Could not destroy element with key {key}");
+            Object.Destroy(element.gameObject);
+            _elements.Remove(key);
+        }
+
         private MonoBehaviour GetElementByKey(string key)
         {
             return _elements.TryGetValue(key, out var element) ? element : null;

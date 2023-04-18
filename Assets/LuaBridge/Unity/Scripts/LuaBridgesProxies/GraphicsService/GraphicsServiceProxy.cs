@@ -30,6 +30,11 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesProxies.GraphicsService
             _graphicsModuleTarget.SetButtonText(key, newtext);
         }
 
+        [Preserve]
+        public void DeleteElement(string key)
+        {
+            _graphicsModuleTarget.DeleteElement(key);
+        }
         
         [Preserve]
         public void CreateTextLabel(string name,  Rect rect, string text)

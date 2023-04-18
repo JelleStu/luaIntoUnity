@@ -42,7 +42,7 @@ namespace GameModule.Unity.Scripts
                 .AddSingleton<IUIService, UGuiCanvasService>(sceneContainer.canvas)
                 .AddSingleton<IPrefabService, PrefabService>("PrefabRegistry")
                 .AddSingleton<AudioModule>()
-                .AddSingleton<IApi, Api>()
+                .AddSingleton<IMoonSharpApi, Api>()
                 .AddSingleton<GameManager>()
                 .Build()
                 .Bind<AudioModule>((appContainer, module) => module.SetAudioService(appContainer.GetService<IFileService>()));

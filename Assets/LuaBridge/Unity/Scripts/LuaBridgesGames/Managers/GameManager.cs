@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using HamerSoft.Howl.Core;
+using HamerSoft.Howl.Sharp;
 using LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule;
 using LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Interface;
 using LuaBridge.Unity.Scripts.LuaBridgesProxies.GraphicsService;
@@ -15,13 +16,13 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesGames.Managers
     public class GameManager
     {
         private EventRaiser _eventRaiser;
-        private IApi _api;
+        private IMoonSharpApi _api;
         private readonly IUIService _canvasService;
         private ISandbox _sandbox;
         private UpdateLoop _updateloop;
         private bool _luaManagerInitialized = false;
 
-        public GameManager(IApi api, IUIService canvasService)
+        public GameManager(IMoonSharpApi api, IUIService canvasService)
         {
             _api = api;
             _canvasService = canvasService;
@@ -69,6 +70,8 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesGames.Managers
         {
             _eventRaiser.Started += EventRaiserOnStarted_Handler;
             _sandbox.Start();
+            _api.StartDebugger(_sandbox as Sandbox);
+
             _sandbox.Invoke("Player:Initialize", null, (Action) InitializeCallback);
         }
 

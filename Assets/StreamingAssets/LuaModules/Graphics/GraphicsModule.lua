@@ -22,6 +22,10 @@ function GraphicsModule:SetButtonText(name, text)
     GraphicsServiceProxy.SetButtonText(name, text)
 end
 
+function GraphicsModule:DeleteElementByName(name)
+    canvas:DeleteElementByName(name)
+    GraphicsServiceProxy.DeleteElement(name)
+end
 function GraphicsModule:GetElementByName(name)
     return canvas:GetElementByName(name)
 end
