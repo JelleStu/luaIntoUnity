@@ -1,6 +1,6 @@
 ﻿--require LuaCanvas
 GraphicsModule = {}
-local canvasModule = require 'Graphics.Canvas'
+local canvasModule = require 'LuaModules.Graphics.Canvas'
 local canvas = nil
 
 function GraphicsModule.new()

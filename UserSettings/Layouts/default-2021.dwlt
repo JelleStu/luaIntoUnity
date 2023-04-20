@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1349
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Inspector
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -39,9 +39,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 592
+    x: 476
     y: 0
-    width: 710
+    width: 572
     height: 905
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
@@ -69,12 +69,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1302
+    width: 1048
     height: 905
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 98
+  controlID: 123
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 96
+  controlID: 121
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -190,12 +190,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1258
+    width: 1512
     height: 1299
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 132
+  controlID: 51
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -213,7 +213,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1258
+    width: 1512
     height: 895
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
@@ -240,7 +240,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 895
-    width: 1258
+    width: 1512
     height: 404
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
@@ -266,14 +266,14 @@ MonoBehaviour:
   - {fileID: 13}
   m_Position:
     serializedVersion: 2
-    x: 1258
+    x: 1512
     y: 0
-    width: 1302
+    width: 1048
     height: 1299
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 97
+  controlID: 122
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -284,23 +284,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TestRunnerWindow
+  m_Name: SceneHierarchyWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 592
+    width: 476
     height: 905
-  m_MinSize: {x: 102, y: 121}
+  m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 14}
+  m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
   - {fileID: 14}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -318,7 +318,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 905
-    width: 1302
+    width: 1048
     height: 394
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
@@ -347,16 +347,16 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1258
+    x: 1512
     y: 73
-    width: 590
+    width: 474
     height: 884
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_Spl:
-    ID: 162
+    ID: 606
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
@@ -388,7 +388,7 @@ MonoBehaviour:
       name: moonsharp
       fullName: moonsharp
       resultStatus: 1
-      duration: 0.6896841
+      duration: 0.9581852
       messages: 
       output: 
       stacktrace: 
@@ -404,7 +404,7 @@ MonoBehaviour:
       name: Tests.dll
       fullName: C:/Users/Jelle Stukstette/Desktop/luaIntoUnity/Library/ScriptAssemblies/Tests.dll
       resultStatus: 1
-      duration: 0.4411618
+      duration: 0.7359771
       messages: 
       output: 
       stacktrace: 
@@ -420,7 +420,7 @@ MonoBehaviour:
       name: LuaBridge
       fullName: LuaBridge
       resultStatus: 1
-      duration: 0.4349122
+      duration: 0.7308998
       messages: 
       output: 
       stacktrace: 
@@ -436,7 +436,7 @@ MonoBehaviour:
       name: Unity
       fullName: LuaBridge.Unity
       resultStatus: 1
-      duration: 0.4323569
+      duration: 0.7108468
       messages: 
       output: 
       stacktrace: 
@@ -452,7 +452,7 @@ MonoBehaviour:
       name: Tests
       fullName: LuaBridge.Unity.Tests
       resultStatus: 1
-      duration: 0.4301893
+      duration: 0.7027449
       messages: 
       output: 
       stacktrace: 
@@ -468,7 +468,7 @@ MonoBehaviour:
       name: Tests
       fullName: LuaBridge.Unity.Tests.Tests
       resultStatus: 1
-      duration: 0.4280701
+      duration: 0.6946826
       messages: 
       output: 
       stacktrace: 
@@ -484,7 +484,7 @@ MonoBehaviour:
       name: UIServiceTest
       fullName: LuaBridge.Unity.Tests.Tests.UIServiceTest
       resultStatus: 1
-      duration: 0.4260559
+      duration: 0.6758226
       messages: 
       output: 
       stacktrace: 
@@ -500,7 +500,7 @@ MonoBehaviour:
       name: ButtonTest
       fullName: LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest
       resultStatus: 1
-      duration: 0.4238885
+      duration: 0.668423
       messages: 
       output: 
       stacktrace: 
@@ -516,7 +516,7 @@ MonoBehaviour:
       name: CreateButtonTest
       fullName: LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest.CreateButtonTest
       resultStatus: 1
-      duration: 0.4212685
+      duration: 0.4239645
       messages: 
       output: 
       stacktrace: 
@@ -532,7 +532,7 @@ MonoBehaviour:
       name: TestChangeButtonText
       fullName: LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest.CreateButtonTest.TestChangeButtonText
       resultStatus: 1
-      duration: 0.195629
+      duration: 0.1863676
       messages: 
       output: 
       stacktrace: 
@@ -549,7 +549,7 @@ MonoBehaviour:
       name: TestOnclickAction
       fullName: LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest.CreateButtonTest.TestOnclickAction
       resultStatus: 1
-      duration: 0.070537
+      duration: 0.070019
       messages: 
       output: 'clicked
 
@@ -568,7 +568,7 @@ MonoBehaviour:
       name: TestSpawnButton
       fullName: LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest.CreateButtonTest.TestSpawnButton
       resultStatus: 1
-      duration: 0.0645156
+      duration: 0.0772396
       messages: 
       output: 
       stacktrace: 
@@ -585,7 +585,7 @@ MonoBehaviour:
       name: TestSpawnButtonGetWithName
       fullName: LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest.CreateButtonTest.TestSpawnButtonGetWithName
       resultStatus: 1
-      duration: 0.0712385
+      duration: 0.0752254
       messages: 
       output: 
       stacktrace: 
@@ -597,13 +597,80 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1001
       parentUniqueId: Tests.dll/LuaBridge/Unity/Tests/Tests/UIServiceTest/ButtonTest/[Tests][LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest.CreateButtonTest][suite]
-    m_ResultText: TestSpawnButtonGetWithName (0.071s)
+    - id: 1006
+      uniqueId: Tests.dll/LuaBridge/Unity/Tests/Tests/UIServiceTest/ButtonTest/[Tests][LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest.TextLabelTest][suite]
+      name: TextLabelTest
+      fullName: LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest.TextLabelTest
+      resultStatus: 1
+      duration: 0.2306544
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1016
+      parentUniqueId: Tests.dll/LuaBridge/Unity/Tests/Tests/UIServiceTest/[Tests][LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest][suite]
+    - id: 1009
+      uniqueId: Tests.dll/LuaBridge/Unity/Tests/Tests/UIServiceTest/ButtonTest/TextLabelTest/[Tests][LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest.TextLabelTest.TestChangeTextLabelText]
+      name: TestChangeTextLabelText
+      fullName: LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest.TextLabelTest.TestChangeTextLabelText
+      resultStatus: 1
+      duration: 0.0723624
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1006
+      parentUniqueId: Tests.dll/LuaBridge/Unity/Tests/Tests/UIServiceTest/ButtonTest/[Tests][LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest.TextLabelTest][suite]
+    - id: 1007
+      uniqueId: Tests.dll/LuaBridge/Unity/Tests/Tests/UIServiceTest/ButtonTest/TextLabelTest/[Tests][LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest.TextLabelTest.TestCreateTextLabel]
+      name: TestCreateTextLabel
+      fullName: LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest.TextLabelTest.TestCreateTextLabel
+      resultStatus: 1
+      duration: 0.0721306
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1006
+      parentUniqueId: Tests.dll/LuaBridge/Unity/Tests/Tests/UIServiceTest/ButtonTest/[Tests][LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest.TextLabelTest][suite]
+    - id: 1008
+      uniqueId: Tests.dll/LuaBridge/Unity/Tests/Tests/UIServiceTest/ButtonTest/TextLabelTest/[Tests][LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest.TextLabelTest.TestGetTextLabelWithKey]
+      name: TestGetTextLabelWithKey
+      fullName: LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest.TextLabelTest.TestGetTextLabelWithKey
+      resultStatus: 1
+      duration: 0.0729147
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1006
+      parentUniqueId: Tests.dll/LuaBridge/Unity/Tests/Tests/UIServiceTest/ButtonTest/[Tests][LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest.TextLabelTest][suite]
+    m_ResultText: CreateButtonTest (0.424s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 0e3c741c
-      m_LastClickedID: 477379598
-      m_ExpandedIDs: f148b39c60099ac191f6b5d7d71716ded84183e5e557abf7da2e84fc19309b1900c84f2f77974b46456de24f9dc44c5881f63c6609f9d27bffffff7f
+      m_SelectedIDs: 81f63c66
+      m_LastClickedID: 1715271297
+      m_ExpandedIDs: f148b39c30897fa760099ac191f6b5d7d71716ded84183e5e557abf7da2e84fc19309b1900c84f2f77974b46456de24f9dc44c5881f63c6609f9d27bffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -913,6 +980,23 @@ MonoBehaviour:
       categories:
       - Uncategorized
       parentId: 1037
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ReadMeTests][suite]
+    - id: 1059
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ReadMeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ReadMeTests.README_ScriptHandlerExamples_Work_As_Expected]
+      name: README_ScriptHandlerExamples_Work_As_Expected
+      fullName: HamerSoft.Howl.Tests.API.ReadMeTests.README_ScriptHandlerExamples_Work_As_Expected
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1055
       parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ReadMeTests][suite]
     - id: 1040
       uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ReadMeTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ReadMeTests.README_SetValueExamples_Work_As_Expected]
@@ -1930,10 +2014,10 @@ MonoBehaviour:
       categories: []
       parentId: 1113
       parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API][suite]
-    - id: 1101
-      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ScriptHandlerTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptHandlerTests.Registered_ScriptHandler_Action_Is_Invoked_Through_Lua]
-      name: Registered_ScriptHandler_Action_Is_Invoked_Through_Lua
-      fullName: HamerSoft.Howl.Tests.API.ScriptHandlerTests.Registered_ScriptHandler_Action_Is_Invoked_Through_Lua
+    - id: 1124
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ScriptHandlerTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptHandlerTests.During_AppendCode_Registered_ScriptHandler_Action_Is_Invoked_Through_Lua]
+      name: During_AppendCode_Registered_ScriptHandler_Action_Is_Invoked_Through_Lua
+      fullName: HamerSoft.Howl.Tests.API.ScriptHandlerTests.During_AppendCode_Registered_ScriptHandler_Action_Is_Invoked_Through_Lua
       resultStatus: 0
       duration: 0
       messages: 
@@ -1945,12 +2029,12 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentId: 1099
+      parentId: 1118
       parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptHandlerTests][suite]
-    - id: 1100
-      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ScriptHandlerTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptHandlerTests.Registered_ScriptHandler_Func_Is_Invoked_Through_Lua]
-      name: Registered_ScriptHandler_Func_Is_Invoked_Through_Lua
-      fullName: HamerSoft.Howl.Tests.API.ScriptHandlerTests.Registered_ScriptHandler_Func_Is_Invoked_Through_Lua
+    - id: 1123
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ScriptHandlerTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptHandlerTests.During_AppendCode_Registered_ScriptHandler_Func_Is_Invoked_Through_Lua]
+      name: During_AppendCode_Registered_ScriptHandler_Func_Is_Invoked_Through_Lua
+      fullName: HamerSoft.Howl.Tests.API.ScriptHandlerTests.During_AppendCode_Registered_ScriptHandler_Func_Is_Invoked_Through_Lua
       resultStatus: 0
       duration: 0
       messages: 
@@ -1962,7 +2046,75 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentId: 1099
+      parentId: 1118
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptHandlerTests][suite]
+    - id: 1122
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ScriptHandlerTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptHandlerTests.During_AppendScript_Registered_ScriptHandler_Action_Is_Invoked_Through_Lua]
+      name: During_AppendScript_Registered_ScriptHandler_Action_Is_Invoked_Through_Lua
+      fullName: HamerSoft.Howl.Tests.API.ScriptHandlerTests.During_AppendScript_Registered_ScriptHandler_Action_Is_Invoked_Through_Lua
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1118
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptHandlerTests][suite]
+    - id: 1121
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ScriptHandlerTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptHandlerTests.During_AppendScript_Registered_ScriptHandler_Func_Is_Invoked_Through_Lua]
+      name: During_AppendScript_Registered_ScriptHandler_Func_Is_Invoked_Through_Lua
+      fullName: HamerSoft.Howl.Tests.API.ScriptHandlerTests.During_AppendScript_Registered_ScriptHandler_Func_Is_Invoked_Through_Lua
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1118
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptHandlerTests][suite]
+    - id: 1120
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ScriptHandlerTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptHandlerTests.During_Start_Registered_ScriptHandler_Action_Is_Invoked_Through_Lua]
+      name: During_Start_Registered_ScriptHandler_Action_Is_Invoked_Through_Lua
+      fullName: HamerSoft.Howl.Tests.API.ScriptHandlerTests.During_Start_Registered_ScriptHandler_Action_Is_Invoked_Through_Lua
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1118
+      parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptHandlerTests][suite]
+    - id: 1119
+      uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/ScriptHandlerTests/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptHandlerTests.During_Start_Registered_ScriptHandler_Func_Is_Invoked_Through_Lua]
+      name: During_Start_Registered_ScriptHandler_Func_Is_Invoked_Through_Lua
+      fullName: HamerSoft.Howl.Tests.API.ScriptHandlerTests.During_Start_Registered_ScriptHandler_Func_Is_Invoked_Through_Lua
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1118
       parentUniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptHandlerTests][suite]
     - id: 1102
       uniqueId: HamerSoft.Howl.Tests.dll/HamerSoft/Howl/Tests/API/[HamerSoft.Howl.Tests][HamerSoft.Howl.Tests.API.ScriptTests][suite]
@@ -2606,10 +2758,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
+    x: 2560
     y: 73
-    width: 1767
-    height: 873
+    width: 1511
+    height: 874
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -2946,7 +3098,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 968
-    width: 1257
+    width: 1511
     height: 383
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -2972,9 +3124,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1258
+    x: 1512
     y: 73
-    width: 590
+    width: 474
     height: 884
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -2985,7 +3137,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: fef0ffff40f1ffff14f3ffffc6f4ffff08f5ffffb2f6ffffaef8fffff0f8ffff5efaffff30fbffff
+      m_ExpandedIDs: 30fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -3029,9 +3181,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1258
+    x: 1512
     y: 978
-    width: 1301
+    width: 1047
     height: 373
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -3049,7 +3201,8 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 0
-    m_Folders: []
+    m_Folders:
+    - Packages
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 0
@@ -3063,7 +3216,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 1255}
     m_SelectedIDs: a6b60100
     m_LastClickedID: 112294
-    m_ExpandedIDs: 00000000685e00006a5e00006c5e00006e5e0000705e0000725e0000745e0000765e0000785e00007a5e00007c5e00007e5e0000805e0000825e0000845e0000865e0000885e00008a5e00008c5e00008e5e0000905e0000925e0000945e0000965e0000985e0000
+    m_ExpandedIDs: 00000000765e0000785e00007a5e00007c5e00007e5e0000805e0000825e0000845e0000865e0000885e00008a5e00008c5e00008e5e0000905e0000925e0000945e0000965e0000985e00009a5e00009c5e00009e5e0000a05e0000a25e0000a45e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -3088,10 +3241,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 105}
+    scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000685e00006a5e00006c5e00006e5e0000705e0000725e0000745e0000765e0000785e00007a5e00007c5e00007e5e0000805e0000825e0000845e0000865e0000885e00008a5e00008c5e00008e5e0000905e0000925e0000945e0000965e0000985e0000
+    m_ExpandedIDs: ffffffff00000000765e0000785e00007a5e00007c5e00007e5e0000805e0000825e0000845e0000865e0000885e00008a5e00008c5e00008e5e0000905e0000925e0000945e0000965e0000985e00009a5e00009c5e00009e5e0000a05e0000a25e0000a45e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -3167,9 +3320,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1850
+    x: 1988
     y: 73
-    width: 709
+    width: 571
     height: 884
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -3210,7 +3363,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 1257
+    width: 1511
     height: 874
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -3232,7 +3385,7 @@ MonoBehaviour:
   m_UseMipMap: 0
   m_VSyncEnabled: 0
   m_Gizmos: 0
-  m_Stats: 0
+  m_Stats: 1
   m_SelectedSizes: 03000000000000000000000006000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
     m_HRangeLocked: 0
@@ -3248,7 +3401,7 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 1
+    m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
@@ -3260,23 +3413,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 1257
+      width: 1511
       height: 853
-    m_Scale: {x: 0.6546875, y: 0.6546875}
-    m_Translation: {x: 628.49994, y: 426.5}
+    m_Scale: {x: 0.78697914, y: 0.78697914}
+    m_Translation: {x: 755.5, y: 426.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -959.9999
-      y: -651.4558
-      width: 1919.9999
-      height: 1302.9116
+      x: -960.00006
+      y: -541.94574
+      width: 1920.0001
+      height: 1083.8915
     m_MinimalGUI: 1
-  m_defaultScale: 0.6546875
-  m_LastWindowPixelSize: {x: 1257, y: 874}
+  m_defaultScale: 0.78697914
+  m_LastWindowPixelSize: {x: 1511, y: 874}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000001000000000000

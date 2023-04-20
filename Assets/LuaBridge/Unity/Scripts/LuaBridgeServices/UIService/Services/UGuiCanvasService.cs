@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Interface;
+using Services;
 using Services.Prefab;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
-using Random = System.Random;
 
 namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
 {
@@ -16,23 +17,20 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
         
         public RootView Root { get; private set; }
         private readonly IPrefabService _prefabService;
+        private IFileService _fileService;
         private readonly Canvas _canvas;
         private Button buttonPrefab;
         private TextMeshProUGUI textLabelPrefab;
-        private Dictionary<string, MonoBehaviour> _elements;
+        private  JeltieboyImage imageprefab;
+        private Dictionary<string, Component> _elements;
+        private Texture2D kajkft;
 
         public UGuiCanvasService(IPrefabService prefabService, Canvas canvas)
         {
             _prefabService = prefabService;
             _canvas = canvas;
-            _elements = new Dictionary<string, MonoBehaviour>();
+            _elements = new Dictionary<string, Component>();
             Root = _canvas.GetComponentInChildren<RootView>();
-            /*Task.Run(() =>
-            {
-                var script = new Script();
-                script.Options.DebugPrint = Debug.Log;
-                script.DoString("print(\"fuck\")");
-            });*/
         }
         
 
@@ -40,22 +38,63 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
         {
             buttonPrefab = _prefabService.GetPrefab<Button>();
             textLabelPrefab = _prefabService.GetPrefab<TextMeshProUGUI>();
+            imageprefab = _prefabService.GetPrefab<JeltieboyImage>();
         }
-        
-        public void CreateButton(string key, Vector2 position, float width, float height, string text, Action onclick)
+
+        #region Create methods
+
+        public void CreateButton(string key, Rect rect, string text, Action onclick)
         {
             var button = Object.Instantiate(buttonPrefab, _canvas.transform);
             button.name = key;
-            if (button.transform is RectTransform rt)
+            if (button.transform is RectTransform rectTransform)
             {
-                rt.pivot = new Vector2(.5f, .5f);
-                rt.sizeDelta = new Vector2(width, height);
-                rt.anchoredPosition = position;
+                rectTransform.pivot = new Vector2(.5f, .5f);
+                rectTransform.sizeDelta = new Vector2(rect.width, rect.height);
+                rectTransform.anchoredPosition = rect.position;
             }
             button.onClick.AddListener(() => onclick?.Invoke());
             button.GetComponentInChildren<TextMeshProUGUI>().text = text;
             _elements.Add(key, button);
         }
+
+        public void CreateTextLabel(string key, Rect rect, string text)
+        {
+            var textLabel = Object.Instantiate(textLabelPrefab, _canvas.transform);
+            textLabel.name = key;
+            if (textLabel.transform is RectTransform rectTransform)
+            {
+                rectTransform.pivot = new Vector2(.5f, .5f);
+                rectTransform.sizeDelta = new Vector2(rect.width, rect.height);
+                rectTransform.anchoredPosition = rect.position;
+            }
+
+            textLabel.text = text;
+            _elements.Add(key, textLabel);        
+        }
+
+        public void CreateImage(string key, Rect rect, string sourceImage)
+        {
+            var image = Object.Instantiate(imageprefab, _canvas.transform);
+            if (image.transform is RectTransform rectTransform)
+            {
+                rectTransform.pivot = new Vector2(.5f, .5f);
+                rectTransform.sizeDelta = new Vector2(rect.width, rect.height);
+                rectTransform.anchoredPosition = rectTransform.position;
+            }
+
+            if (sourceImage == null)
+                return;
+            var test = LoadImage(sourceImage).Result;
+            image.Image.sprite = Sprite.Create(test, rect, new Vector2(.5f, .5f));
+            _elements.Add(key, image);
+        }
+
+        #endregion
+
+
+        #region Edit methods
+       
 
         public void SetButtonText(string key, string newtext)
         {
@@ -64,29 +103,16 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
                 Debug.LogError("Cant find button with key {key}");
             
             button.GetComponentInChildren<TextMeshProUGUI>().text = newtext;
-
-            
         }
 
-        public void CreateTextLabel(string key, Vector2 position, float width, float height, string text)
-        {
-            var textLabel = Object.Instantiate(textLabelPrefab, _canvas.transform);
-            textLabel.name = key;
-            if (textLabel.transform is RectTransform rt)
-            {
-                rt.pivot = new Vector2(.5f, .5f);
-                rt.sizeDelta = new Vector2(width, height);
-                rt.anchoredPosition = position;
-            }
-
-            textLabel.text = text;
-            _elements.Add(key, textLabel);        }
 
         public void SetTextLabelText(string elementKey, string newText)
         {
             var textLabel = (TextMeshProUGUI) GetElementByKey(elementKey);
             textLabel.text = newText;
         }
+
+        #endregion
 
         public void MoveElement(string key, Vector2 newPosition)
         {
@@ -102,10 +128,18 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             return _elements.Keys.ToList();
         }
 
-
-        public List<T> GetAllElementsFromType<T>(T type)
+        public List<T> GetAllElementsFromType<T>() where T : Component
         {
-            throw new NotImplementedException();
+            List<T> list = new List<T>();
+            foreach (var kvp in _elements)
+            {
+                if (kvp.Value is T value)
+                {
+                    list.Add(value);
+                }
+            }
+
+            return list;
         }
 
         public RectTransform GetRectTransformByKey(string key)
@@ -129,14 +163,28 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             _elements.Remove(key);
         }
 
-        public  MonoBehaviour GetElementByKey(string key)
+        public  Component GetElementByKey(string key)
         {
             return _elements.TryGetValue(key, out var element) ? element : null;
         }
 
+        #region helpers
+        private async Task<Texture2D> LoadImage(string sourceImage)
+        {
+            return await _fileService.LoadTexture(sourceImage); 
+        }
+        
+
+        #endregion
+
         public void Dispose()
         {
             _elements.Clear();
+        }
+
+        public void SetFileService(IFileService getService)
+        {
+            _fileService = getService;
         }
     }
 }

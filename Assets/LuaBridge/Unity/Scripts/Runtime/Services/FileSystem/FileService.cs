@@ -231,7 +231,7 @@ namespace Services
             await request.SendWebRequest();
             if (request.result != UnityWebRequest.Result.Success)
             {
-                LogEvent.AppendError($"Failed to load audio {path}! {request.error}");
+                LogEvent.AppendError($"Failed to load texture {path}! {request.error}");
                 return null;
             }
 

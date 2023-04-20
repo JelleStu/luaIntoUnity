@@ -31,8 +31,6 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesGames.Managers
 
         public void Initialize()
         {
-            Application.targetFrameRate = 80;
-            _sandbox = _api.CreateSandBox(new SandboxConfig("GeneralGameSandbox", $"{Path.Combine(Application.streamingAssetsPath, "LuaModules")}", $"Player"));
             Script.GlobalOptions.CustomConverters.SetScriptToClrCustomConversion(DataType.Function, typeof(Action),
                 v =>
                 {
@@ -54,10 +52,39 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesGames.Managers
             _api.AddProxy(new GraphicsServiceProxy(new GraphicsModule(_canvasService)));
             _eventRaiser = new GameObject("UnityEvents").AddComponent<EventRaiser>();
             _updateloop = new GameObject("UpdateLoop").AddComponent<UpdateLoop>();
-            _canvasService.Root.StartGameBtn.onClick.AddListener(()=> _sandbox.Invoke("Player:GameStart"));
+            _canvasService.Root.LoadSnakeGameButton.onClick.AddListener(LoadSnakeGame);
+            _canvasService.Root.LoadTicTacToeGameButton.onClick.AddListener(LoadTicTacToeGame);
             _eventRaiser.Started += EventRaiserOnStarted_Handler;
             _updateloop.Updated += UpdateLoopOnUpdate_Handler;
-            
+            _eventRaiser.ApplicationQuitted += EventRaiserOnApplicationQuitted_Handler;
+        }
+
+        private void LoadSnakeGame()
+        {
+            _sandbox = _api.CreateSandBox(new SandboxConfig("SnakeGameSandBox", $"{Path.Combine(Application.streamingAssetsPath, "LuaModules")}", $"Player"));
+            InitializeGame();
+            AddStartGameButtonListener();
+        }
+
+        private void LoadTicTacToeGame()
+        {
+            _sandbox = _api.CreateSandBox(new SandboxConfig("TicTacToeGameSandBox", $"{Path.Combine(Application.streamingAssetsPath, "LuaGames", "TicTacToe")}", $"TicTacToeGameManager.lua"));
+            InitializeGame();
+            AddStartGameButtonListener();
+        }
+
+        private void AddStartGameButtonListener()
+        {
+            _canvasService.Root.StartGameButton.onClick.AddListener(()=> _sandbox.Invoke("Player:GameStart"));
+
+        }
+
+        private void EventRaiserOnApplicationQuitted_Handler()
+        {
+            _eventRaiser.ApplicationQuitted -= EventRaiserOnApplicationQuitted_Handler;
+            _updateloop.Updated -= UpdateLoopOnUpdate_Handler;
+            _sandbox?.Dispose();
+            _api?.Dispose();
         }
 
         private void UpdateLoopOnUpdate_Handler()
@@ -68,10 +95,12 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesGames.Managers
 
         private void EventRaiserOnStarted_Handler()
         {
-            _eventRaiser.Started += EventRaiserOnStarted_Handler;
-            _sandbox.Start();
-            _api.StartDebugger(_sandbox as Sandbox);
+            _eventRaiser.Started -= EventRaiserOnStarted_Handler;
+        }
 
+        private void InitializeGame()
+        {
+            _sandbox.Start();
             _sandbox.Invoke("Player:Initialize", null, (Action) InitializeCallback);
         }
 

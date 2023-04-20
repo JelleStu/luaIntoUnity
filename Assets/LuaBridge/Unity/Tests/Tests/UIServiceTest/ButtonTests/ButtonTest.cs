@@ -57,7 +57,7 @@ namespace LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest
         [Test]
         public void TestSpawnButton()
         {
-            graphicsModule.CreateButton("test", new Vector2(1000, 500), 250, 250, "test", () => Debug.Log("clicked"));
+            graphicsModule.CreateButton("test", new Rect(1000, 500, 250 , 250), "test", () => Debug.Log("clicked"));
             Assert.AreEqual(1, uiService.GetAllKeys().Count);
         }
         
@@ -65,7 +65,7 @@ namespace LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest
         public void TestSpawnButtonGetWithName()
         {
             string buttonName = "test";
-            graphicsModule.CreateButton(buttonName, new Vector2(1000, 500), 250, 250, "test", () => Debug.Log("clicked"));
+            graphicsModule.CreateButton(buttonName, new Rect(1000, 500, 250 , 250), "test", () => Debug.Log("clicked"));
             var buttonMonoBehaviour = uiService.GetElementByKey(buttonName);
             Assert.AreEqual(buttonName, buttonMonoBehaviour.name);
         }
@@ -73,7 +73,7 @@ namespace LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest
         [Test]
         public void TestOnclickAction()
         {
-            graphicsModule.CreateButton("test", new Vector2(1000, 500), 250, 250, "test", () => Debug.Log("clicked"));
+            graphicsModule.CreateButton("test", new Rect(1000, 500, 250 , 250), "test", () => Debug.Log("clicked"));
             Button button = (Button) graphicsModule.GetElementByKey("test");
             button.onClick.Invoke();
             LogAssert.Expect(LogType.Log, "clicked");
@@ -82,11 +82,12 @@ namespace LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest
         [Test]
         public void TestChangeButtonText()
         {
+            string key = "testButton";
             string oldtext = "oldtext";
             string newtext = "newtext";
-            graphicsModule.CreateButton("test", new Vector2(1000, 500), 250, 250, oldtext, () => Debug.Log("clicked"));
-            graphicsModule.SetButtonText("test", newtext);
-            Assert.AreEqual(newtext, uiService.GetElementByKey("test").GetComponentInChildren<TextMeshProUGUI>().text);
+            graphicsModule.CreateButton(key, new Rect(1000, 500, 250 , 250), oldtext, () => Debug.Log("clicked"));
+            graphicsModule.SetButtonText(key, newtext);
+            Assert.AreEqual(newtext, uiService.GetElementByKey(key).GetComponentInChildren<TextMeshProUGUI>().text);
         }
     }
 }

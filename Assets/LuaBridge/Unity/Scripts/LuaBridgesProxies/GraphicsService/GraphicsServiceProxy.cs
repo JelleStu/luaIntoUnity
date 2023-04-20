@@ -6,7 +6,7 @@ using UnityEngine.Scripting;
 
 namespace LuaBridge.Unity.Scripts.LuaBridgesProxies.GraphicsService
 {
-    public class GraphicsServiceProxy : SingletonProxy
+    public class GraphicsServiceProxy : SingletonProxy, IDisposable
     {
         protected override string LuaName => "GraphicsServiceProxy";
 
@@ -21,7 +21,7 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesProxies.GraphicsService
         [Preserve]
         public void CreateButton(string name, Rect rect,string text, Action onclick)
         {
-            _graphicsModuleTarget.CreateButton(name, new Vector2(rect.x, rect.y), rect.width, rect.height, text, onclick);
+            _graphicsModuleTarget.CreateButton(name, rect, text, onclick);
         }
         
         [Preserve]
@@ -39,7 +39,7 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesProxies.GraphicsService
         [Preserve]
         public void CreateTextLabel(string name,  Rect rect, string text)
         {
-            _graphicsModuleTarget.CreateTextLabel(name, new Vector2(rect.x, rect.y), rect.width, rect.height, text);
+            _graphicsModuleTarget.CreateTextLabel(name, rect, text);
         }
 
         [Preserve]
@@ -52,6 +52,11 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesProxies.GraphicsService
         public void MoveElement(string name, float positionx, float positiony)
         {
             _graphicsModuleTarget.MoveElement(name, new Vector2(positionx, positiony));
+        }
+
+        public void Dispose()
+        {
+            _graphicsModuleTarget = null;
         }
     }
 }

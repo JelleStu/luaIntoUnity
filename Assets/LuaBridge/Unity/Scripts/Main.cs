@@ -35,6 +35,7 @@ namespace GameModule.Unity.Scripts
 
         private static async void InitAppContainer()
         {
+            Application.targetFrameRate = 80;
             var sceneContainer = Object.FindObjectOfType<LuaBridgeSceneContainer>();
             var container = new AppConfiguration()
                 .AddSingleton<IJsonSerializer, JsonSerializer>()

@@ -1,6 +1,6 @@
 --require GraphicElement
 
-local GraphicElement = require 'Graphics.GraphicElement'
+local GraphicElement = require 'LuaModules.Graphics.GraphicElement'
 
 local Canvas = {width = 1920, height = 1080,  objectsOnCanvas = {}}
 

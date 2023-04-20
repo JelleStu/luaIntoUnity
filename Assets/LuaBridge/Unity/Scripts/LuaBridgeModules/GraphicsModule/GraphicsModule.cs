@@ -13,16 +13,21 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule
             UIService = uiService;
         }
 
-        #region Spawn elements methods
+        #region Create elements methods
 
-        public void CreateButton(string name, Vector2 position, float width, float height,string text, Action onclick)
+        public void CreateButton(string name, Rect rect, string text, Action onclick)
         {
-            UIService.CreateButton(name, position, width, height, text,onclick);
+            UIService.CreateButton(name, rect, text, onclick);
         }
         
-        public void CreateTextLabel(string name, Vector2 position, float width, float height, string text)
+        public void CreateTextLabel(string name, Rect rect, string text)
         {
-            UIService.CreateTextLabel(name, position, width, height, text);
+            UIService.CreateTextLabel(name, rect, text);
+        }
+        
+        public void CreateImage(string imageName, Rect rect, string sourceImage)
+        {
+            UIService.CreateImage(imageName, rect, sourceImage);
         }
 
         public void DeleteElement(string key)
@@ -56,9 +61,11 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule
             UIService.SetButtonText(key, newtext);
         }
 
-        public MonoBehaviour GetElementByKey(string key)
+        public Component GetElementByKey(string key)
         {
            return UIService.GetElementByKey(key);
         }
+
+
     }
 }

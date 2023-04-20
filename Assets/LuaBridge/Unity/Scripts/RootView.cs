@@ -3,5 +3,5 @@ using UnityEngine.UI;
 
 public class RootView : MonoBehaviour
 {
-    public Button ReloadBtn, StartGameBtn;
+    public Button StartGameButton, LoadSnakeGameButton, LoadTicTacToeGameButton;
 }
