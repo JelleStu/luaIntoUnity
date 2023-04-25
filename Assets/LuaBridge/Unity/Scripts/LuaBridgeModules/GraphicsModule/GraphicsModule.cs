@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Interface;
 using UnityEngine;
 
@@ -15,24 +16,24 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule
 
         #region Create elements methods
 
-        public void CreateButton(string name, Rect rect, string text, Action onclick)
+        public void CreateButton(string elementKey, Rect rect, string text, Action onclick)
         {
-            UIService.CreateButton(name, rect, text, onclick);
+            UIService.CreateButton(elementKey, rect, text, onclick);
         }
         
-        public void CreateTextLabel(string name, Rect rect, string text)
+        public void CreateTextLabel(string elementKey, Rect rect, string text)
         {
-            UIService.CreateTextLabel(name, rect, text);
+            UIService.CreateTextLabel(elementKey, rect, text);
         }
         
-        public void CreateImage(string imageName, Rect rect, string sourceImage)
+        public async Task CreateImage(string elementKey, Rect rect, string sourceImage)
         {
-            UIService.CreateImage(imageName, rect, sourceImage);
+            await UIService.CreateImage(elementKey, rect, sourceImage);
         }
 
-        public void DeleteElement(string key)
+        public void DeleteElement(string elementKey)
         {
-            UIService.DeleteElement(key);
+            UIService.DeleteElement(elementKey);
         }
 
         #endregion
@@ -44,11 +45,16 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule
         {
             UIService.SetTextLabelText(elementKey, newText);
         }
+        
+        public async Task ChangeImage(string elementKey, string pathToOtherImage)
+        {
+            await UIService.ChangeImage(elementKey, pathToOtherImage);
+        }
 
         #endregion
-        public void MoveElement(string name, Vector2 newPosition)
+        public void MoveElement(string elementKey, Vector2 newPosition)
         {
-            UIService.MoveElement(name, newPosition);
+            UIService.MoveElement(elementKey, newPosition);
         }
         
         public void Update()
@@ -56,15 +62,16 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule
             //UIService.Update()
         }
 
-        public void SetButtonText(string key, string newtext)
+        public void SetButtonText(string elementKey, string newtext)
         {
-            UIService.SetButtonText(key, newtext);
+            UIService.SetButtonText(elementKey, newtext);
         }
 
-        public Component GetElementByKey(string key)
+        public Component GetElementByKey(string elementKey)
         {
-           return UIService.GetElementByKey(key);
+           return UIService.GetElementByKey(elementKey);
         }
+
 
 
     }

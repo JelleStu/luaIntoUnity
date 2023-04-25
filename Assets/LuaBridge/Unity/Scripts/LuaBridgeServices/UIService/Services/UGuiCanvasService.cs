@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using LuaBridge.Core.Extensions;
 using LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Interface;
 using Services;
 using Services.Prefab;
@@ -21,7 +23,7 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
         private readonly Canvas _canvas;
         private Button buttonPrefab;
         private TextMeshProUGUI textLabelPrefab;
-        private  JeltieboyImage imageprefab;
+        private JeltieboyImage imageprefab;
         private Dictionary<string, Component> _elements;
         private Texture2D kajkft;
 
@@ -73,20 +75,29 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             _elements.Add(key, textLabel);        
         }
 
-        public void CreateImage(string key, Rect rect, string sourceImage)
+        public async Task CreateImage(string key, Rect rect,string sourceImage)
         {
             var image = Object.Instantiate(imageprefab, _canvas.transform);
             if (image.transform is RectTransform rectTransform)
             {
                 rectTransform.pivot = new Vector2(.5f, .5f);
                 rectTransform.sizeDelta = new Vector2(rect.width, rect.height);
-                rectTransform.anchoredPosition = rectTransform.position;
+                rectTransform.anchoredPosition = rect.position;
             }
 
-            if (sourceImage == null)
+            if (string.IsNullOrEmpty(sourceImage) || !File.Exists(sourceImage))
+            {
+                Debug.LogError($"Can not find image with path {sourceImage}");
                 return;
-            var test = LoadImage(sourceImage).Result;
-            image.Image.sprite = Sprite.Create(test, rect, new Vector2(.5f, .5f));
+            }
+
+            Texture2D texture = await LoadImage(sourceImage);
+            if (texture == null)
+            {
+                Debug.LogError("Texture did not load!");
+                return;
+            }
+            image.Image.sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(.5f, .5f));
             _elements.Add(key, image);
         }
 
@@ -94,24 +105,40 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
 
 
         #region Edit methods
-       
 
         public void SetButtonText(string key, string newtext)
         {
-            Button button = (Button )GetElementByKey(key);
+            if(!_elements.TryGetValueAs(key, out Button button));
             if (button == null)
-                Debug.LogError("Cant find button with key {key}");
-            
+            {
+                Debug.LogError($"Can not find button with key {key}");
+                return;
+            }
+
             button.GetComponentInChildren<TextMeshProUGUI>().text = newtext;
         }
-
-
+        
         public void SetTextLabelText(string elementKey, string newText)
         {
-            var textLabel = (TextMeshProUGUI) GetElementByKey(elementKey);
+            if (!_elements.TryGetValueAs(elementKey, out TextMeshProUGUI textLabel))
+                Debug.LogError($"Can not find textlabel with key {elementKey}");
             textLabel.text = newText;
         }
 
+        public async Task ChangeImage(string elementKey, string pathToNewImage)
+        {
+            if (!_elements.TryGetValueAs(elementKey, out JeltieboyImage image))
+                Debug.LogError($"Could not find image with key {elementKey}");
+
+            if (string.IsNullOrEmpty(pathToNewImage) || !File.Exists(pathToNewImage))
+                Debug.LogError($"Can't find file or file does not exist {pathToNewImage}");
+
+            Texture2D newTexture = await LoadImage(pathToNewImage);
+            if (newTexture == null)
+                Debug.LogError($"Can't convert the newtexture!"); 
+            image.Image.sprite = Sprite.Create(newTexture, new Rect(0.0f, 0.0f, newTexture.width, newTexture.height),new Vector2(.5f, .5f));
+        }
+        
         #endregion
 
         public void MoveElement(string key, Vector2 newPosition)
@@ -163,11 +190,14 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             _elements.Remove(key);
         }
 
-        public  Component GetElementByKey(string key)
+        public Component GetElementByKey(string key)
         {
-            return _elements.TryGetValue(key, out var element) ? element : null;
-        }
+            if (_elements.TryGetValue(key, out var element)) 
+                return element;
+            Debug.LogError($"Cannot find element with key {key}");
+            return null;
 
+        }
         #region helpers
         private async Task<Texture2D> LoadImage(string sourceImage)
         {

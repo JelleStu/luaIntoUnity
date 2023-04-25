@@ -46,7 +46,8 @@ namespace GameModule.Unity.Scripts
                 .AddSingleton<IMoonSharpApi, Api>()
                 .AddSingleton<GameManager>()
                 .Build()
-                .Bind<AudioModule>((appContainer, module) => module.SetAudioService(appContainer.GetService<IFileService>()));
+                .Bind<AudioModule>((appContainer, module) => module.SetAudioService(appContainer.GetService<IFileService>()))
+                .Bind<IUIService>((appContainer, module) => module.SetFileService(appContainer.GetService<IFileService>()));
 
             
             await Task.WhenAll(

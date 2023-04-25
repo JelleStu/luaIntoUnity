@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using LuaBridge.Core.Configuration;
 using LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule;
@@ -55,14 +56,14 @@ namespace LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest
         }
 
         [Test]
-        public void TestSpawnButton()
+        public void Test_SpawnButton()
         {
             graphicsModule.CreateButton("test", new Rect(1000, 500, 250 , 250), "test", () => Debug.Log("clicked"));
             Assert.AreEqual(1, uiService.GetAllKeys().Count);
         }
         
         [Test]
-        public void TestSpawnButtonGetWithName()
+        public void Test_Spawn_Button_Get_With_Name()
         {
             string buttonName = "test";
             graphicsModule.CreateButton(buttonName, new Rect(1000, 500, 250 , 250), "test", () => Debug.Log("clicked"));
@@ -71,7 +72,7 @@ namespace LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest
         }
 
         [Test]
-        public void TestOnclickAction()
+        public void Test_On_Click_Action()
         {
             graphicsModule.CreateButton("test", new Rect(1000, 500, 250 , 250), "test", () => Debug.Log("clicked"));
             Button button = (Button) graphicsModule.GetElementByKey("test");
@@ -80,7 +81,7 @@ namespace LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest
         }
         
         [Test]
-        public void TestChangeButtonText()
+        public void Test_Change_Button_Text()
         {
             string key = "testButton";
             string oldtext = "oldtext";
@@ -88,6 +89,14 @@ namespace LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest
             graphicsModule.CreateButton(key, new Rect(1000, 500, 250 , 250), oldtext, () => Debug.Log("clicked"));
             graphicsModule.SetButtonText(key, newtext);
             Assert.AreEqual(newtext, uiService.GetElementByKey(key).GetComponentInChildren<TextMeshProUGUI>().text);
+        }
+
+        [Test]
+        public void Test_Try_Change_Button_Wrong_Key()
+        {
+            string nonExistingKey = "doesnotexist";
+            graphicsModule.SetButtonText(nonExistingKey, "newtext");
+            LogAssert.Expect(LogType.Error, new Regex($"Can not find button with key {nonExistingKey}"));
         }
     }
 }

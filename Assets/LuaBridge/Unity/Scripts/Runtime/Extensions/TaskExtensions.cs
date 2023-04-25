@@ -5,6 +5,7 @@ namespace LuaBridge.Core.Extensions
 {
     public static class TaskExtensions
     {
+        /*
         public static IEnumerator ToCoroutine(this Task task)
         {
             if (task == null)
@@ -16,6 +17,7 @@ namespace LuaBridge.Core.Extensions
             if (task.IsFaulted)
                 throw task.Exception;
         }
+        */
 
     }
 }

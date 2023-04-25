@@ -239,10 +239,8 @@ function Player:IsGameOver()
                 end
 			end
 		end
-        gameEnd = true
 		return true
 	else	
-        gameEnd = true
 		return true
 	end
 end

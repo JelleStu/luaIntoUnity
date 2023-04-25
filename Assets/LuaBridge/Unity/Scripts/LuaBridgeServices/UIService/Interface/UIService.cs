@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using LuaBridge.Core.Services.Abstract;
 using Services;
 using UnityEngine;
@@ -10,17 +11,18 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Interface
     {
         public RootView Root { get; }
 
-        public void CreateButton(string key, Rect rect, string text, Action onclick);
-        public void SetButtonText(string key, string newtext);
-        public void CreateTextLabel(string key, Rect rect, string text);
+        public void CreateButton(string elementKey, Rect rect, string text, Action onclick);
+        public void SetButtonText(string elementKey, string newtext);
+        public void CreateTextLabel(string elementKey, Rect rect, string text);
         public void SetTextLabelText(string elementKey, string newText);
-        public void MoveElement(string key, Vector2 newPosition);
+        Task CreateImage(string elementKey, Rect rect, string sourceImage);
+        Task ChangeImage(string elementKey, string pathToNewImage);
+        public void MoveElement(string elementKey, Vector2 newPosition);
         public List<string> GetAllKeys();
         public List<T> GetAllElementsFromType<T>() where T : Component;
-        public RectTransform GetRectTransformByKey(string key);
-        void DeleteElement(string key);
-        Component GetElementByKey(string key);
-        void CreateImage(string key, Rect rect, string sourceImage);
+        public RectTransform GetRectTransformByKey(string elementKey);
+        void DeleteElement(string elementKey);
+        Component GetElementByKey(string elementKey);
         void SetFileService(IFileService getService);
     }
 }

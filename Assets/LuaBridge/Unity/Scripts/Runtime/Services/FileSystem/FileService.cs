@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Threading;
@@ -35,6 +37,7 @@ namespace Services
         public Task<Texture2D> LoadTexture(string path);
         public Task<AnimationClip> LoadAnimationClip(string path);
         public Task<AssetBundle> LoadAssetBundle(string path);
+        Texture2D LoadTextureSync(string path);
     }
 
     public class FileService : IFileService
@@ -226,16 +229,35 @@ namespace Services
         public async Task<Texture2D> LoadTexture(string path)
         {
             if (!File.Exists(path))
+            {
+                Debug.LogError($"Can not find the file to  texture {path}!");
                 return null;
+            }
+            
             using var request = UnityWebRequestTexture.GetTexture(FormatPathForWWWRequest(path));
             await request.SendWebRequest();
             if (request.result != UnityWebRequest.Result.Success)
             {
-                LogEvent.AppendError($"Failed to load texture {path}! {request.error}");
+                Debug.LogError($"Failed to load texture {path}! {request.error}");
                 return null;
             }
+            else
+            {
+                return DownloadHandlerTexture.GetContent(request);    
+            }
+        }
 
-            return DownloadHandlerTexture.GetContent(request);
+        public Texture2D LoadTextureSync(string path)
+        {
+            if (!File.Exists(path))
+            {
+                Debug.LogError($"Cant find the file to  texture {path}!");
+                return null;
+            }
+            byte[] bytes = File.ReadAllBytes(path); 
+            Texture2D loadTexture  = new Texture2D(1,1); 
+            loadTexture.LoadImage(bytes);
+            return loadTexture; 
         }
 
         public async Task<AnimationClip> LoadAnimationClip(string path)
@@ -396,8 +418,8 @@ namespace Services
 
         protected string FormatPathForWWWRequest(string path)
         {
-            if (Application.isMobilePlatform || Application.platform is RuntimePlatform.OSXEditor or RuntimePlatform.IPhonePlayer)
-                return $"file://{path}";
+            if (Application.isMobilePlatform || Application.platform is RuntimePlatform.OSXEditor or RuntimePlatform.IPhonePlayer or RuntimePlatform.WindowsEditor)
+                return $"file:///{path}";
             return path;
         }
 
