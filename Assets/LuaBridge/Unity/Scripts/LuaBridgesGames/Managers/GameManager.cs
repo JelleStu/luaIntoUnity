@@ -61,7 +61,8 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesGames.Managers
 
         private void LoadSnakeGame()
         {
-            _sandbox = _api.CreateSandBox(new SandboxConfig("SnakeGameSandBox", $"{Path.Combine(Application.streamingAssetsPath, "LuaModules")}", $"Player"));
+            _sandbox = _api.CreateSandBox(new SandboxConfig("SnakeGameSandBox", $"{Path.Combine(Application.streamingAssetsPath, "LuaGames", "Snake", "Scripts")}", $"SnakeGameManager.lua"));
+            _canvasService.SetSandBoxRootDirectory($"{Path.Combine(Application.streamingAssetsPath, "LuaGames", "Snake")}");
             InitializeGame();
             AddStartGameButtonListener();
         }

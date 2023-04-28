@@ -26,9 +26,9 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule
             UIService.CreateTextLabel(elementKey, rect, text);
         }
         
-        public async Task CreateImage(string elementKey, Rect rect, string sourceImage)
+        public async Task CreateImage(string elementKey, Rect rect, string sourceImageName)
         {
-            await UIService.CreateImage(elementKey, rect, sourceImage);
+            await UIService.CreateImage(elementKey, rect, sourceImageName);
         }
 
         public void DeleteElement(string elementKey)

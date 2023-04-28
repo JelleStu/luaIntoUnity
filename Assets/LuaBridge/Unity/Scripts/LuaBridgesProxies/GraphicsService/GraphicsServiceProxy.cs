@@ -47,6 +47,13 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesProxies.GraphicsService
         {
             _graphicsModuleTarget.SetTextLabelText(key, newtext);
         }
+        
+        [Preserve]
+        public async void CreateImage(string key, Rect rect, string imageName)
+        {
+           await _graphicsModuleTarget.CreateImage(key, rect, imageName);
+        }
+
 
         [Preserve]
         public void MoveElement(string name, float positionx, float positiony)

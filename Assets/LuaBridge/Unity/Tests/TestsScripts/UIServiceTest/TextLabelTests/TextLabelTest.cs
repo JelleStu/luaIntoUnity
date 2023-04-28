@@ -12,7 +12,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 
-namespace LuaBridge.Unity.Tests.Tests.UIServiceTest.TextLabelTests
+namespace LuaBridge.Unity.Tests.UIServiceTest
 {
     public class TextLabelTest : LuaBridgeTest
     {

@@ -15,8 +15,8 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Interface
         public void SetButtonText(string elementKey, string newtext);
         public void CreateTextLabel(string elementKey, Rect rect, string text);
         public void SetTextLabelText(string elementKey, string newText);
-        Task CreateImage(string elementKey, Rect rect, string sourceImage);
-        Task ChangeImage(string elementKey, string pathToNewImage);
+        Task CreateImage(string elementKey, Rect rect, string sourceImageName);
+        Task ChangeImage(string elementKey, string sourceToNewImageName);
         public void MoveElement(string elementKey, Vector2 newPosition);
         public List<string> GetAllKeys();
         public List<T> GetAllElementsFromType<T>() where T : Component;
@@ -24,5 +24,6 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Interface
         void DeleteElement(string elementKey);
         Component GetElementByKey(string elementKey);
         void SetFileService(IFileService getService);
+        void SetSandBoxRootDirectory(string path);
     }
 }

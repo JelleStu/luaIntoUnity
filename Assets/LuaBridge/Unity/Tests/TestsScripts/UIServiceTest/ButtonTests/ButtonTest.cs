@@ -14,7 +14,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 using UnityEngine.UI;
 
-namespace LuaBridge.Unity.Tests.Tests.UIServiceTest.ButtonTest
+namespace LuaBridge.Unity.Tests.UIServiceTest
 {
  public class CreateButtonTest : LuaBridgeTest
     {

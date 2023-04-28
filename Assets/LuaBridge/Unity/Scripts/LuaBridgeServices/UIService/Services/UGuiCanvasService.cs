@@ -16,7 +16,6 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
 {
     public class UGuiCanvasService : IUIService
     {
-        
         public RootView Root { get; private set; }
         private readonly IPrefabService _prefabService;
         private IFileService _fileService;
@@ -25,7 +24,7 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
         private TextMeshProUGUI textLabelPrefab;
         private JeltieboyImage imageprefab;
         private Dictionary<string, Component> _elements;
-        private Texture2D kajkft;
+        private string _sandBoxRootDirectory;
 
         public UGuiCanvasService(IPrefabService prefabService, Canvas canvas)
         {
@@ -75,7 +74,7 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             _elements.Add(key, textLabel);        
         }
 
-        public async Task CreateImage(string key, Rect rect,string sourceImage)
+        public async Task CreateImage(string key, Rect rect,string sourceImageName)
         {
             var image = Object.Instantiate(imageprefab, _canvas.transform);
             if (image.transform is RectTransform rectTransform)
@@ -85,13 +84,14 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
                 rectTransform.anchoredPosition = rect.position;
             }
 
-            if (string.IsNullOrEmpty(sourceImage) || !File.Exists(sourceImage))
+            string pathToImage = $"{Path.Combine(_sandBoxRootDirectory, "Assets", "Images", sourceImageName)}";
+            if (string.IsNullOrEmpty(sourceImageName) || !File.Exists(pathToImage))
             {
-                Debug.LogError($"Can not find image with path {sourceImage}");
+                Debug.LogError($"Can not find image with path {pathToImage}");
                 return;
             }
 
-            Texture2D texture = await LoadImage(sourceImage);
+            Texture2D texture = await LoadImage(pathToImage);
             if (texture == null)
             {
                 Debug.LogError("Texture did not load!");
@@ -121,17 +121,28 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
         public void SetTextLabelText(string elementKey, string newText)
         {
             if (!_elements.TryGetValueAs(elementKey, out TextMeshProUGUI textLabel))
+            {
                 Debug.LogError($"Can not find textlabel with key {elementKey}");
+                return;
+            }
             textLabel.text = newText;
         }
 
-        public async Task ChangeImage(string elementKey, string pathToNewImage)
+        public async Task ChangeImage(string elementKey, string sourceNewImageName)
         {
             if (!_elements.TryGetValueAs(elementKey, out JeltieboyImage image))
+            {
                 Debug.LogError($"Could not find image with key {elementKey}");
+                return;
+            }
 
-            if (string.IsNullOrEmpty(pathToNewImage) || !File.Exists(pathToNewImage))
-                Debug.LogError($"Can't find file or file does not exist {pathToNewImage}");
+            string pathToNewImage = $"{Path.Combine(_sandBoxRootDirectory, "Assets", "Images", sourceNewImageName)}";
+
+            if (string.IsNullOrEmpty(sourceNewImageName) || !File.Exists(pathToNewImage))
+            {
+                Debug.LogError($"Can not find image with path {pathToNewImage}");
+                return;
+            }
 
             Texture2D newTexture = await LoadImage(pathToNewImage);
             if (newTexture == null)
@@ -204,7 +215,6 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             return await _fileService.LoadTexture(sourceImage); 
         }
         
-
         #endregion
 
         public void Dispose()
@@ -215,6 +225,11 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
         public void SetFileService(IFileService getService)
         {
             _fileService = getService;
+        }
+
+        public void SetSandBoxRootDirectory(string path)
+        {
+            _sandBoxRootDirectory = path;
         }
     }
 }

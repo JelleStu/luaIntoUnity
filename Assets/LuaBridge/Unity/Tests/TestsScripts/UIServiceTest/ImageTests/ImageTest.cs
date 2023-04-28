@@ -3,7 +3,6 @@ using System.IO;
 using System.Threading.Tasks;
 using LuaBridge.Core.Abstract;
 using LuaBridge.Core.Configuration;
-using LuaBridge.Core.Extensions;
 using LuaBridge.Unity.Scripts.LuaBridgeHelpers.JSonSerializer;
 using LuaBridge.Unity.Scripts.LuaBridgeModules.GraphicsModule;
 using LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Interface;
@@ -17,7 +16,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 
-namespace LuaBridge.Unity.Tests.Tests.UIServiceTest.ImageTests
+namespace LuaBridge.Unity.Tests.UIServiceTest
 {
     public class ImageTest : LuaBridgeTest
     {
@@ -25,10 +24,10 @@ namespace LuaBridge.Unity.Tests.Tests.UIServiceTest.ImageTests
         private GraphicsModule graphicsModule;
         private Canvas canvas;
         private readonly string _key = "testImage";
-        private readonly string pathToNotExist = "plup";
-        private readonly string _pathToImageOne = $"{Path.Combine(Application.dataPath, "LuaBridge", "Unity", "Tests", "Assets", "Images", "test_image_1.png")}";
-        private readonly string _pathToImageTwo = $"{Path.Combine(Application.dataPath, "LuaBridge", "Unity", "Tests", "Assets", "Images", "test_image_2.png")}";
-
+        private readonly string _imageNameDoesntExist = "plup";
+        private readonly string _imageOneName = $"test_image_1.png";
+        private readonly string _imageTwoName = $"test_image_2.png";
+        private string _sandBoxRootDirectory = Path.Combine($"{Application.streamingAssetsPath}", "LuaGames", "TestGame");
         
         [UnitySetUp]
         public override IEnumerator SetUp()
@@ -38,6 +37,7 @@ namespace LuaBridge.Unity.Tests.Tests.UIServiceTest.ImageTests
             yield return base.SetUp();
             uiService = AppContainer.GetService<IUIService>();
             graphicsModule = new GraphicsModule(uiService);
+            uiService.SetSandBoxRootDirectory(_sandBoxRootDirectory);
         }
 
         protected override async Task<AppContainer> CreateContainer()
@@ -61,7 +61,7 @@ namespace LuaBridge.Unity.Tests.Tests.UIServiceTest.ImageTests
         [UnityTest]
         public IEnumerator Create_Image_On_Canvas()
         {
-            yield return graphicsModule.CreateImage(_key, new Rect(1000, 500, 250, 250), $"{_pathToImageOne}").ToCoroutine();
+            yield return graphicsModule.CreateImage(_key, new Rect(1000, 500, 250, 250), $"{_imageOneName}").ToCoroutine();
             var image = canvas.GetComponentInChildren<JeltieboyImage>();
             Assert.NotNull(image);
         }
@@ -69,7 +69,7 @@ namespace LuaBridge.Unity.Tests.Tests.UIServiceTest.ImageTests
         [UnityTest]
         public IEnumerator Create_Sprite()
         {
-            yield return graphicsModule.CreateImage(_key, new Rect(1000, 500, 250, 250), $"{_pathToImageOne}").ToCoroutine();
+            yield return graphicsModule.CreateImage(_key, new Rect(1000, 500, 250, 250), $"{_imageOneName}").ToCoroutine();
             var image = canvas.GetComponentInChildren<JeltieboyImage>();
             Assert.NotNull(image.Image.sprite);
         }
@@ -77,26 +77,28 @@ namespace LuaBridge.Unity.Tests.Tests.UIServiceTest.ImageTests
         [UnityTest]
         public IEnumerator Change_Sprite()
         {
-            yield return graphicsModule.CreateImage(_key, new Rect(1000, 500, 250, 250), $"{_pathToImageOne}").ToCoroutine();
+            yield return graphicsModule.CreateImage(_key, new Rect(1000, 500, 250, 250), $"{_imageOneName}").ToCoroutine();
             JeltieboyImage image = (JeltieboyImage)graphicsModule.GetElementByKey(_key);
-            yield return graphicsModule.ChangeImage(_key, _pathToImageTwo).ToCoroutine();
+            yield return graphicsModule.ChangeImage(_key, _imageTwoName).ToCoroutine();
             JeltieboyImage imageTwo = (JeltieboyImage)graphicsModule.GetElementByKey(_key);
             Assert.AreNotSame(image.Image.sprite.texture.GetPixels(), imageTwo.Image.sprite.texture.GetPixels());
         }
         
         [UnityTest]
-        public IEnumerator Create_Sprite_Source_Null()
+        public IEnumerator Create_Sprite_Source_Not_Exist()
         {
-            yield return graphicsModule.CreateImage(_key, new Rect(1000, 500, 250, 250), $"{pathToNotExist}").ToCoroutine();
-            LogAssert.Expect(LogType.Error, $"Can not find image with path {pathToNotExist}");
+            string pathnotfound = Path.Combine(_sandBoxRootDirectory, "Assets", "Images", _imageNameDoesntExist);
+            yield return graphicsModule.CreateImage(_key, new Rect(1000, 500, 250, 250), $"{_imageNameDoesntExist}").ToCoroutine();
+            LogAssert.Expect(LogType.Error, $"Can not find image with path {pathnotfound}");
         }
         
         [UnityTest]
-        public IEnumerator Change_Sprite_Source_Null()
+        public IEnumerator Change_Sprite_Source_Not_Exist()
         {
-            yield return graphicsModule.CreateImage(_key, new Rect(1000, 500, 250, 250), $"{string.Empty}").ToCoroutine();
-            yield return graphicsModule.ChangeImage(_key, pathToNotExist).ToCoroutine();
-            LogAssert.Expect(LogType.Error, $"Can not find image with path {string.Empty}");
+            string pathnotfound = Path.Combine(_sandBoxRootDirectory, "Assets", "Images", _imageNameDoesntExist);
+            yield return graphicsModule.CreateImage(_key, new Rect(1000, 500, 250, 250), $"{_imageOneName}").ToCoroutine();
+            yield return graphicsModule.ChangeImage(_key, _imageNameDoesntExist).ToCoroutine();
+            LogAssert.Expect(LogType.Error, $"Can not find image with path {pathnotfound}");
         }
         
         [UnityTearDown]
