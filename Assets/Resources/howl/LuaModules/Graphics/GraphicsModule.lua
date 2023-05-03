@@ -1,6 +1,6 @@
 ﻿--require LuaCanvas
 GraphicsModule = {}
-local canvasModule = require 'LuaModules.Graphics.Canvas'
+local canvasModule = require 'howl.LuaModules.Graphics.Canvas'
 local canvas = nil
 
 function GraphicsModule.new()
@@ -45,6 +45,11 @@ function GraphicsModule:SetTextLabelText(name, newtext)
     GraphicsServiceProxy.SetTextLabelText(name, newtext)
 end
 
+function GraphicsModule:CreateImage(imageElementName, rect, imageSourceName)
+    canvas:CreateImage(imageElementName, rect, imageSourceName)
+    GraphicsServiceProxy.CreateImage(imageElementName, rect, imageSourceName)
+end
+
 function GraphicsModule:GetCanvasHeight()
     return canvas:GetCanvasHeight()
 end
@@ -60,6 +65,7 @@ end
 function GraphicsModule:Update()
     canvas:Update()
 end
+
 
 function GetRect(x, y, width, height) 
     rect = {}

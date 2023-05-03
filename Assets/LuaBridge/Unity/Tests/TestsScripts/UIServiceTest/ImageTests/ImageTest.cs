@@ -24,7 +24,7 @@ namespace LuaBridge.Unity.Tests.UIServiceTest
         private GraphicsModule graphicsModule;
         private Canvas canvas;
         private readonly string _key = "testImage";
-        private readonly string _imageNameDoesntExist = "plup";
+        private readonly string _imageNameDoesntExist = "plup.png";
         private readonly string _imageOneName = $"test_image_1.png";
         private readonly string _imageTwoName = $"test_image_2.png";
         private string _sandBoxRootDirectory = Path.Combine($"{Application.streamingAssetsPath}", "LuaGames", "TestGame");
@@ -87,6 +87,7 @@ namespace LuaBridge.Unity.Tests.UIServiceTest
         [UnityTest]
         public IEnumerator Create_Sprite_Source_Not_Exist()
         {
+            LogAssert.ignoreFailingMessages = true;
             string pathnotfound = Path.Combine(_sandBoxRootDirectory, "Assets", "Images", _imageNameDoesntExist);
             yield return graphicsModule.CreateImage(_key, new Rect(1000, 500, 250, 250), $"{_imageNameDoesntExist}").ToCoroutine();
             LogAssert.Expect(LogType.Error, $"Can not find image with path {pathnotfound}");
@@ -95,6 +96,7 @@ namespace LuaBridge.Unity.Tests.UIServiceTest
         [UnityTest]
         public IEnumerator Change_Sprite_Source_Not_Exist()
         {
+            LogAssert.ignoreFailingMessages = true;
             string pathnotfound = Path.Combine(_sandBoxRootDirectory, "Assets", "Images", _imageNameDoesntExist);
             yield return graphicsModule.CreateImage(_key, new Rect(1000, 500, 250, 250), $"{_imageOneName}").ToCoroutine();
             yield return graphicsModule.ChangeImage(_key, _imageNameDoesntExist).ToCoroutine();

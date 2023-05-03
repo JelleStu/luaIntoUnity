@@ -5,9 +5,8 @@ Player.__index = Player
 
 
 --[[vars]]
-local eventBus = require 'LuaModules.EventBus.EventBus'
-local audioModule = require 'LuaModules.Audio.AudioModule'
-local Graphics = require 'LuaModules.Graphics.GraphicsModule'
+local audioModule = require 'howl.LuaModules.Audio.AudioModule'
+local Graphics = require 'howl.LuaModules.Graphics.GraphicsModule'
 local graphicsModule = nil
 local player = nil
 
