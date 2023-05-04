@@ -9,7 +9,6 @@ local player = nil
 --[[game specific vars]]
 local gameStarted = false
 local BOARD_DIMENSION = 6	-- The board will be this in both dimensions.
-local Directions = {"Up", "Right", "Down", "Left"}
 local currentDirection = "Up"
 local currentPosition = {x, y}
 local nextPosition = {x,y}
@@ -25,6 +24,8 @@ local snakeSourceImageName = "snake_head.png"
 local snakeImageElement
 local xspeed 
 local yspeed 
+local speed = 2
+local appleElementName = "apple"
 --
 
 --[[Graphhics stuff]]
@@ -42,8 +43,8 @@ function Player:Initialize(callback)
     local scoreTextLabelRect = GetRect(800, 950, 100, 100)
     graphicsModule:CreateTextLabel(ScoreTextLabel, scoreTextLabelRect, "<color=black>0</color>")
     Player:SpawnMovementButtons()
-    Player:PlaceAppleInRandomPlace()
     Player:SpawnSnake()
+    Player:CreateApple()
     callback()
 end
 
@@ -118,20 +119,21 @@ end
 
 function Player:GameStart()
      gameStarted = true
+     Player:PlaceAppleInRandomPlace()
 end
 
 function Player:SwitchDirection(direction)
-    print(direction)
     currentDirection = direction
-    print(currentDirection)
 end
 
 
 function Player:PlaceAppleInRandomPlace()
     local randomeApplePosition = Player:GetRandomPosition()
-    local image = grid[randomeApplePosition.randomx][randomeApplePosition.randomy]
-    local appleRect = GetRect(image.pos.x, image.pos.y,  50, 50)
-    graphicsModule:CreateImage("apple", appleRect, appleImageName)
+    ApplePosition.x = randomeApplePosition.randomx
+    ApplePosition.y = randomeApplePosition.randomy
+    local image = grid[ApplePosition.x][ApplePosition.y]
+    local appleImage = graphicsModule:GetElementByName(appleElementName)
+    graphicsModule:MoveElement(appleImage, image.pos.x, image.pos.y)
 end
 
 function Player:SpawnSnake()
@@ -142,9 +144,14 @@ function Player:SpawnSnake()
     nextPosition.y = currentPosition.y
 
     Player:SetNewSnakePosition()
-    local snakeRect = GetRect(image.pos.x, image.pos.y, 50, 50)
+    local snakeRect = GetRect(image.pos.x, image.pos.y, 75, 75)
     graphicsModule:CreateImage("snake_head", snakeRect, snakeSourceImageName)
     snakeImageElement = graphicsModule:GetElementByName("snake_head")
+end
+
+function Player:CreateApple()
+    local appleRect = GetRect(0,0,75, 75)
+    graphicsModule:CreateImage(appleElementName, appleRect, appleImageName)
 end
 
 function Player:GetRandomPosition()
@@ -156,6 +163,7 @@ end
 
 function Player:MoveSnakeToPosition()
     graphicsModule:MoveElement(snakeImageElement, snakeImageElement.pos.x + xspeed, snakeImageElement.pos.y + yspeed)
+
     if xspeed < 0 or yspeed < 0 then
         if snakeImageElement.pos.x <= grid[nextPosition.x][nextPosition.y].pos.x and snakeImageElement.pos.y <= grid[nextPosition.x][nextPosition.y].pos.y then
             currentPosition.x = nextPosition.x
@@ -169,34 +177,44 @@ function Player:MoveSnakeToPosition()
             Player:SetNewSnakePosition()
         end
     end
+    if currentPosition.x == ApplePosition.x and currentPosition.y == ApplePosition.y then
+        Player:PlaceAppleInRandomPlace()
+        Player:IncreaseScore()
+    end
 end
 
 function Player:SetNewSnakePosition()
-    print(currentDirection)
     if currentDirection == "Left" then
         yspeed = 0
-        xspeed = -1.6
+        xspeed = -speed
         nextPosition.x = currentPosition.x - 1
     elseif currentDirection == "Up" then
         xspeed = 0
-        yspeed = 1.6
+        yspeed = speed
         nextPosition.y = currentPosition.y + 1
-        print(nextPosition.y)
     elseif currentDirection == "Right" then
         yspeed = 0
-        xspeed = 1.6
+        xspeed = speed
         nextPosition.x = currentPosition.x + 1
     elseif currentDirection == "Down" then
         xspeed = 0
-        yspeed = -1.6
+        yspeed = -speed
         nextPosition.y = currentPosition.y - 1
     end
     if currentPosition.x == BOARD_DIMENSION or currentPosition.x == 0 or currentPosition.y == BOARD_DIMENSION or currentPosition.y == 0 then
         gameStarted = false
-        print("gameover")
+        gameEnd = true
     end
 end
 
+function Player:IncreaseScore()
+    score = score + 1
+    Player:UpdateScoreLabel()
+end
+
+function Player:UpdateScoreLabel()
+    graphicsModule:SetTextLabelText(ScoreTextLabel, "<color=green>" .. tostring(score) .. "</color>")
+end
 
 function Player:Update()
     if gameStarted then
