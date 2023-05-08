@@ -47,6 +47,7 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
         public void CreateButton(string key, Rect rect, string text, Action onclick)
         {
             var button = Object.Instantiate(buttonPrefab, _canvas.transform);
+            _elements.Add(key, button);
             button.name = key;
             if (button.transform is RectTransform rectTransform)
             {
@@ -56,12 +57,12 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             }
             button.onClick.AddListener(() => onclick?.Invoke());
             button.GetComponentInChildren<TextMeshProUGUI>().text = text;
-            _elements.Add(key, button);
         }
 
         public void CreateTextLabel(string key, Rect rect, string text)
         {
             var textLabel = Object.Instantiate(textLabelPrefab, _canvas.transform);
+            _elements.Add(key, textLabel);
             textLabel.name = key;
             if (textLabel.transform is RectTransform rectTransform)
             {
@@ -71,7 +72,6 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             }
 
             textLabel.text = text;
-            _elements.Add(key, textLabel);        
         }
 
         public async Task CreateImage(string key, Rect rect,string sourceImageName)
@@ -83,6 +83,9 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
                 rectTransform.sizeDelta = new Vector2(rect.width, rect.height);
                 rectTransform.anchoredPosition = rect.position;
             }
+
+            image.name = key;
+            _elements.Add(key, image);
 
             string pathToImage = $"{Path.Combine(_sandBoxRootDirectory, "Assets", "Images", sourceImageName)}";
             if (string.IsNullOrEmpty(sourceImageName) || !File.Exists(pathToImage))
@@ -98,7 +101,6 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
                 return;
             }
             image.Image.sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(.5f, .5f));
-            _elements.Add(key, image);
         }
 
         #endregion
