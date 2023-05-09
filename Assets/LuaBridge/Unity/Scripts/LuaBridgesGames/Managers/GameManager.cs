@@ -57,6 +57,10 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesGames.Managers
             _eventRaiser.Started += EventRaiserOnStarted_Handler;
             _updateloop.Updated += UpdateLoopOnUpdate_Handler;
             _eventRaiser.ApplicationQuitted += EventRaiserOnApplicationQuitted_Handler;
+            _eventRaiser.OnUpArrow += EventRaiserOnUpArrow_Handler;
+            _eventRaiser.OnDownArrow += EventRaiserOnDownArrow_Handler;
+            _eventRaiser.OnRightArrow += EventRaiserOnRightArrow_Handler;
+            _eventRaiser.OnLeftArrow += EventRaiserOnLeftArrow_Handler;
         }
 
         private void LoadSnakeGame()
@@ -64,6 +68,7 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesGames.Managers
             _sandbox = _api.CreateSandBox(new SandboxConfig("SnakeGameSandBox", $"{Path.Combine(Application.streamingAssetsPath, "LuaGames", "Snake", "Scripts")}", $"SnakeGameManager.lua"));
             _canvasService.SetSandBoxRootDirectory($"{Path.Combine(Application.streamingAssetsPath, "LuaGames", "Snake")}");
             InitializeGame();
+            _api.StartDebugger((Sandbox)_sandbox);
             AddStartGameButtonListener();
         }
 
@@ -82,6 +87,11 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesGames.Managers
 
         private void EventRaiserOnApplicationQuitted_Handler()
         {
+            _eventRaiser.OnUpArrow -= EventRaiserOnUpArrow_Handler;
+            _eventRaiser.OnDownArrow -= EventRaiserOnDownArrow_Handler;
+            _eventRaiser.OnLeftArrow -= EventRaiserOnLeftArrow_Handler;
+            _eventRaiser.OnRightArrow -= EventRaiserOnRightArrow_Handler;
+
             _eventRaiser.ApplicationQuitted -= EventRaiserOnApplicationQuitted_Handler;
             _updateloop.Updated -= UpdateLoopOnUpdate_Handler;
             _sandbox?.Dispose();
@@ -110,14 +120,24 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesGames.Managers
             _luaManagerInitialized = true;
         }
 
-
-        /// <summary>
-        /// Gets the Main Lua script file.
-        /// Normally this should be downloaded.
-        /// </summary>
-        private string GetMainLuaScriptFile()
+        private void EventRaiserOnRightArrow_Handler()
         {
-            return $"{Application.streamingAssetsPath}/Player.lua";
+            _sandbox.TryInvoke("Player:OnRightArrow");        
+        }
+
+        private void EventRaiserOnLeftArrow_Handler()
+        {
+            _sandbox.TryInvoke("Player:OnLeftArrow");        
+        }
+
+        private void EventRaiserOnDownArrow_Handler()
+        {
+            _sandbox.TryInvoke("Player:OnDownArrow");        
+        }
+
+        private void EventRaiserOnUpArrow_Handler()
+        {
+            _sandbox.TryInvoke("Player:OnUpArrow");
         }
     }
 }

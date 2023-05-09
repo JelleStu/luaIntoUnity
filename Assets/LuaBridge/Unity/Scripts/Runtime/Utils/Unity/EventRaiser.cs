@@ -5,7 +5,7 @@ namespace Utils.Unity
 {
     public class EventRaiser : MonoBehaviour
     {
-        public event Action Awoken, Started, ApplicationQuitted, Destroyed;
+        public event Action Awoken, Started, ApplicationQuitted, Destroyed, OnUpArrow, OnDownArrow, OnRightArrow, OnLeftArrow;
         public event Action<bool> ApplicationPaused, Focussed;
 
         private void Awake()
@@ -36,6 +36,18 @@ namespace Utils.Unity
         private void OnDestroy()
         {
             Destroyed?.Invoke();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+                OnUpArrow?.Invoke();
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+                OnDownArrow?.Invoke();
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+                OnRightArrow?.Invoke();
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+                OnLeftArrow?.Invoke();
         }
     }
 }
