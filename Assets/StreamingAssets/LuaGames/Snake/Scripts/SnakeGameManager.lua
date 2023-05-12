@@ -1,11 +1,11 @@
 Player = {}
 Player.__index = Player
 
-SnakeElement = {parent, image, xspeed, yspeed, currentDirection, position}
+SnakeElement = {parent, image, xspeed, yspeed, previousDirection, currentDirection, currentPosition, previousPosition, nextPosition}
 SnakeElement.__index = SnakeElement
 
-Postion = {x,y}
-Postion.__index = Postion
+Pos = {x,y}
+Pos.__index = Pos
 
 
 --[[vars]]
@@ -26,8 +26,6 @@ local directionRight = "Right"
 local directionLeft = "Left"
 
 local snakeHeadElement
-local currentPosition = {x, y}
-local nextPosition = {x,y}
 local ApplePosition = {x,y}
 local score = 0
 local SnakeElements = {}
@@ -44,7 +42,7 @@ local applesize = 75
 
 
 local appleElementName = "apple"
-local speed = 2
+local speed = 5
 --
 
 --[[Graphhics stuff]]
@@ -62,14 +60,16 @@ function SnakeElement.new(parent)
     instance.image = nil
     instance.xspeed = 0
     instance.yspeed = 0
-    instance.currentDirection = ""
     instance.previousDirection = ""
-    instance.position = Position.new()
+    instance.currentDirection = ""
+    instance.currentPosition = Pos.new()
+    instance.previousPosition = Pos.new()
+    instance.nextPosition = Pos.new()
     return instance
 end
 
-function Postion.new()
-    local instance = setmetatable({}, Postion)
+function Pos.new()
+    local instance = setmetatable({}, Pos)
     instance.x = 0
     instance.y = 0
     return instance
@@ -77,16 +77,13 @@ end
 
 function Player:Initialize(callback)
     player = Player.new()
-    Player:CreateGrid()
+   Player:CreateGrid()
     local scoreTextLabelRect = GetRect(800, 950, 100, 100)
     graphicsModule:CreateTextLabel(ScoreTextLabel, scoreTextLabelRect, "<color=black>0</color>")
     Player:SpawnMovementButtons()
     Player:CreateApple()
-    Player:CreateSnake()
     callback()
 end
-
-
 
 function Player:CreateGrid()
     for widthI = 0, (BOARD_DIMENSION), 1 do
@@ -115,64 +112,28 @@ function Player:CreateGrid()
             grid[widthI][heightI] = graphicsModule:GetElementByName(imageElementName)
         end
     end
-end
-
-function Player:SpawnMovementButtons()
-    Player:CreateChangeMovementToLeftButton()
-    Player:CreateChangeMovementToDownButton()
-    Player:CreateChangeMovementToUpButton()
-    Player:CreateChangeMovementToRightButton()
-end
-
-function Player:CreateChangeMovementToLeftButton()
-    local btnLeftName = "btnLeft"
-    local btnLeftRect = GetRect(895, 50, 100, 100)
-    graphicsModule:CreateButton(btnLeftName, btnLeftRect, "←", function ()
-        Player:SwitchDirection(directionLeft)
-    end )
-end
-
-function Player:CreateChangeMovementToDownButton()
-    local btnDownName = "btnDown"
-    local btnDownRect = GetRect(995, 50, 100, 100)
-    graphicsModule:CreateButton(btnDownName, btnDownRect, "↓", function ()
-        Player:SwitchDirection(directionDown)
-    end )
-end
-
-function Player:CreateChangeMovementToUpButton()
-    local btnUpName = "btnUp"
-    local btnUpRect = GetRect(995, 150, 100, 100)
-    graphicsModule:CreateButton(btnUpName, btnUpRect, "↑", function ()
-        Player:SwitchDirection(directionUp)
-    end )
-end
-
-function Player:CreateChangeMovementToRightButton()
-    local btnRightName = "btnRight"
-    local btnRight = GetRect(1095, 50, 100, 100)
-    graphicsModule:CreateButton(btnRightName, btnRight, "→", function ()
-        Player:SwitchDirection(directionRight)
-    end )
+    Player:CreateSnake()
 end
 
 function Player:CreateSnake()
     local image = grid[BOARD_DIMENSION / 2][BOARD_DIMENSION / 2]
-    currentPosition.x = BOARD_DIMENSION / 2
-    currentPosition.y = BOARD_DIMENSION / 2
-    nextPosition.x = currentPosition.x
-    nextPosition.y = currentPosition.y
-
     local snakeHead = SnakeElement.new(nil)
+
     local snakeRect = GetRect(image.pos.x, image.pos.y, snakesize, snakesize)
+    snakeHead.currentPosition.x = BOARD_DIMENSION / 2
+    snakeHead.currentPosition.y = BOARD_DIMENSION / 2
+    snakeHead.nextPosition.x = snakeHead.currentPosition.x
+    snakeHead.nextPosition.y = snakeHead.currentPosition.y
+
+
     graphicsModule:CreateImage("snake_head", snakeRect, snakeSourceImageName)
+
     snakeHead.image = graphicsModule:GetElementByName("snake_head")
     snakeHead.currentDirection = directionUp
-    snakeHead.position.x = currentPosition.x
-    snakeHead.position.y = currentPosition.y
+    snakeHead.previousDirection = snakeHead.currentDirection
     snakeHeadElement = snakeHead
     table.insert(SnakeElements, snakeHead)
-    Player:SetSnakeMovementSpeed(snakeHead)
+    SetNewPositionSnakeElement(snakeHead)
 end
 
 function Player:CreateApple()
@@ -219,36 +180,90 @@ function Player:CanSwitchToDirection(directionSwitchTo)
     end
 end
 
-function Player:MoveSnakeToPosition()
-    for index, value in ipairs(SnakeElements) do
+function Player:MoveSnake()
+
+    if snakeHeadElement.currentPosition.x == BOARD_DIMENSION or snakeHeadElement.currentPosition.x == 0 or snakeHeadElement.currentPosition.y == BOARD_DIMENSION or snakeHeadElement.currentPosition.y == 0 then
+        gameStarted = false
+        gameEnd = true
+    end
+
+
+    for key, value in pairs(SnakeElements) do
         graphicsModule:MoveElement(value.image, value.image.pos.x + value.xspeed, value.image.pos.y + value.yspeed)
     end
-    local headElement = SnakeElements[1]
-    if headElement.xspeed < 0 or headElement.yspeed < 0 then
-        if headElement.image.pos.x <= grid[nextPosition.x][nextPosition.y].pos.x and headElement.image.pos.y <= grid[nextPosition.x][nextPosition.y].pos.y then
-            headElement.position.x = nextPosition.x
-            headElement.position.y = nextPosition.y
-            currentPosition.x = nextPosition.x
-            currentPosition.y = nextPosition.y
+    if snakeHeadElement.xspeed < 0 or snakeHeadElement.yspeed < 0  then
+        if snakeHeadElement.image.pos.x <= grid[snakeHeadElement.nextPosition.x][snakeHeadElement.nextPosition.y].pos.x and snakeHeadElement.image.pos.y <= grid[snakeHeadElement.nextPosition.x][snakeHeadElement.nextPosition.y].pos.y then
+            graphicsModule:MoveElement(snakeHeadElement.image, grid[snakeHeadElement.nextPosition.x][snakeHeadElement.nextPosition.y].pos.x, grid[snakeHeadElement.nextPosition.x][snakeHeadElement.nextPosition.y].pos.y)
             for key, value in pairs(SnakeElements) do
-                Player:SetSnakeMovementSpeed(value)
+                value.currentPosition.x = value.nextPosition.x
+                value.currentPosition.y = value.nextPosition.y
+                value.previousDirection = value.currentDirection
+                SetNewPositionSnakeElement(value)
             end
         end
-    elseif headElement.xspeed > 0 or headElement.yspeed > 0 then
-        if headElement.image.pos.x >= grid[nextPosition.x][nextPosition.y].pos.x and headElement.image.pos.y >= grid[nextPosition.x][nextPosition.y].pos.y then
-            headElement.position.x = nextPosition.x
-            headElement.position.y = nextPosition.y
-            currentPosition.x = nextPosition.x
-            currentPosition.y = nextPosition.y
+    elseif snakeHeadElement.xspeed > 0 or snakeHeadElement.yspeed > 0 then
+        if snakeHeadElement.image.pos.x >= grid[snakeHeadElement.nextPosition.x][snakeHeadElement.nextPosition.y].pos.x and snakeHeadElement.image.pos.y >= grid[snakeHeadElement.nextPosition.x][snakeHeadElement.nextPosition.y].pos.y then
+            graphicsModule:MoveElement(snakeHeadElement.image, grid[snakeHeadElement.nextPosition.x][snakeHeadElement.nextPosition.y].pos.x, grid[snakeHeadElement.nextPosition.x][snakeHeadElement.nextPosition.y].pos.y)
             for key, value in pairs(SnakeElements) do
-                Player:SetSnakeMovementSpeed(value)
+                value.currentPosition.x = value.nextPosition.x
+                value.currentPosition.y = value.nextPosition.y
+                value.previousDirection = value.currentDirection
+                SetNewPositionSnakeElement(value)
             end
         end
     end
-    if currentPosition.x == ApplePosition.x and currentPosition.y == ApplePosition.y then
+    if snakeHeadElement.currentPosition.x == ApplePosition.x and snakeHeadElement.currentPosition.y == ApplePosition.y then
         Player:PlaceAppleInRandomPlace()
         Player:AddBodyToSnake()
         Player:IncreaseScore()
+    end 
+end
+
+function SetNewPositionSnakeElement(object)
+    if object.parent ~= nil then
+        object.nextPosition.x = object.parent.currentPosition.x
+        object.nextPosition.y = object.parent.currentPosition.y
+
+        if object.nextPosition.x > object.currentPosition.x then
+            object.xspeed = speed
+            object.yspeed = 0
+            object.currentDirection = directionRight
+            object.nextPosition.x = object.currentPosition.x + 1
+        elseif object.nextPosition.x < object.currentPosition.x then
+            object.xspeed = -speed
+            object.yspeed = 0
+            object.currentDirection = directionLeft
+            object.nextPosition.x = object.currentPosition.x - 1
+        elseif object.nextPosition.y > object.currentPosition.y then
+            object.xspeed = 0
+            object.yspeed = speed
+            object.nextPosition.y = object.currentPosition.y + 1
+            object.currentDirection = directionUp
+        elseif object.nextPosition.y < object.currentPosition.y then
+            object.xspeed = 0
+            object.yspeed = -speed
+            object.currentDirection = directionDown
+            object.nextPosition.y = object.currentPosition.y - 1
+        end
+    else
+        object.previousDirection = object.currentDirection
+        if object.currentDirection == directionUp then
+            object.xspeed = 0
+            object.yspeed = speed
+            object.nextPosition.y = object.currentPosition.y + 1
+        elseif object.currentDirection == directionDown then
+            object.xspeed = 0
+            object.yspeed = -speed
+            object.nextPosition.y = object.currentPosition.y - 1
+        elseif object.currentDirection == directionLeft then
+            object.xspeed = -speed
+            object.yspeed = 0
+            object.nextPosition.x = object.currentPosition.x - 1
+        elseif object.currentDirection == directionRight then
+            object.xspeed = speed
+            object.yspeed = 0
+            object.nextPosition.x = object.currentPosition.x + 1
+        end
     end
 end
 
@@ -260,89 +275,38 @@ function Player:AddBodyToSnake()
     local bodyname = "body" .. tostring(#SnakeElements)
     graphicsModule:CreateImage(bodyname, bodyrect, bodySourceImageName)
     tailElement.image = graphicsModule:GetElementByName(bodyname)
+
     if #SnakeElements == 1 then
         tailElement.currentDirection = snakeHeadElement.currentDirection
     else
         tailElement.currentDirection = SnakeElements[#SnakeElements].parent.currentDirection
     end
     local spanwpositiongrid = CalculateBodyCreateGridPosition()
-    tailElement.position.x = spanwpositiongrid.x
-    tailElement.position.y = spanwpositiongrid.y
-    tailElement.xspeed = 0
-    tailElement.yspeed = 0
+    tailElement.currentPosition.x = spanwpositiongrid.x
+    tailElement.currentPosition.y = spanwpositiongrid.y
     tailElement.parent = SnakeElements[#SnakeElements]
-    tailElement.previousDirection = tailElement.currentDirection
-    Player:SetSnakeMovementSpeed(tailElement)
-    table.insert(SnakeElements, tailElement)
+    SetNewPositionSnakeElement(tailElement)
+    table.insert(SnakeElements, #SnakeElements + 1, tailElement)
 end
-
-function Player:SetSnakeMovementSpeed(object)
-    if object.parent == nil then
-        if object.currentDirection == directionUp then
-            object.xspeed = 0
-            object.yspeed = speed
-            nextPosition.y = currentPosition.y + 1
-        elseif object.currentDirection == directionDown then
-            object.xspeed = 0
-            object.yspeed = -speed
-            nextPosition.y = currentPosition.y - 1
-        elseif object.currentDirection == directionLeft then
-            object.xspeed = -speed
-            object.yspeed = 0
-            nextPosition.x = currentPosition.x - 1
-        elseif object.currentDirection == directionRight then
-            object.xspeed = speed
-            object.yspeed = 0
-            nextPosition.x = currentPosition.x + 1
-
-        end
-    else
-        if object.parent.position.x  > object.position.x then
-            object.xspeed = speed
-            object.yspeed = 0 
-            object.currentDirection = directionRight
-        elseif  object.parent.position.x  < object.position.x then
-            object.xspeed = -speed
-            object.yspeed = 0
-            object.currentDirection = directionLeft
-        elseif object.parent.position.y  > object.position.y  then
-            object.xspeed = 0 
-            object.yspeed = speed
-            object.currentDirection = directionUp
-        elseif  object.parent.position.y  < object.position.y then
-            object.xspeed = 0 
-            object.yspeed = -speed
-            object.currentDirection = directionDown
-        end
-        object.position.x = object.parent.position.x
-        object.position.y = object.parent.position.y
-
-    end
-    if currentPosition.x == BOARD_DIMENSION or currentPosition.x == 0 or currentPosition.y == BOARD_DIMENSION or currentPosition.y == 0 then
-        gameStarted = false
-        gameEnd = true
-    end
-end
-
 
 function CalculateBodyCreateWorldPosition()
     local lastElement = SnakeElements[#SnakeElements]
     local spawnpos = {x,y}
     if lastElement.currentDirection == directionLeft then
-        spawnpos.x = currentPosition.x + #SnakeElements
-        spawnpos.y = currentPosition.y
+        spawnpos.x = lastElement.currentPosition.x + 1
+        spawnpos.y = lastElement.currentPosition.y
         return grid[spawnpos.x][spawnpos.y]
     elseif lastElement.currentDirection == directionUp then
-        spawnpos.x = currentPosition.x
-        spawnpos.y = currentPosition.y -#SnakeElements
+        spawnpos.x = lastElement.currentPosition.x
+        spawnpos.y = lastElement.currentPosition.y - 1
         return grid[spawnpos.x][spawnpos.y]
     elseif lastElement.currentDirection == directionRight then
-        spawnpos.x = currentPosition.x - #SnakeElements
-        spawnpos.y = currentPosition.y
+        spawnpos.x = lastElement.currentPosition.x - 1
+        spawnpos.y = lastElement.currentPosition.y
         return grid[spawnpos.x][spawnpos.y]
     elseif lastElement.currentDirection == directionDown then
-        spawnpos.x = currentPosition.x
-        spawnpos.y = currentPosition.y + #SnakeElements
+        spawnpos.x = lastElement.currentPosition.x
+        spawnpos.y = lastElement.currentPosition.y + 1
         return grid[spawnpos.x][spawnpos.y]
     end
 end
@@ -351,20 +315,20 @@ function CalculateBodyCreateGridPosition()
     local lastElement = SnakeElements[#SnakeElements]
     local spawnpos = {x,y}
     if lastElement.currentDirection == directionLeft then
-        spawnpos.x = currentPosition.x + #SnakeElements
-        spawnpos.y = currentPosition.y
+        spawnpos.x = lastElement.currentPosition.x + 1
+        spawnpos.y = lastElement.currentPosition.y
         return spawnpos
     elseif lastElement.currentDirection == directionUp then
-        spawnpos.x = currentPosition.x
-        spawnpos.y = currentPosition.y -#SnakeElements
+        spawnpos.x = lastElement.currentPosition.x
+        spawnpos.y = lastElement.currentPosition.y - 1
         return spawnpos
     elseif lastElement.currentDirection == directionRight then
-        spawnpos.x = currentPosition.x - #SnakeElements
-        spawnpos.y = currentPosition.y
+        spawnpos.x = lastElement.currentPosition.x - 1
+        spawnpos.y = lastElement.currentPosition.y
         return spawnpos
     elseif lastElement.currentDirection == directionDown then
-        spawnpos.x = currentPosition.x
-        spawnpos.y = currentPosition.y + #SnakeElements
+        spawnpos.x = lastElement.currentPosition.x
+        spawnpos.y = lastElement.currentPosition.y + 1
         return spawnpos
     end
 end
@@ -381,7 +345,7 @@ end
 
 function Player:Update()
     if gameStarted then
-        Player:MoveSnakeToPosition()
+        Player:MoveSnake()
     end
     graphicsModule:Update()
 end
@@ -412,6 +376,47 @@ end
 function Player:OnLeftArrow()
     Player:SwitchDirection(directionLeft)
 end
+
+function Player:SpawnMovementButtons()
+    Player:CreateChangeMovementToLeftButton()
+    Player:CreateChangeMovementToDownButton()
+    Player:CreateChangeMovementToUpButton()
+    Player:CreateChangeMovementToRightButton()
+end
+
+function Player:CreateChangeMovementToLeftButton()
+    local btnLeftName = "btnLeft"
+    local btnLeftRect = GetRect(895, 50, 100, 100)
+    graphicsModule:CreateButton(btnLeftName, btnLeftRect, "←", function ()
+        Player:SwitchDirection(directionLeft)
+    end )
+end
+
+function Player:CreateChangeMovementToDownButton()
+    local btnDownName = "btnDown"
+    local btnDownRect = GetRect(995, 50, 100, 100)
+    graphicsModule:CreateButton(btnDownName, btnDownRect, "↓", function ()
+        Player:SwitchDirection(directionDown)
+    end )
+end
+
+function Player:CreateChangeMovementToUpButton()
+    local btnUpName = "btnUp"
+    local btnUpRect = GetRect(995, 150, 100, 100)
+    graphicsModule:CreateButton(btnUpName, btnUpRect, "↑", function ()
+        Player:SwitchDirection(directionUp)
+    end )
+end
+
+function Player:CreateChangeMovementToRightButton()
+    local btnRightName = "btnRight"
+    local btnRight = GetRect(1095, 50, 100, 100)
+    graphicsModule:CreateButton(btnRightName, btnRight, "→", function ()
+        Player:SwitchDirection(directionRight)
+    end )
+end
+
+
 
 
 function GetRect(x, y, width, height) 
