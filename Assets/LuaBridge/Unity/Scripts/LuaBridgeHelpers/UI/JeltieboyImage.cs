@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
 {
-
     public class JeltieboyImage : MonoBehaviour
     {
         public Image Image;

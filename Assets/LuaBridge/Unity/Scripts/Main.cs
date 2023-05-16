@@ -4,9 +4,12 @@ using HamerSoft.Howl.Core;
 using HamerSoft.Howl.Sharp;
 using LuaBridge.Core.Abstract;
 using LuaBridge.Core.Configuration;
-using LuaBridge.Modules.Audio;
 using LuaBridge.Unity.Scripts;
 using LuaBridge.Unity.Scripts.LuaBridgeHelpers.JSonSerializer;
+using LuaBridge.Unity.Scripts.LuaBridgeHelpers.Manager;
+using LuaBridge.Unity.Scripts.LuaBridgeModules.AudioModule;
+using LuaBridge.Unity.Scripts.LuaBridgeServices.AudioService.Interface;
+using LuaBridge.Unity.Scripts.LuaBridgeServices.AudioService.Services;
 using LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Interface;
 using LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services;
 using LuaBridge.Unity.Scripts.LuaBridgesGames.Managers;
@@ -42,17 +45,16 @@ namespace GameModule.Unity.Scripts
                 .AddSingleton<IFileService, FileService>()
                 .AddSingleton<IUIService, UGuiCanvasService>(sceneContainer.canvas)
                 .AddSingleton<IPrefabService, PrefabService>("PrefabRegistry")
-                .AddSingleton<AudioModule>()
+                .AddSingleton<IAudioService, UnityAudioService>(sceneContainer.audioSource)
                 .AddSingleton<IMoonSharpApi, Api>()
-                .AddSingleton<GameManager>()
+                .AddSingleton<GameManager>(sceneContainer.swipeManager)
                 .Build()
-                .Bind<AudioModule>((appContainer, module) => module.SetAudioService(appContainer.GetService<IFileService>()))
+                .Bind<IAudioService>((appContainer, module) => module.SetFileService(appContainer.GetService<IFileService>()))
                 .Bind<IUIService>((appContainer, module) => module.SetFileService(appContainer.GetService<IFileService>()));
 
             
             await Task.WhenAll(
-                container.GetService<IPrefabService>().Boot(),
-                container.GetService<AudioModule>().Boot()
+                container.GetService<IPrefabService>().Boot()
                 );
             
             container.GetService<IUIService>().Boot();

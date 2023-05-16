@@ -33,7 +33,6 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
             _elements = new Dictionary<string, Component>();
             Root = _canvas.GetComponentInChildren<RootView>();
         }
-        
 
         public void Boot()
         {
@@ -221,6 +220,7 @@ namespace LuaBridge.Unity.Scripts.LuaBridgeServices.UIService.Services
 
         public void Dispose()
         {
+            _elements.ForEach(kvp => Object.DestroyImmediate(kvp.Value.gameObject));
             _elements.Clear();
         }
 

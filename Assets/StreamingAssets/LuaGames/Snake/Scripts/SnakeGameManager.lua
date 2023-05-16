@@ -11,6 +11,8 @@ Pos.__index = Pos
 --[[vars]]
 local Graphics = require 'howl.LuaModules.Graphics.GraphicsModule'
 local graphicsModule = nil
+local Audio = require 'howl.LuaModules.Audio.AudioModule'
+local audioModule = nil
 local player = nil
 
 --[[game specific vars]]
@@ -37,6 +39,7 @@ local wallImage = "wall.png"
 local appleImageName = "apple.png"
 local snakeSourceImageName = "snake_head.png"
 local bodySourceImageName = "snake_body.png"
+local eatsound = "eat.ogg"
 local snakesize = 75
 local applesize = 75
 
@@ -51,6 +54,7 @@ local ScoreTextLabel = "scoreTextLabel"
 function Player.new()
     local instance = setmetatable({}, Player)
     graphicsModule = Graphics.new()
+    audioModule = Audio.new()
     return instance
 end
 
@@ -77,7 +81,7 @@ end
 
 function Player:Initialize(callback)
     player = Player.new()
-   Player:CreateGrid()
+    Player:CreateGrid()
     local scoreTextLabelRect = GetRect(800, 950, 100, 100)
     graphicsModule:CreateTextLabel(ScoreTextLabel, scoreTextLabelRect, "<color=black>0</color>")
     Player:SpawnMovementButtons()
@@ -125,7 +129,6 @@ function Player:CreateSnake()
     snakeHead.nextPosition.x = snakeHead.currentPosition.x
     snakeHead.nextPosition.y = snakeHead.currentPosition.y
 
-
     graphicsModule:CreateImage("snake_head", snakeRect, snakeSourceImageName)
 
     snakeHead.image = graphicsModule:GetElementByName("snake_head")
@@ -143,6 +146,7 @@ end
 
 function Player:GameStart()
      gameStarted = true
+     gameEnd = false
      Player:PlaceAppleInRandomPlace()
 end
 
@@ -183,11 +187,13 @@ end
 function Player:MoveSnake()
 
     if snakeHeadElement.currentPosition.x == BOARD_DIMENSION or snakeHeadElement.currentPosition.x == 0 or snakeHeadElement.currentPosition.y == BOARD_DIMENSION or snakeHeadElement.currentPosition.y == 0 then
-        gameStarted = false
         gameEnd = true
+        local btnRect =  GetRect(graphicsModule:GetCanvasWidth() * 0.5, (graphicsModule:GetCanvasHeight() * 0.5 ) + 500 ,  150, 100)
+        graphicsModule:CreateButton("restartButton", btnRect, "Restart game", function ()
+            Player:ResetGame()
+        end )
+        return
     end
-
-
     for key, value in pairs(SnakeElements) do
         graphicsModule:MoveElement(value.image, value.image.pos.x + value.xspeed, value.image.pos.y + value.yspeed)
     end
@@ -213,6 +219,7 @@ function Player:MoveSnake()
         end
     end
     if snakeHeadElement.currentPosition.x == ApplePosition.x and snakeHeadElement.currentPosition.y == ApplePosition.y then
+        Player:PlayEatSound()
         Player:PlaceAppleInRandomPlace()
         Player:AddBodyToSnake()
         Player:IncreaseScore()
@@ -333,6 +340,9 @@ function CalculateBodyCreateGridPosition()
     end
 end
 
+function Player:PlayEatSound()
+    audioModule:PlayAudio(eatsound)
+end
 
 function Player:IncreaseScore()
     score = score + 1
@@ -340,19 +350,31 @@ function Player:IncreaseScore()
 end
 
 function Player:UpdateScoreLabel()
+    if score == 0  then
+        graphicsModule:SetTextLabelText(ScoreTextLabel, "<color=black>" .. tostring(score) .. "</color>")
+
+    end
     graphicsModule:SetTextLabelText(ScoreTextLabel, "<color=green>" .. tostring(score) .. "</color>")
 end
 
 function Player:Update()
-    if gameStarted then
+    if gameStarted and gameEnd == false then
         Player:MoveSnake()
     end
     graphicsModule:Update()
 end
 
 function Player:ResetGame()
-    gameEnd = false;
+    for index, value in ipairs(SnakeElements) do
+        graphicsModule:DeleteElementByName(value.image.name)
+        SnakeElements[index] = nil
+    end
+
+    snakeHeadElement = nil
+    Player:CreateSnake()
     graphicsModule:DeleteElementByName("restartButton")
+    score = 0
+    Player:UpdateScoreLabel()
     Player:GameStart()
 end
 
@@ -415,9 +437,6 @@ function Player:CreateChangeMovementToRightButton()
         Player:SwitchDirection(directionRight)
     end )
 end
-
-
-
 
 function GetRect(x, y, width, height) 
     rect = {}

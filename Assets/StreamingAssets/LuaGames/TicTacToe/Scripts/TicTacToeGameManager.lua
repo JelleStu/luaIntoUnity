@@ -14,8 +14,8 @@ local player = nil
 --[[game specific vars]]
 local gameStarted = false
 local BOARD_DIMENSION = 3	-- The board will be this in both dimensions.
-local PLAYER_1 = "x"	-- Player 1 is represented by this. Player 1 goes first.
-local PLAYER_2 = "o"	-- Player 2 is represented by this.
+local PLAYER_1 = "o"	-- Player 1 is represented by this. Player 1 goes first.
+local PLAYER_2 = "x"	-- Player 2 is represented by this.
 local EMPTY_SPACE = " "	-- An empty space is displayed like this.
 local Turn = 1
 local gameEnd = false

@@ -1,5 +1,4 @@
-﻿--require LuaCanvas
-GraphicsModule = {}
+﻿GraphicsModule = {}
 local canvasModule = require 'howl.LuaModules.Graphics.Canvas'
 local canvas = nil
 
