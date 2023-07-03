@@ -19,7 +19,7 @@ local player = nil
 local grid = {}
 local gameStarted = false
 local gameEnd = false
-local BOARD_DIMENSION = 6	-- The board will be this in both dimensions.
+local BOARD_DIMENSION = 8	-- The board will be this in both dimensions.
 
 
 local directionUp = "Up"
@@ -34,14 +34,15 @@ local SnakeElements = {}
 
 
 local image1 = "tile_01.png"
-local image2 = "tile_02.png"
+local image2 = "tile_03.png"
 local wallImage = "wall.png"
 local appleImageName = "apple.png"
 local snakeSourceImageName = "snake_head.png"
 local bodySourceImageName = "snake_body.png"
 local eatsound = "eat.ogg"
-local snakesize = 75
-local applesize = 75
+local snakesize = 150
+local applesize = 150
+local btnsize = 150
 
 
 local appleElementName = "apple"
@@ -82,7 +83,7 @@ end
 function Player:Initialize(callback)
     player = Player.new()
     Player:CreateGrid()
-    local scoreTextLabelRect = GetRect(800, 950, 100, 100)
+    local scoreTextLabelRect = GetRect(110, 2650, 100, 100)
     graphicsModule:CreateTextLabel(ScoreTextLabel, scoreTextLabelRect, "<color=black>0</color>")
     Player:SpawnMovementButtons()
     Player:CreateApple()
@@ -95,7 +96,7 @@ function Player:CreateGrid()
         for heightI = 0, (BOARD_DIMENSION), 1 do
             grid[widthI][heightI] = nil
             local imageElementName = "image " .. tostring(widthI) .. tostring(heightI)
-            local imageRect = GetRect((graphicsModule:GetCanvasWidth() * 0.5 - 100) + (100 * (widthI - 1)), (graphicsModule:GetCanvasHeight() * 0.5 - 200) + (100 * heightI),  100, 100)
+            local imageRect = GetRect((graphicsModule:GetCanvasWidth() * 0.5) + (btnsize * (widthI - 1) - 700), (graphicsModule:GetCanvasHeight() * 0.5) + (btnsize * heightI) + 650,  btnsize, btnsize)
             if widthI == 0 or widthI == BOARD_DIMENSION or heightI == 0 or heightI == BOARD_DIMENSION then
                 graphicsModule:CreateImage(imageElementName, imageRect, wallImage)
             else
@@ -188,7 +189,7 @@ function Player:MoveSnake()
 
     if snakeHeadElement.currentPosition.x == BOARD_DIMENSION or snakeHeadElement.currentPosition.x == 0 or snakeHeadElement.currentPosition.y == BOARD_DIMENSION or snakeHeadElement.currentPosition.y == 0 then
         gameEnd = true
-        local btnRect =  GetRect(graphicsModule:GetCanvasWidth() * 0.5, (graphicsModule:GetCanvasHeight() * 0.5 ) + 500 ,  150, 100)
+        local btnRect =   GetRect(720, 722, 820, 180)
         graphicsModule:CreateButton("restartButton", btnRect, "Restart game", function ()
             Player:ResetGame()
         end )
@@ -408,7 +409,7 @@ end
 
 function Player:CreateChangeMovementToLeftButton()
     local btnLeftName = "btnLeft"
-    local btnLeftRect = GetRect(895, 50, 100, 100)
+    local btnLeftRect = GetRect(480, 890, 150, 150)
     graphicsModule:CreateButton(btnLeftName, btnLeftRect, "←", function ()
         Player:SwitchDirection(directionLeft)
     end )
@@ -416,7 +417,7 @@ end
 
 function Player:CreateChangeMovementToDownButton()
     local btnDownName = "btnDown"
-    local btnDownRect = GetRect(995, 50, 100, 100)
+    local btnDownRect = GetRect(630, 890, 150, 150)
     graphicsModule:CreateButton(btnDownName, btnDownRect, "↓", function ()
         Player:SwitchDirection(directionDown)
     end )
@@ -424,7 +425,7 @@ end
 
 function Player:CreateChangeMovementToUpButton()
     local btnUpName = "btnUp"
-    local btnUpRect = GetRect(995, 150, 100, 100)
+    local btnUpRect = GetRect(630, 1040, 150, 150)
     graphicsModule:CreateButton(btnUpName, btnUpRect, "↑", function ()
         Player:SwitchDirection(directionUp)
     end )
@@ -432,7 +433,7 @@ end
 
 function Player:CreateChangeMovementToRightButton()
     local btnRightName = "btnRight"
-    local btnRight = GetRect(1095, 50, 100, 100)
+    local btnRight = GetRect(780, 890, 150, 150)
     graphicsModule:CreateButton(btnRightName, btnRight, "→", function ()
         Player:SwitchDirection(directionRight)
     end )

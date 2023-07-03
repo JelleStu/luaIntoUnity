@@ -93,7 +93,6 @@ namespace LuaBridge.Unity.Scripts.LuaBridgesGames.Managers
             _sandbox = _api.CreateSandBox(new SandboxConfig("SnakeGameSandBox", $"{Path.Combine(sandBoxRootDirectory, "Scripts")}", $"SnakeGameManager.lua"));
             SetSandboxDirectoryToServices();
             InitializeGame();
-            _api.StartDebugger((Sandbox)_sandbox);
             AddStartGameButtonListener();
         }
 

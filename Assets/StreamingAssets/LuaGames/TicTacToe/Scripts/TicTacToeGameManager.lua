@@ -14,10 +14,11 @@ local player = nil
 --[[game specific vars]]
 local gameStarted = false
 local BOARD_DIMENSION = 3	-- The board will be this in both dimensions.
-local PLAYER_1 = "o"	-- Player 1 is represented by this. Player 1 goes first.
-local PLAYER_2 = "x"	-- Player 2 is represented by this.
+local PLAYER_1 = "x"	-- Player 1 is represented by this. Player 1 goes first.
+local PLAYER_2 = "o"	-- Player 2 is represented by this.
 local EMPTY_SPACE = " "	-- An empty space is displayed like this.
 local Turn = 1
+local btnsize = 300
 local gameEnd = false
 local grid = {}
 
@@ -32,7 +33,7 @@ end
 function Player:Initialize(callback)
     player = Player.new()
     Player:CreateGrid()
-    local textLabelRect = GetRect(1010, 950, 450, 100)
+    local textLabelRect = GetRect(710, 2657, 1400, 150)
     graphicsModule:CreateTextLabel(InstructionLabel, textLabelRect, "<color=red>Click button to start the game</color>")
     callback()
 end
@@ -70,7 +71,7 @@ function Player:CreateGrid()
         for heightI = 0, (BOARD_DIMENSION - 1), 1 do
             grid[widthI][heightI] = nil
             local btnName = "BtnX" .. tostring(widthI) .. "Y" .. tostring(heightI)
-            local btnRect = GetRect((graphicsModule:GetCanvasWidth() * 0.5) + (100 * (widthI - 1)) + 50, (graphicsModule:GetCanvasHeight() * 0.5 ) + (100 * heightI),  100, 100)
+            local btnRect = GetRect((graphicsModule:GetCanvasWidth() * 0.5) + (btnsize * (widthI - 1)) - 250, (graphicsModule:GetCanvasHeight() * 0.5 ) + (btnsize * heightI) + 800,  btnsize, btnsize)
             graphicsModule:CreateButton(btnName, btnRect, EMPTY_SPACE, function ()
                 Player:ButtonIsClicked(widthI, heightI,btnName)
             end )
@@ -126,7 +127,7 @@ function Player:SwitchTurn(playerNumber)
 
     if Player:IsGameOver() == true then
         gameEnd = true;
-        local btnRect =  GetRect(graphicsModule:GetCanvasWidth() * 0.5, (graphicsModule:GetCanvasHeight() * 0.5 ) + 500 ,  150, 100)
+        local btnRect =  GetRect(720, 722, 820, 180)
         graphicsModule:CreateButton("restartButton", btnRect, "Restart game", function ()
             Player:ResetGame()
         end )
